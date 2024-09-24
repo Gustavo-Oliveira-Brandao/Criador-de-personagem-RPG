@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { AttributeComponent } from '../../components/attribute/attribute.component';
 
 @Component({
   selector: 'app-attributes',
   standalone: true,
-  imports: [],
+  imports: [AttributeComponent],
   templateUrl: './attributes.component.html',
   styleUrl: './attributes.component.sass'
 })
@@ -12,7 +13,7 @@ export class AttributesComponent {
   atributos = [
     {
       nome: "FORÇA",
-      valor: 10
+      valor: 35
     },
     {
       nome: "DESTREZA",
@@ -20,7 +21,7 @@ export class AttributesComponent {
     },
     {
       nome: "CONSTITUIÇÃO",
-      valor: 10
+      valor: 35
     },
     {
       nome: "INTELIGÊNCIA",
