@@ -1,0 +1,14 @@
+<div class="full-size-card card">
+    <h2 class="title">ATRIBUTOS</h2>
+    <div class="content">
+        @for(atributo of atributos; track atributo.nome){
+        <div class="atributo">
+            <button class="nome">{{atributo.nome}}</button>
+            <button class="valor">
+                <img src="/assets/icons/d20.svg" alt="Rolagem" />
+                <p>{{atributo.valor > 0 ? "+" + atributo.valor : atributo.valor}}</p>
+            </button>
+        </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="details-card">
+    <img src="/assets/character-photo.png" alt="Foto do personagem" />
+    <div>
+        <p class="character-name">{{nome}}</p>
+        <div class="details-group">
+            <app-detail-button [icon]="'race.svg'" [texto]="'Elfo'" />
+            <app-detail-button [icon]="'class.svg'" [texto]="'Guerreiro'" />
+            <app-detail-button [icon]="'origin.svg'" [texto]="'Taverneiro'" />
+            <app-detail-button [icon]="'divinity.svg'" [texto]="'Odin'" />
+        </div>
+    </div>
+    <button class="btn-open-modal rest">DESCANSO</button>
+    <button class="level">Nivel: {{nivel}}</button>
+</div>
