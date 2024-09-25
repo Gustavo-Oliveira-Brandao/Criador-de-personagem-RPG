@@ -37,7 +37,7 @@ footer, header, nav, section, main
 
 body
     line-height: 1
-    background-color: $background-color
+    background: $background-color
 
 ol, ul
     list-style: none
@@ -61,6 +61,11 @@ button
 
 .row
     display: flex
-    margin-top: 20px
+    margin-top: 15px
     width: 100%
     justify-content: space-between
+
+*::-webkit-scrollbar
+    display: none
+    -ms-overflow-style: none
+    scrollbar-width: none

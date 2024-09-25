@@ -1,0 +1,19 @@
+<div class="card full-size-card">
+    <h2 class="title">AÇÕES</h2>
+    <div class="actions">
+        @for(action of actions; track action.id){
+        <div class="action">
+            <div class="action-name">
+                <p>{{action.name}}</p>
+                <p>{{action.range}}</p>
+            </div>
+            <div class="action-rolls">
+                <app-roll-button [valor]="action.hitValue" />
+                <div class="damage-button">
+                    <p>{{action.damageText}}</p>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
