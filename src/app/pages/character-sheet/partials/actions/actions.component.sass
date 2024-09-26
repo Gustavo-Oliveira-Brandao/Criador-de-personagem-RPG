@@ -1,5 +1,58 @@
 @import "../../../../core/styles/cards"
-
+@import "../../../../core/Variables"
 .full-size-card
-    width: 610px
+    width: 603px
     height: 100%
+
+    .actions
+        margin-top: 20px
+        display: flex
+        flex-direction: column
+        align-items: center
+
+        .action
+            margin-bottom: 20px
+            height: 45px
+            width: 90%
+            display: flex
+            justify-content: space-between
+            align-items: center
+            background-color: $secondary-color
+            border-radius: 5px
+            padding-left: 15px
+            padding-right: 15px
+
+            .action-name
+                p
+                    font-weight: 500
+                    text-align: left
+
+                .name
+                    font-size: 12px
+                    text-transform: uppercase
+
+                .range
+                    font-size: 10px
+                    color: $special-text-color
+
+            .action-name:hover
+                .name
+                    color: $highlight-color
+
+            .action-rolls
+                display: flex
+                align-items: center
+
+                .damage-button
+                    background-color: $tertiary-color
+                    height: 30px
+                    width: 120px
+                    border-radius: 5px
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    margin-left: 10px
+
+                    p
+                        color: $red
+                        font-weight: 500

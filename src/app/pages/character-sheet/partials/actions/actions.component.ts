@@ -10,4 +10,13 @@ import { RollButtonComponent } from "../../components/roll-button/roll-button.co
 })
 export class ActionsComponent {
 
+  actions: any = [
+    {
+      name: "Espada grande",
+      range: "Corpo a corpo",
+      hitValue: 10,
+      damageText: "1d6+4 Cortante",
+
+    }
+  ]
 }

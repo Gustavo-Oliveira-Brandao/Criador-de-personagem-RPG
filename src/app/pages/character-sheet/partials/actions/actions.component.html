@@ -3,15 +3,15 @@
     <div class="actions">
         @for(action of actions; track action.id){
         <div class="action">
-            <div class="action-name">
-                <p>{{action.name}}</p>
-                <p>{{action.range}}</p>
-            </div>
+            <button class="action-name">
+                <p class="name">{{action.name}}</p>
+                <p class="range">{{action.range}}</p>
+            </button>
             <div class="action-rolls">
                 <app-roll-button [valor]="action.hitValue" />
-                <div class="damage-button">
+                <button class="damage-button">
                     <p>{{action.damageText}}</p>
-                </div>
+                </button>
             </div>
         </div>
         }
