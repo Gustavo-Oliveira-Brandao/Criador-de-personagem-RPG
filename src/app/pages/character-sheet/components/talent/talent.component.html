@@ -1,0 +1,19 @@
+<div class="item">
+    <div class="item-card">
+        <button class="item-name">
+            <p class="name">{{talent.name}}</p>
+            <p class="short-description">{{talent.action}}</p>
+        </button>
+        <button class="btn-accordion" (click)="open()">
+            <img src="/assets/icons/arrowDown.svg" alt="Expandir" />
+        </button>
+    </div>
+    @if(isOpened){
+    <div class="description">
+        @if(talent.preRequisites != ""){
+        <p><span class="bold">Pré-requisitos: </span>{{talent.preRequisites}}</p>
+        }
+        <p class="description-text">{{talent.description}}</p>
+    </div>
+    }
+</div>

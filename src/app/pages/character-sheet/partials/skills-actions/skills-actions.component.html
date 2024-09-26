@@ -1,16 +1,18 @@
-<div class="skills-actions">
+<div class="row">
     <div class="card full-size-card">
         <h2 class="title">PERICIAS</h2>
         <div class="items">
             @for(skill of skills; track skill.name){
             <div class="item">
-                <button class="item-name">
-                    <p class="name">{{skill.name}}</p>
-                    <p class="short-description">{{skill.attribute}}</p>
-                </button>
-                <div class="item-rolls">
-                    <p class="item-skill">{{skill.training}}</p>
-                    <app-roll-button [valor]="skill.totalValue" />
+                <div class="item-card">
+                    <button class="item-name">
+                        <p class="name">{{skill.name}}</p>
+                        <p class="short-description">{{skill.attribute}}</p>
+                    </button>
+                    <div class="item-rolls">
+                        <p class="item-skill">{{skill.training}}</p>
+                        <app-roll-button [valor]="skill.totalValue" />
+                    </div>
                 </div>
             </div>
             }
@@ -22,15 +24,17 @@
         <div class="items">
             @for(action of actions; track action.id){
             <div class="item">
-                <button class="item-name">
-                    <p class="name">{{action.name}}</p>
-                    <p class="short-description">{{action.range}}</p>
-                </button>
-                <div class="item-rolls">
-                    <app-roll-button [valor]="action.hitValue" />
-                    <button class="damage-button">
-                        <p>{{action.damageText}}</p>
+                <div class="item-card">
+                    <button class="item-name">
+                        <p class="name">{{action.name}}</p>
+                        <p class="short-description">{{action.range}}</p>
                     </button>
+                    <div class="item-rolls">
+                        <app-roll-button [valor]="action.hitValue" />
+                        <button class="damage-button">
+                            <p>{{action.damageText}}</p>
+                        </button>
+                    </div>
                 </div>
             </div>
             }

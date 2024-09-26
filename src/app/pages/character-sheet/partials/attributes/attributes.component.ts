@@ -13,27 +13,27 @@ export class AttributesComponent {
   atributos = [
     {
       nome: "FORÇA",
-      valor: 35
+      valor: 0
     },
     {
       nome: "DESTREZA",
-      valor: 10
+      valor: 0
     },
     {
       nome: "CONSTITUIÇÃO",
-      valor: 35
+      valor: 0
     },
     {
       nome: "INTELIGÊNCIA",
-      valor: 10
+      valor: 0
     },
     {
       nome: "SABEDORIA",
-      valor: 10
+      valor: 0
     },
     {
       nome: "CARISMA",
-      valor: 10
+      valor: 0
     }
 
   ]

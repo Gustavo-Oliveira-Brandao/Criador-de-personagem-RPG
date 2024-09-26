@@ -13,20 +13,20 @@ import { AttributeComponent } from '../../components/attribute/attribute.compone
 export class SecondaryStatusComponent {
 
   speed:number = 30
-  perception:number = 10
+  perception:number = 0
 
   testes = [
     {
       name: "FORTITUDE",
-      value: 10
+      value: 0
     },
     {
       name: "REFLEXOS",
-      value: 10
+      value: 0
     },
     {
       name: "VONTADE",
-      value: 10
+      value: 0
     }
   ]
 }
