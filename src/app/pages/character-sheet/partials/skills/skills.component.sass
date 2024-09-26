@@ -1,7 +1,7 @@
 @import "../../../../core/styles/cards"
 @import "../../../../core/Variables"
 .skills-card
-    width: 375px
+    width: 490px
     height: 100%
     margin-bottom: 20px
     overflow: scroll
@@ -19,7 +19,7 @@
         margin-bottom: 10px
         .skill
             background-color: $secondary-color
-            width: 333px
+            width: 450px
             height: 45px
             border-radius: 5px
             margin-top: 13px
@@ -32,11 +32,11 @@
             .skill-name
                 p
                     text-transform: uppercase
+                    text-align: left
                     font-size: 12px
                     font-weight: 500
 
                 .skill-attribute
-                    margin-top: 2px
                     color: $special-text-color
                     font-size: 10px
 
@@ -49,8 +49,7 @@
                     font-weight: 500
                     text-transform: capitalize
 
-        .skill:hover
-            cursor: pointer
-            .skill-name
+            .skill-name:hover
+                cursor: pointer
                 .name
                     color: $highlight-color

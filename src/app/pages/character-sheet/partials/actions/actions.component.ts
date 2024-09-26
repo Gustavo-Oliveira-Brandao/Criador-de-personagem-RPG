@@ -17,6 +17,7 @@ export class ActionsComponent {
       hitValue: 10,
       damageText: "1d6+4 Cortante",
 
-    }
+    },
+
   ]
 }
