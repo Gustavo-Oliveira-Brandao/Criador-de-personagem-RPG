@@ -3,8 +3,11 @@
     <app-status />
     <app-attributes />
     <app-secondary-status />
-    <div class="tabs">
-        <app-skills />
-        <app-actions />
+    <div class="routes">
+        <a routerLink="/ficha" routerLinkActive="active" ariaCurrentWhenActive="page">PERICIAS E AÇÕES</a>
+        <a routerLink="/habilidades" routerLinkActive="active" ariaCurrentWhenActive="page">HABILIDADES</a>
+        <a routerLink="/inventario" routerLinkActive="active" ariaCurrentWhenActive="page">INVENTARIO</a>
+        <a routerLink="/magias" routerLinkActive="active" ariaCurrentWhenActive="page">MAGIAS</a>
     </div>
+    <router-outlet></router-outlet>
 </main>

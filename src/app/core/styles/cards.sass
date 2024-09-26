@@ -89,14 +89,20 @@
                     text-transform: capitalize
 
                 .damage-button
-                    background-color: $tertiary-color
+                    border: 1px solid $tertiary-color
                     height: 30px
-                    width: 120px
+                    width: 100px
                     border-radius: 5px
                     display: flex
                     justify-content: center
                     align-items: center
-                    margin-left: 10px
 
                     p
                         font-weight: 500
+
+                .damage-button:hover
+                    background-color: $tertiary-color
+                    transition: all 0.2s ease-out
+
+                    p
+                        color: $highlight-color

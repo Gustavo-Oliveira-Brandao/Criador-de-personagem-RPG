@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { RollButtonComponent } from "../../components/roll-button/roll-button.component";
+import { RollButtonComponent } from '../../components/roll-button/roll-button.component';
 
 @Component({
-  selector: 'app-skills',
+  selector: 'app-skills-actions',
   standalone: true,
   imports: [RollButtonComponent],
-  templateUrl: './skills.component.html',
-  styleUrl: './skills.component.sass'
+  templateUrl: './skills-actions.component.html',
+  styleUrl: './skills-actions.component.sass'
 })
-export class SkillsComponent {
+export class SkillsActionsComponent {
 
   skills: any = [
     {
@@ -203,4 +203,15 @@ export class SkillsComponent {
       attribute: 'sabedoria'
     },
   ];
+
+  actions: any = [
+    {
+      name: "Espada grande",
+      range: "Corpo a corpo",
+      hitValue: 10,
+      damageText: "1d6+4",
+
+    },
+
+  ]
 }
