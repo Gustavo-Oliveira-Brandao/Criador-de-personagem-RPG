@@ -1,14 +1,14 @@
-<div class="card skills-card">
+<div class="card full-size-card">
     <h2 class="title">PERICIAS</h2>
-    <div class="skills">
+    <div class="items">
         @for(skill of skills; track skill.name){
-        <div class="skill">
-            <button class="skill-name">
+        <div class="item">
+            <button class="item-name">
                 <p class="name">{{skill.name}}</p>
-                <p class="skill-attribute">{{skill.attribute}}</p>
+                <p class="short-description">{{skill.attribute}}</p>
             </button>
-            <div class="skill-roll">
-                <p>{{skill.training}}</p>
+            <div class="item-rolls">
+                <p class="item-skill">{{skill.training}}</p>
                 <app-roll-button [valor]="skill.totalValue" />
             </div>
         </div>
