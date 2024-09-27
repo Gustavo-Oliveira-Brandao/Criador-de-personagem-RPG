@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
-import { FormField } from '../core/models/form-field';
+import { QuestionBase } from '../../core/models/question-base';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FormControlService {
-
-  toFormGroup(questions: FormField<string>[]){
+export class QuestionControlService {
+  toFormGroup(questions: QuestionBase<string>[]){
     const group : any = {}
 
     questions.forEach((question) => {
       group[question.key] = question.required
-      ? new FormControl(question.value ?? '', Validators.required)
-      : new FormControl(question.value ?? '')
+      ? new FormControl(question.value ?? "", Validators.required)
+      : new FormControl(question.value ?? "")
     })
     return new FormGroup(group)
   }
+  constructor() { }
 }

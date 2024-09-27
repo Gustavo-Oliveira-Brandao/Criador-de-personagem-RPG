@@ -1,0 +1,16 @@
+<div class="card edit-form">
+
+    <h2 class="title">Editar</h2>
+    <form (submit)="onSubmit()" [formGroup]="form">
+
+        @for (question of questions; track question){
+            <div class="form-row">
+                <app-dynamic-form-question [question]="question" [form]="form"></app-dynamic-form-question>
+            </div>
+        }
+
+        <div class="form-row">
+            <button type="submit">Confirmar</button>
+        </div>
+    </form>
+</div>

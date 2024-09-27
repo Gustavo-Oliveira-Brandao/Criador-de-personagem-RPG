@@ -1,5 +1,5 @@
-import { FormField } from "./form-field";
+import { QuestionBase } from "./question-base";
 
-export class TextboxQuestion extends FormField<string>{
+export class TextboxQuestion extends QuestionBase<string>{
     override controlType = "textbox"
 }
