@@ -2,16 +2,16 @@
     <div class="card full-size-card">
         <h2 class="title">PERICIAS</h2>
         <div class="items">
-            @for(skill of character.skills; track skill.name){
+            @for(skill of character.skills; track $index){
             <div class="item">
                 <div class="item-card">
-                    <button class="item-name" (click)="editSkill(skill)">
+                    <button class="item-name" (click)="editSkill(skill, $index)">
                         <p class="name">{{skill.name}}</p>
                         <p class="short-description">{{skill.attribute}}</p>
                     </button>
                     <div class="item-rolls">
                         <p class="item-skill">{{skill.training}}</p>
-                        <app-roll-button [valor]="skill.totalValue" />
+                        <app-roll-button [valor]="skill.value" />
                     </div>
                 </div>
             </div>

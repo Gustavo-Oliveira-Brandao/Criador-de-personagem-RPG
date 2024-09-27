@@ -44,14 +44,25 @@ export class CharacterService {
 
   ]
 
-  speed:number = 30
+  speed = {
+    name: "DESLOCAMENTO",
+    value: 30
+  }
   
-  perception:number = 7
+  perception : ISkill = {
+    name: "PERCEPÇÃO",
+    value: 0,
+    bonus: 0,
+    training: "destreinado",
+    trainingValue: 0,
+    attribute: "sabedoria"
+
+  }
 
   savingThrows : ISkill[] = [
     {
       name: "FORTITUDE",
-      totalValue: 6,
+      value: 6,
       bonus: 0,
       training: "destreinado",
       trainingValue: 0,
@@ -59,7 +70,7 @@ export class CharacterService {
     },
     {
       name: "REFLEXOS",
-      totalValue: 6,
+      value: 6,
       bonus: 0,
       training: "destreinado",
       trainingValue: 0,
@@ -67,7 +78,7 @@ export class CharacterService {
     },
     {
       name: "VONTADE",
-      totalValue: 2,
+      value: 2,
       bonus: 0,
       training: "destreinado",
       trainingValue: 0,
@@ -78,7 +89,7 @@ export class CharacterService {
   skills: ISkill[] = [
     {
       name: 'acrobacia',
-      totalValue: 11,
+      value: 11,
       training: 'treinado',
       trainingValue: 0,
       bonus: 0,
@@ -87,7 +98,7 @@ export class CharacterService {
 
     {
       name: 'adestramento',
-      totalValue: 2,
+      value: 2,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -96,7 +107,7 @@ export class CharacterService {
     
     {
       name: 'atletismo',
-      totalValue: 26,
+      value: 26,
       training: 'treinado',
       trainingValue: 0,
       bonus: 0,
@@ -105,7 +116,7 @@ export class CharacterService {
 
     {
       name: 'atuacao',
-      totalValue: 2,
+      value: 2,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -114,7 +125,7 @@ export class CharacterService {
 
     {
       name: 'cavalgar',
-      totalValue: 11,
+      value: 11,
       training: 'treinado',
       trainingValue: 0,
       bonus: 0,
@@ -123,7 +134,7 @@ export class CharacterService {
 
     {
       name: 'conhecimento',
-      totalValue: 3,
+      value: 3,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -132,7 +143,7 @@ export class CharacterService {
 
     {
       name: 'cura',
-      totalValue: 2,
+      value: 2,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -141,7 +152,7 @@ export class CharacterService {
 
     {
       name: 'diplomacia',
-      totalValue: 2,
+      value: 2,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -150,7 +161,7 @@ export class CharacterService {
 
     {
       name: 'enganacao',
-      totalValue: 2,
+      value: 2,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -159,7 +170,7 @@ export class CharacterService {
 
     {
       name: 'furtividade',
-      totalValue: 6,
+      value: 6,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -168,7 +179,7 @@ export class CharacterService {
 
     {
       name: 'guerra',
-      totalValue: 0,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -177,7 +188,7 @@ export class CharacterService {
 
     {
       name: 'iniciativa',
-      totalValue: 11,
+      value: 11,
       training: 'treinado',
       trainingValue: 0,
       bonus: 0,
@@ -186,7 +197,7 @@ export class CharacterService {
 
     {
       name: 'intimidacao',
-      totalValue: 2,
+      value: 2,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -195,7 +206,7 @@ export class CharacterService {
 
     {
       name: 'jogatina',
-      totalValue: 0,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -204,7 +215,7 @@ export class CharacterService {
 
     {
       name: 'ladinagem',
-      totalValue: 6,
+      value: 6,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -213,7 +224,7 @@ export class CharacterService {
 
     {
       name: 'luta',
-      totalValue: 0,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -222,7 +233,7 @@ export class CharacterService {
 
     {
       name: 'misticismo',
-      totalValue: 0,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -231,7 +242,7 @@ export class CharacterService {
 
     {
       name: 'nobreza',
-      totalValue: 0,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -240,7 +251,7 @@ export class CharacterService {
 
     {
       name: 'oficio',
-      totalValue: 3,
+      value: 3,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -249,7 +260,7 @@ export class CharacterService {
 
     {
       name: 'pilotagem',
-      totalValue: 0,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -258,7 +269,7 @@ export class CharacterService {
 
     {
       name: 'pontaria',
-      totalValue: 0,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -267,7 +278,7 @@ export class CharacterService {
 
     {
       name: 'religiao',
-      totalValue: 0,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -276,7 +287,7 @@ export class CharacterService {
 
     {
       name: 'sobrevivencia',
-      totalValue: 2,
+      value: 2,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,

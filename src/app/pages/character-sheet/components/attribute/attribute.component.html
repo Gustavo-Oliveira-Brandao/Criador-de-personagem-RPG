@@ -1,4 +1,4 @@
 <div>
-    <button class="nome">{{nome}}</button>
-    <app-roll-button [valor]="valor" />
+    <button class="nome" (click)="editAttribute()">{{attribute.name}}</button>
+    <app-roll-button [valor]="attribute.value" />
 </div>

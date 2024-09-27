@@ -7,23 +7,19 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { SkillsActionsComponent } from "./partials/skills-actions/skills-actions.component";
 import { AsyncPipe } from '@angular/common';
 import { DynamicFormComponent } from "./partials/dynamic-form/dynamic-form.component";
-import { Observable } from 'rxjs';
-import { QuestionBase } from '../../core/models/question-base';
+import { DetailsEditTabComponent } from "./partials/details-edit-tab/details-edit-tab.component";
 import { QuestionService } from '../../shared/services/question.service';
 
 @Component({
   selector: 'app-character-sheet',
   standalone: true,
-  imports: [AsyncPipe, DetailsComponent, StatusComponent, AttributesComponent, SecondaryStatusComponent, RouterOutlet, SkillsActionsComponent, RouterLink, RouterLinkActive, DynamicFormComponent],
+  imports: [AsyncPipe, DetailsComponent, StatusComponent, AttributesComponent, SecondaryStatusComponent, RouterOutlet, SkillsActionsComponent, RouterLink, RouterLinkActive, DynamicFormComponent, DetailsEditTabComponent],
   templateUrl: './character-sheet.component.html',
   styleUrl: './character-sheet.component.sass'
 })
 export class CharacterSheetComponent {
 
-  questions$ : Observable<QuestionBase<any>[]>
-
-  constructor(service : QuestionService){
-    this.questions$ = service.getQuestions()
+  constructor(protected qs : QuestionService) {
+    
   }
-
 }

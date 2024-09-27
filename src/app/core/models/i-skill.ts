@@ -1,6 +1,6 @@
 export interface ISkill {
     name: string,
-    totalValue: number,
+    value: number,
     bonus: number,
     training: string,
     trainingValue: number,

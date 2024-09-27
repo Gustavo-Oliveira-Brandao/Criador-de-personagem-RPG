@@ -1,6 +1,5 @@
-<div class="card edit-form">
+<div class="edit-form">
 
-    <h2 class="title">Editar</h2>
     <form (submit)="onSubmit()" [formGroup]="form">
 
         @for (question of questions; track question){
@@ -10,7 +9,7 @@
         }
 
         <div class="form-row">
-            <button type="submit">Confirmar</button>
+            <button class="btn-confirm" type="submit">Confirmar</button>
         </div>
     </form>
 </div>

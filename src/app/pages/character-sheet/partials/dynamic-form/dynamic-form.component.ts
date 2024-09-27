@@ -3,6 +3,7 @@ import { DynamicFormQuestionComponent } from "../../../../shared/components/dyna
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { QuestionBase } from '../../../../core/models/question-base';
 import { QuestionControlService } from '../../../../shared/services/question-control.service';
+import { QuestionService } from '../../../../shared/services/question.service';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -14,10 +15,13 @@ import { QuestionControlService } from '../../../../shared/services/question-con
 export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<string>[] | null = []
   form !: FormGroup
+  payload = ""
 
-  constructor(private qcs : QuestionControlService){}
+  constructor(private qcs : QuestionControlService, private qs : QuestionService){}
   onSubmit(){
-    console.log("form: " + this.questions)
+    this.payload = JSON.stringify(this.form.getRawValue())
+    
+    this.qs.isFormOpened = false
   }
 
   ngOnInit(): void {
