@@ -1,8 +1,8 @@
 <div class="card">
     <h2 class="title">ATRIBUTOS</h2>
     <div class="content">
-        @for(atributo of atributos; track atributo.nome){
-            <app-attribute [nome]="atributo.nome" [valor]="atributo.valor" />
+        @for(attribute of character.attributes; track $index){
+            <app-attribute [nome]="attribute.name" [valor]="attribute.value" />
         }
     </div>
 </div>

@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { RollButtonComponent } from '../../components/roll-button/roll-button.component';
+import { FormField } from '../../../../core/models/form-field';
+import { TextboxQuestion } from '../../../../core/models/textbox-question';
+import { DropdownQuestion } from '../../../../core/models/dropdown-question';
+import { QuestionService } from '../../../../shared/question.service';
+import { CharacterService } from '../../services/character.service';
 
 @Component({
   selector: 'app-skills-actions',
@@ -10,208 +15,35 @@ import { RollButtonComponent } from '../../components/roll-button/roll-button.co
 })
 export class SkillsActionsComponent {
 
-  skills: any = [
-    {
-      name: 'acrobacia',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'destreza'
-    },
+  constructor (private questionService : QuestionService, protected character : CharacterService){}
 
-    {
-      name: 'adestramento',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'carisma'
-    },
-    
-    {
-      name: 'atletismo',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'forca'
-    },
+  editSkill(name:string){
+    const questions: FormField<string>[] = [
+      new DropdownQuestion({
+        key: "skillTraining",
+        label: "Treinamento",
+        options: [
+          {key : 'destreinado', value: "Destreinado"},
+          {key : 'treinado' , value : 'Treinado'}
+        ],
+        order: 1
+      }),
+  
+      new TextboxQuestion({
+        key: "skillBonus",
+        label: "Bônus",
+        value: "0",
+        type: "number",
+        required: false,
+        order: 2
+      })
+    ]
+    questions.sort((a, b) => a.order - b.order)
+  
+    this.questionService.questions = questions
+  
+  }
 
-    {
-      name: 'atuacao',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'carisma'
-    },
 
-    {
-      name: 'cavalgar',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'destreza'
-    },
 
-    {
-      name: 'conhecimento',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'inteligencia'
-    },
-
-    {
-      name: 'cura',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'sabedoria'
-    },
-
-    {
-      name: 'diplomacia',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'carisma'
-    },
-
-    {
-      name: 'enganacao',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'carisma'
-    },
-
-    {
-      name: 'furtividade',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'destreza'
-    },
-
-    {
-      name: 'guerra',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'inteligencia'
-    },
-
-    {
-      name: 'iniciativa',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'destreza'
-    },
-
-    {
-      name: 'intimidacao',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'carisma'
-    },
-
-    {
-      name: 'jogatina',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'carisma'
-    },
-
-    {
-      name: 'ladinagem',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'destreza'
-    },
-
-    {
-      name: 'luta',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'forca'
-    },
-
-    {
-      name: 'misticismo',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'inteligencia'
-    },
-
-    {
-      name: 'nobreza',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'inteligencia'
-    },
-
-    {
-      name: 'oficio',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'inteligencia'
-    },
-
-    {
-      name: 'percepcao',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'sabedoria'
-    },
-
-    {
-      name: 'pilotagem',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'destreza'
-    },
-
-    {
-      name: 'pontaria',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'destreza'
-    },
-
-    {
-      name: 'religiao',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'sabedoria'
-    },
-
-    {
-      name: 'sobrevivencia',
-      totalValue: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      attribute: 'sabedoria'
-    },
-  ];
-
-  actions: any = [
-    {
-      name: "Espada grande",
-      range: "Corpo a corpo",
-      hitValue: 10,
-      damageText: "1d6+4",
-
-    },
-
-  ]
 }

@@ -11,6 +11,10 @@ import { FormsModule } from "@angular/forms"
 })
 export class StatusComponent {
 
+  vidaAtual:number = 64
+  vidaMaxima:number = 64
+  manaAtual: number = 21
+  manaMaxima:number = 21
   vidaTemporaria:number = 0
-  ca:number = 10
+  ca:number = 23
 }

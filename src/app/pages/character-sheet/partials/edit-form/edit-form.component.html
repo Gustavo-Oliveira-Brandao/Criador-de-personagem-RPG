@@ -1,0 +1,21 @@
+<div class="edit-form card">
+    <h2 class="title">Editar</h2>
+    <form (submit)="onSubmit()" [formGroup]="form">
+
+        @for(question of questions; track question){
+            <div class="form-row">
+                <app-form-question [question]="question" [form]="form"></app-form-question>
+            </div>
+        }
+
+        <div class="form-row">
+            <button type="submit" [disabled]="!form.valid">Confirmar</button>
+        </div>
+    </form>
+
+    @if(payload){
+        <div class="form-row">
+            <strong>Edição salva!</strong>
+        </div>
+    }
+</div>

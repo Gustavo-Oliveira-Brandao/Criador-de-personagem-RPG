@@ -9,5 +9,6 @@
         <a routerLink="/inventario" routerLinkActive="active" ariaCurrentWhenActive="page">INVENTARIO</a>
         <a routerLink="/magias" routerLinkActive="active" ariaCurrentWhenActive="page">MAGIAS</a>
     </div>
+    <app-edit-form [questions]="question.questions"/>
     <router-outlet></router-outlet>
 </main>

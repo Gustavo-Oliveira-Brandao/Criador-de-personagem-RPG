@@ -2,7 +2,7 @@
     <div class="card large-card">
         <h2 class="title">PONTOS DE VIDA</h2>
         <div class="content">
-            <app-resource-bar icon="heart.svg" css="red-bar" [atual]='50' [max]='100' />
+            <app-resource-bar icon="heart.svg" css="red-bar" [atual]='vidaAtual' [max]='vidaMaxima' />
         </div>
     </div>
     <div class="card minor-card">
@@ -15,7 +15,7 @@
     <div class="card large-card">
         <h2 class="title">PONTOS DE MANA</h2>
         <div class="content">
-            <app-resource-bar icon="mp.svg" css="blue-bar" [atual]="50" [max]="100" />
+            <app-resource-bar icon="mp.svg" css="blue-bar" [atual]="manaAtual" [max]="manaMaxima" />
         </div>
     </div>
     <div class="card minor-card">

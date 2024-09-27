@@ -5,7 +5,7 @@
         </h2>
         <div class="content">
             <img src="/assets/icons/speed.svg" alt="Deslocamento" />
-            <input [(ngModel)]="speed" />
+            <input [(ngModel)]="character.speed" />
         </div>
     </div>
     <div class="minor-card card">
@@ -14,7 +14,7 @@
         </h2>
         <div class="content">
             <img src="/assets/icons/perception.svg" alt="Percepção" />
-            <app-roll-button [valor]="perception" />
+            <app-roll-button [valor]="character.perception" />
         </div>
     </div>
     <div class="card" style="width: 610px;">
@@ -22,8 +22,8 @@
             TESTES DE RESISTÊNCIA
         </h2>
         <div class="content saving-throws">
-            @for(teste of testes; track teste.name){
-            <app-attribute [nome]="teste.name" [valor]="teste.value" />
+            @for(save of character.savingThrows; track save.name){
+            <app-attribute [nome]="save.name" [valor]="save.totalValue" />
             }
         </div>
     </div>

@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { RollButtonComponent } from "../../components/roll-button/roll-button.component";
 import { AttributeComponent } from '../../components/attribute/attribute.component';
 
+import { CharacterService } from '../../services/character.service';
+
 @Component({
   selector: 'app-secondary-status',
   standalone: true,
@@ -12,21 +14,5 @@ import { AttributeComponent } from '../../components/attribute/attribute.compone
 })
 export class SecondaryStatusComponent {
 
-  speed:number = 30
-  perception:number = 0
-
-  testes = [
-    {
-      name: "FORTITUDE",
-      value: 0
-    },
-    {
-      name: "REFLEXOS",
-      value: 0
-    },
-    {
-      name: "VONTADE",
-      value: 0
-    }
-  ]
+  constructor(protected character : CharacterService){}
 }

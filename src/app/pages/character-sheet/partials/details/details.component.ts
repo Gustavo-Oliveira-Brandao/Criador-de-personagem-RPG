@@ -11,8 +11,8 @@ import { DetailButtonComponent } from "../../components/detail-button/detail-but
 })
 export class DetailsComponent {
 
-  nome:string = "Lorem Ipsun"
-  nivel:number = 14
+  nome:string = "Makoto"
+  nivel:number = 5
 
   click(){
     console.log("Clicado")

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AttributeComponent } from '../../components/attribute/attribute.component';
 
+import { CharacterService } from '../../services/character.service';
+
 @Component({
   selector: 'app-attributes',
   standalone: true,
@@ -10,31 +12,6 @@ import { AttributeComponent } from '../../components/attribute/attribute.compone
 })
 export class AttributesComponent {
 
-  atributos = [
-    {
-      nome: "FORÇA",
-      valor: 0
-    },
-    {
-      nome: "DESTREZA",
-      valor: 0
-    },
-    {
-      nome: "CONSTITUIÇÃO",
-      valor: 0
-    },
-    {
-      nome: "INTELIGÊNCIA",
-      valor: 0
-    },
-    {
-      nome: "SABEDORIA",
-      valor: 0
-    },
-    {
-      nome: "CARISMA",
-      valor: 0
-    }
+  constructor(protected character : CharacterService){}
 
-  ]
 }
