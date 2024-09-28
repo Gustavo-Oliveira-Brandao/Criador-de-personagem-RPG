@@ -7,7 +7,6 @@ export class EditTabControlService {
 
   constructor() { }
 
-  isTabOpened = false
-
+  openTab : string = ""
   item : any
 }

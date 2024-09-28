@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { RollButtonComponent } from "../roll-button/roll-button.component";
 import { IAttribute } from '../../../../core/models/i-attribute';
+import { EditTabControlService } from '../../services/edit-tab-control.service';
 
 @Component({
   selector: 'app-attribute',
@@ -14,4 +15,9 @@ export class AttributeComponent {
   @Input() attribute !: IAttribute
   @Input() index !: number
 
+  constructor(private editTab : EditTabControlService){}
+
+  edit(){
+    this.editTab.openTab="attribute"
+  }
 }

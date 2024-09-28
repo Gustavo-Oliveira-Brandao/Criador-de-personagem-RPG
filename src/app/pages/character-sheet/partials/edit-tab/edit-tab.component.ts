@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { EditTabControlService } from '../../services/edit-tab-control.service';
 
 
 @Component({
@@ -14,6 +15,8 @@ export class EditTabComponent {
   onSubmit() {
     console.log(this.detailsForm.value)
   }
+
+  constructor(protected editTabControl : EditTabControlService){}
 
   attributesData = [
     {
@@ -155,7 +158,7 @@ export class EditTabComponent {
 
   skillsFormData = [
     {
-      key: "skillsBonus",
+      key: "skillBonus",
       label: "Bônus de pericia: ",
       type: "number",
       controlType: "input"
