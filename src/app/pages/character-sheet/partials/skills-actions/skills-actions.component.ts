@@ -14,8 +14,10 @@ export class SkillsActionsComponent {
 
   constructor(protected character:CharacterService, private editTab : EditTabControlService){}
 
-  edit(){
+  edit(index: number){
     this.editTab.openTab="skills"
+    this.editTab.skillIndex = index
+    this.editTab.open()
   }
 }
 

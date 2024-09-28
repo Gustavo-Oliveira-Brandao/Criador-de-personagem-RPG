@@ -17,7 +17,9 @@ export class AttributeComponent {
 
   constructor(private editTab : EditTabControlService){}
 
-  edit(){
+  edit(index:number){
     this.editTab.openTab="attribute"
+    this.editTab.attributeIndex = index
+    this.editTab.open()
   }
 }

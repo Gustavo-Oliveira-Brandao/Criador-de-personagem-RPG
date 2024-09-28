@@ -4,56 +4,52 @@
     @switch (editTabControl.openTab) {
 
     @case ("details"){
-    <form [formGroup]="detailsForm" (submit)="onSubmit()">
+    <form [formGroup]="detailsForm" (change)="onSubmitDetails()">
         @for(data of detailsFormData; track data.key){
         <div class="form-field">
             <label [htmlFor]="data.key">{{data.label}}</label>
             <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
         </div>
         }
-        <button class="btn-confirm" type="submit">Confirmar</button>
     </form>
     }
 
     @case("pv"){
-    <form [formGroup]="pvForm">
+    <form [formGroup]="pvForm" (change)="onSubmitPv()">
         @for(data of pvFormData; track data.key){
         <div class="form-field">
             <label [htmlFor]="data.key">{{ data.label }}</label>
             <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
         </div>
         }
-        <button class="btn-confirm" type="submit">Confirmar</button>
     </form>
     }
 
     @case("mp"){
-    <form [formGroup]="mpForm">
+    <form [formGroup]="mpForm" (change)="onSubmitMp()">
         @for(data of mpFormData; track data.key){
         <div class="form-field">
             <label [htmlFor]="data.key">{{ data.label }}</label>
             <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
         </div>
         }
-        <button class="btn-confirm" type="submit">Confirmar</button>
     </form>
 
     }
 
     @case("attribute"){
-    <form [formGroup]="attributeForm">
+    <form [formGroup]="attributeForm" (change)="onSubmitAttribute()">
         @for(data of attributeFormData; track data.key){
         <div class="form-field">
             <label [htmlFor]="data.key">{{ data.label }}</label>
             <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
         </div>
         }
-        <button class="btn-confirm" type="submit">Confirmar</button>
     </form>
     }
 
     @case("savingThrows"){
-    <form [formGroup]="savingThrowsForm">
+    <form [formGroup]="savingThrowsForm" (change)="onSubmitSavingThrows()">
         @for(data of savingThrowsFormData; track data.key){
         <div class="form-field">
             <label [htmlFor]="data.key">{{ data.label }}</label>
@@ -71,12 +67,11 @@
             }
         </div>
         }
-        <button class="btn-confirm" type="submit">Confirmar</button>
     </form>
     }
 
     @case("skills"){
-    <form [formGroup]="skillsForm">
+    <form [formGroup]="skillsForm" (change)="onSubmitSkills()">
         @for(data of skillsFormData; track data.key){
         <div class="form-field">
             <label [htmlFor]="data.key">{{ data.label }}</label>
@@ -94,7 +89,6 @@
             }
         </div>
         }
-        <button class="btn-confirm" type="submit">Confirmar</button>
     </form>
     }
     }

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { DetailButtonComponent } from "../../components/detail-button/detail-button.component";
+import { CharacterService } from '../../services/character.service';
+import { EditTabControlService } from '../../services/edit-tab-control.service';
 
 
 @Component({
@@ -11,10 +13,12 @@ import { DetailButtonComponent } from "../../components/detail-button/detail-but
 })
 export class DetailsComponent {
 
-  nome:string = "Makoto"
-  nivel:number = 5
+  constructor(protected character:CharacterService, protected editTab: EditTabControlService) {
+    
+  }
 
-  click(){
-    console.log("Clicado")
+  edit(){
+    this.editTab.openTab = "details"
+    this.editTab.open()
   }
 }

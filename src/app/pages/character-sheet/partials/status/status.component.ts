@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ResourceBarComponent } from "../../components/resource-bar/resource-bar.component";
 import { FormsModule } from "@angular/forms"
+import { EditTabControlService } from '../../services/edit-tab-control.service';
+import { CharacterService } from '../../services/character.service';
 
 @Component({
   selector: 'app-status',
@@ -11,10 +13,14 @@ import { FormsModule } from "@angular/forms"
 })
 export class StatusComponent {
 
-  vidaAtual:number = 64
-  vidaMaxima:number = 64
-  manaAtual: number = 21
-  manaMaxima:number = 21
-  vidaTemporaria:number = 0
-  ca:number = 23
+  constructor(private editTab: EditTabControlService, protected character : CharacterService){}
+  editPv(){
+    this.editTab.openTab = "pv"
+    this.editTab.open()
+  }
+
+  editMp(){
+    this.editTab.openTab = "mp"
+    this.editTab.open()
+  }
 }

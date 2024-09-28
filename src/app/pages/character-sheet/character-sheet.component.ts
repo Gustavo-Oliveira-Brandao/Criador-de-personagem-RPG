@@ -7,6 +7,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { SkillsActionsComponent } from "./partials/skills-actions/skills-actions.component";
 import { AsyncPipe } from '@angular/common';
 import { EditTabComponent } from './partials/edit-tab/edit-tab.component';
+import { EditTabControlService } from './services/edit-tab-control.service';
 
 @Component({
   selector: 'app-character-sheet',
@@ -17,4 +18,5 @@ import { EditTabComponent } from './partials/edit-tab/edit-tab.component';
 })
 export class CharacterSheetComponent {
 
+  constructor(protected editTab : EditTabControlService){}
 }

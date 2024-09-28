@@ -17,5 +17,6 @@ export class DetailButtonComponent {
 
   edit(){
     this.editTab.openTab="details"
+    this.editTab.open()
   }
 }

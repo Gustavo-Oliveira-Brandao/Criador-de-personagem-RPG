@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-resource-bar',
@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './resource-bar.component.html',
   styleUrl: './resource-bar.component.sass'
 })
-export class ResourceBarComponent {
+export class ResourceBarComponent implements OnChanges {
 
   @Input() icon: string = ""
   @Input() atual: number = 0
@@ -18,5 +18,10 @@ export class ResourceBarComponent {
 
   ngOnInit() {
     this.barWidth = (this.atual / this.max) * 100
+  }
+
+  ngOnChanges(changes : SimpleChanges){
+    this.barWidth = (this.atual / this.max ) * 100
+    console.log("Teste")
   }
 }

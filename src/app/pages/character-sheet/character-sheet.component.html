@@ -9,6 +9,8 @@
         <a routerLink="/inventario" routerLinkActive="active" ariaCurrentWhenActive="page">INVENTARIO</a>
         <a routerLink="/magias" routerLinkActive="active" ariaCurrentWhenActive="page">MAGIAS</a>
     </div>
+    @if(editTab.isOpened){
     <app-edit-tab />
+    }
     <router-outlet></router-outlet>
 </main>

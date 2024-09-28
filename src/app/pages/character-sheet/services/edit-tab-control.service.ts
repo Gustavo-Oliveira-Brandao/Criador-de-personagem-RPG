@@ -5,8 +5,22 @@ import { Injectable } from '@angular/core';
 })
 export class EditTabControlService {
 
-  constructor() { }
+  constructor() {
+  }
 
+  attributeIndex : number = 0
+  skillIndex : number = 0
+  saveIndex = 0
   openTab : string = ""
   item : any
+
+  isOpened = false
+
+  open(){
+    this.isOpened = false
+    setTimeout(() => {
+      this.isOpened = true
+    }, 1);
+  }
+
 }

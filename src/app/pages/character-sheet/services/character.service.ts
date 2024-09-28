@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ISkill } from '../../../core/models/i-skill';
 import { IAttribute } from '../../../core/models/i-attribute';
+import { IDetails } from '../../../core/models/idetails';
 
 @Injectable({
   providedIn: 'root'
@@ -9,35 +10,52 @@ export class CharacterService {
 
   constructor() { }
 
+  details: IDetails = {
+    name: "Insira seu nome",
+    race: "Insira sua raça",
+    class: "Insira sua classe",
+    origin: "Insira sua origem",
+    divinity: "Insira sua divindade",
+    level: 1
+  }
 
-  attributes : IAttribute[] = [
+  status = {
+    actualPv: 0,
+    maxPv: 1,
+    actualMp: 0,
+    maxMp: 0,
+    temporaryPv: 0,
+    ac: 10
+  }
+
+  attributes: IAttribute[] = [
     {
-      name: "FORÇA",
-      value: 3,
-      bonus: 0
-    },
-    {
-      name: "DESTREZA",
-      value: 4,
-      bonus: 0
-    },
-    {
-      name: "CONSTITUIÇÃO",
-      value: 4,
-      bonus: 0
-    },
-    {
-      name: "INTELIGÊNCIA",
-      value: 1,
-      bonus: 0
-    },
-    {
-      name: "SABEDORIA",
+      name: "forca",
       value: 0,
       bonus: 0
     },
     {
-      name: "CARISMA",
+      name: "destreza",
+      value: 0,
+      bonus: 0
+    },
+    {
+      name: "constituicao",
+      value: 0,
+      bonus: 0
+    },
+    {
+      name: "inteligencia",
+      value: 0,
+      bonus: 0
+    },
+    {
+      name: "sabedoria",
+      value: 0,
+      bonus: 0
+    },
+    {
+      name: "carisma",
       value: 0,
       bonus: 0
     }
@@ -48,8 +66,8 @@ export class CharacterService {
     name: "DESLOCAMENTO",
     value: 30
   }
-  
-  perception : ISkill = {
+
+  perception: ISkill = {
     name: "PERCEPÇÃO",
     value: 0,
     bonus: 0,
@@ -59,26 +77,26 @@ export class CharacterService {
 
   }
 
-  savingThrows : ISkill[] = [
+  savingThrows: ISkill[] = [
     {
-      name: "FORTITUDE",
-      value: 6,
+      name: "fortitude",
+      value: 0,
       bonus: 0,
       training: "destreinado",
       trainingValue: 0,
       attribute: "constituicao"
     },
     {
-      name: "REFLEXOS",
-      value: 6,
+      name: "reflexos",
+      value: 0,
       bonus: 0,
       training: "destreinado",
       trainingValue: 0,
       attribute: "destreza"
     },
     {
-      name: "VONTADE",
-      value: 2,
+      name: "vontade",
+      value: 0,
       bonus: 0,
       training: "destreinado",
       trainingValue: 0,
@@ -89,7 +107,7 @@ export class CharacterService {
   skills: ISkill[] = [
     {
       name: 'acrobacia',
-      value: 11,
+      value: 0,
       training: 'treinado',
       trainingValue: 0,
       bonus: 0,
@@ -98,16 +116,16 @@ export class CharacterService {
 
     {
       name: 'adestramento',
-      value: 2,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
       attribute: 'carisma'
     },
-    
+
     {
       name: 'atletismo',
-      value: 26,
+      value: 0,
       training: 'treinado',
       trainingValue: 0,
       bonus: 0,
@@ -116,7 +134,7 @@ export class CharacterService {
 
     {
       name: 'atuacao',
-      value: 2,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -125,7 +143,7 @@ export class CharacterService {
 
     {
       name: 'cavalgar',
-      value: 11,
+      value: 0,
       training: 'treinado',
       trainingValue: 0,
       bonus: 0,
@@ -134,7 +152,7 @@ export class CharacterService {
 
     {
       name: 'conhecimento',
-      value: 3,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -143,7 +161,7 @@ export class CharacterService {
 
     {
       name: 'cura',
-      value: 2,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -152,7 +170,7 @@ export class CharacterService {
 
     {
       name: 'diplomacia',
-      value: 2,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -161,7 +179,7 @@ export class CharacterService {
 
     {
       name: 'enganacao',
-      value: 2,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -170,7 +188,7 @@ export class CharacterService {
 
     {
       name: 'furtividade',
-      value: 6,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -188,7 +206,7 @@ export class CharacterService {
 
     {
       name: 'iniciativa',
-      value: 11,
+      value: 0,
       training: 'treinado',
       trainingValue: 0,
       bonus: 0,
@@ -197,7 +215,7 @@ export class CharacterService {
 
     {
       name: 'intimidacao',
-      value: 2,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -215,7 +233,7 @@ export class CharacterService {
 
     {
       name: 'ladinagem',
-      value: 6,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -251,7 +269,7 @@ export class CharacterService {
 
     {
       name: 'oficio',
-      value: 3,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -287,7 +305,7 @@ export class CharacterService {
 
     {
       name: 'sobrevivencia',
-      value: 2,
+      value: 0,
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
@@ -305,4 +323,31 @@ export class CharacterService {
     },
 
   ]
+
+  updateSkillsValues() {
+    for (let skill of this.skills) {
+      let attributeModifier = 0
+      for (let attribute of this.attributes) {
+        if (attribute.name == skill.attribute) {
+          attributeModifier = attribute.value
+        }
+      }
+
+      if(skill.training == "destreinado"){
+        skill.trainingValue = 0
+      }
+      if (skill.training == "treinado") {
+        if (this.details.level < 7) {
+          skill.trainingValue = 2
+        }
+        if (this.details.level > 6 && this.details.level < 15) {
+          skill.trainingValue = 4
+        }
+        if (this.details.level > 15) {
+          skill.trainingValue = 6
+        }
+      }
+      skill.value = Math.floor(this.details.level / 2) + skill.bonus + skill.trainingValue + attributeModifier
+    }
+  }
 }
