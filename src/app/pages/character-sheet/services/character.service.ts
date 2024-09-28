@@ -20,12 +20,13 @@ export class CharacterService {
   }
 
   status = {
-    actualPv: 0,
+    actualPv: 1,
     maxPv: 1,
-    actualMp: 0,
-    maxMp: 0,
+    actualMp: 1,
+    maxMp: 1,
     temporaryPv: 0,
-    ac: 10
+    ac: 10,
+    armorPenaltyValue: 0
   }
 
   attributes: IAttribute[] = [
@@ -108,10 +109,12 @@ export class CharacterService {
     {
       name: 'acrobacia',
       value: 0,
-      training: 'treinado',
+      training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'destreza'
+      attribute: 'destreza',
+      traningRestriction: false,
+      armorPenalty: true
     },
 
     {
@@ -120,16 +123,20 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'carisma'
+      attribute: 'carisma',
+      traningRestriction: true,
+      armorPenalty: false
     },
 
     {
       name: 'atletismo',
       value: 0,
-      training: 'treinado',
+      training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'forca'
+      attribute: 'forca',
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
@@ -138,16 +145,20 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'carisma'
+      attribute: 'carisma',
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
       name: 'cavalgar',
       value: 0,
-      training: 'treinado',
+      training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'destreza'
+      attribute: 'destreza',
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
@@ -156,7 +167,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'inteligencia'
+      attribute: 'inteligencia',
+      traningRestriction: true,
+      armorPenalty: false
     },
 
     {
@@ -165,7 +178,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'sabedoria'
+      attribute: 'sabedoria',
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
@@ -174,7 +189,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'carisma'
+      attribute: 'carisma',
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
@@ -183,7 +200,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'carisma'
+      attribute: 'carisma',
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
@@ -192,7 +211,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'destreza'
+      attribute: 'destreza',
+      traningRestriction: false,
+      armorPenalty: true
     },
 
     {
@@ -201,16 +222,20 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'inteligencia'
+      attribute: 'inteligencia',
+      traningRestriction: true,
+      armorPenalty: false
     },
 
     {
       name: 'iniciativa',
       value: 0,
-      training: 'treinado',
+      training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'destreza'
+      attribute: 'destreza',
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
@@ -219,7 +244,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'carisma'
+      attribute: 'carisma',
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
@@ -228,7 +255,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'carisma'
+      attribute: 'carisma',
+      traningRestriction: true,
+      armorPenalty: false
     },
 
     {
@@ -237,7 +266,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'destreza'
+      attribute: 'destreza',
+      traningRestriction: true,
+      armorPenalty: true
     },
 
     {
@@ -246,7 +277,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'forca'
+      attribute: 'forca',
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
@@ -255,7 +288,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'inteligencia'
+      attribute: 'inteligencia',
+      traningRestriction: true,
+      armorPenalty: false
     },
 
     {
@@ -264,7 +299,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'inteligencia'
+      attribute: 'inteligencia',
+      traningRestriction: true,
+      armorPenalty: false
     },
 
     {
@@ -273,7 +310,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'inteligencia'
+      attribute: 'inteligencia',
+      traningRestriction: true,
+      armorPenalty: false
     },
 
     {
@@ -282,7 +321,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'destreza'
+      attribute: 'destreza',
+      traningRestriction: true,
+      armorPenalty: false
     },
 
     {
@@ -291,7 +332,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'destreza'
+      attribute: 'destreza',
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
@@ -300,7 +343,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'sabedoria'
+      attribute: 'sabedoria',
+      traningRestriction: true,
+      armorPenalty: false
     },
 
     {
@@ -309,7 +354,9 @@ export class CharacterService {
       training: 'destreinado',
       trainingValue: 0,
       bonus: 0,
-      attribute: 'sabedoria'
+      attribute: 'sabedoria',
+      traningRestriction: false,
+      armorPenalty: false
     },
   ];
 
@@ -333,21 +380,30 @@ export class CharacterService {
         }
       }
 
-      if(skill.training == "destreinado"){
-        skill.trainingValue = 0
+      this.checkSkillTraining(skill)
+      if (skill.armorPenalty) {
+        skill.value = Math.floor(this.details.level / 2) + skill.bonus + skill.trainingValue + attributeModifier - this.status.armorPenaltyValue
       }
-      if (skill.training == "treinado") {
-        if (this.details.level < 7) {
-          skill.trainingValue = 2
-        }
-        if (this.details.level > 6 && this.details.level < 15) {
-          skill.trainingValue = 4
-        }
-        if (this.details.level > 15) {
-          skill.trainingValue = 6
-        }
+      else {
+        skill.value = Math.floor(this.details.level / 2) + skill.bonus + skill.trainingValue + attributeModifier
       }
-      skill.value = Math.floor(this.details.level / 2) + skill.bonus + skill.trainingValue + attributeModifier
+    }
+  }
+
+  checkSkillTraining(skill: ISkill) {
+    if (skill.training == "destreinado") {
+      skill.trainingValue = 0
+    }
+    if (skill.training == "treinado") {
+      if (this.details.level < 7) {
+        skill.trainingValue = 2
+      }
+      if (this.details.level > 6 && this.details.level < 15) {
+        skill.trainingValue = 4
+      }
+      if (this.details.level > 15) {
+        skill.trainingValue = 6
+      }
     }
   }
 }

@@ -4,92 +4,29 @@
     @switch (editTabControl.openTab) {
 
     @case ("details"){
-    <form [formGroup]="detailsForm" (change)="onSubmitDetails()">
-        @for(data of detailsFormData; track data.key){
-        <div class="form-field">
-            <label [htmlFor]="data.key">{{data.label}}</label>
-            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
-        </div>
-        }
-    </form>
+    <app-dynamic-form [Form]="detailsForm" [FormData]="detailsFormData" (change)="onSubmitDetails()"></app-dynamic-form>
     }
 
     @case("pv"){
-    <form [formGroup]="pvForm" (change)="onSubmitPv()">
-        @for(data of pvFormData; track data.key){
-        <div class="form-field">
-            <label [htmlFor]="data.key">{{ data.label }}</label>
-            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
-        </div>
-        }
-    </form>
+    <app-dynamic-form [Form]="pvForm" [FormData]="pvFormData" (change)="onSubmitPv()"></app-dynamic-form>
     }
 
     @case("mp"){
-    <form [formGroup]="mpForm" (change)="onSubmitMp()">
-        @for(data of mpFormData; track data.key){
-        <div class="form-field">
-            <label [htmlFor]="data.key">{{ data.label }}</label>
-            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
-        </div>
-        }
-    </form>
-
+    <app-dynamic-form [Form]="mpForm" [FormData]="mpFormData" (change)="onSubmitMp()"></app-dynamic-form>
     }
 
     @case("attribute"){
-    <form [formGroup]="attributeForm" (change)="onSubmitAttribute()">
-        @for(data of attributeFormData; track data.key){
-        <div class="form-field">
-            <label [htmlFor]="data.key">{{ data.label }}</label>
-            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
-        </div>
-        }
-    </form>
+    <app-dynamic-form [Form]="attributeForm" [FormData]="attributeFormData"
+        (change)="onSubmitAttribute()"></app-dynamic-form>
     }
 
     @case("savingThrows"){
-    <form [formGroup]="savingThrowsForm" (change)="onSubmitSavingThrows()">
-        @for(data of savingThrowsFormData; track data.key){
-        <div class="form-field">
-            <label [htmlFor]="data.key">{{ data.label }}</label>
-            @switch (data.controlType) {
-            @case ("input") {
-            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
-            }
-            @case ("dropdown"){
-            <select [id]="data.key" [formControlName]="data.key">
-                @for(option of data.options; track option){
-                <option [value]="option.key">{{option.value}}</option>
-                }
-            </select>
-            }
-            }
-        </div>
-        }
-    </form>
+    <app-dynamic-form [Form]="savingThrowsForm" [FormData]="savingThrowsFormData"
+        (change)="onSubmitSavingThrows()"></app-dynamic-form>
     }
 
     @case("skills"){
-    <form [formGroup]="skillsForm" (change)="onSubmitSkills()">
-        @for(data of skillsFormData; track data.key){
-        <div class="form-field">
-            <label [htmlFor]="data.key">{{ data.label }}</label>
-            @switch (data.controlType) {
-            @case ("input") {
-            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
-            }
-            @case ("dropdown"){
-            <select [id]="data.key" [formControlName]="data.key">
-                @for(option of data.options; track option){
-                <option [value]="option.key">{{option.value}}</option>
-                }
-            </select>
-            }
-            }
-        </div>
-        }
-    </form>
+    <app-dynamic-form [Form]="skillsForm" [FormData]="skillsFormData" (change)="onSubmitSkills()"></app-dynamic-form>
     }
     }
 </div>
