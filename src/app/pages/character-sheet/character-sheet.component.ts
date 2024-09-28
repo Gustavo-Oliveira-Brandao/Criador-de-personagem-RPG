@@ -6,20 +6,15 @@ import { SecondaryStatusComponent } from "./partials/secondary-status/secondary-
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { SkillsActionsComponent } from "./partials/skills-actions/skills-actions.component";
 import { AsyncPipe } from '@angular/common';
-import { DynamicFormComponent } from "./partials/dynamic-form/dynamic-form.component";
-import { DetailsEditTabComponent } from "./partials/details-edit-tab/details-edit-tab.component";
-import { QuestionService } from '../../shared/services/question.service';
+import { EditTabComponent } from './partials/edit-tab/edit-tab.component';
 
 @Component({
   selector: 'app-character-sheet',
   standalone: true,
-  imports: [AsyncPipe, DetailsComponent, StatusComponent, AttributesComponent, SecondaryStatusComponent, RouterOutlet, SkillsActionsComponent, RouterLink, RouterLinkActive, DynamicFormComponent, DetailsEditTabComponent],
+  imports: [AsyncPipe, DetailsComponent, StatusComponent, AttributesComponent, SecondaryStatusComponent, RouterOutlet, SkillsActionsComponent, RouterLink, RouterLinkActive, EditTabComponent],
   templateUrl: './character-sheet.component.html',
   styleUrl: './character-sheet.component.sass'
 })
 export class CharacterSheetComponent {
 
-  constructor(protected qs : QuestionService) {
-    
-  }
 }

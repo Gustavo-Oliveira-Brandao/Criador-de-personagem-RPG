@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 import { RollButtonComponent } from '../../components/roll-button/roll-button.component';
 import { CharacterService } from '../../services/character.service';
-import { ISkill } from '../../../../core/models/i-skill';
-import { QuestionBase } from '../../../../core/models/question-base';
-import { DropdownQuestion } from '../../../../core/models/dropdown-question';
-import { TextboxQuestion } from '../../../../core/models/textbox-question';
-import { QuestionService } from '../../../../shared/services/question.service';
 
 @Component({
   selector: 'app-skills-actions',
@@ -16,13 +11,8 @@ import { QuestionService } from '../../../../shared/services/question.service';
 })
 export class SkillsActionsComponent {
 
-  constructor(protected character:CharacterService, protected qs : QuestionService){}
+  constructor(protected character:CharacterService){}
 
-  editSkill(skill : ISkill, index : number){
-    this.qs.renderQuestions("skill", index)
-    this.qs.displayItem = skill
-    this.qs.openForm()
-  }
 }
 
 

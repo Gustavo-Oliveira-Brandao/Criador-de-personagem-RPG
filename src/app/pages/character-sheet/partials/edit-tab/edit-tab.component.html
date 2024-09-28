@@ -1,0 +1,81 @@
+<div class="edit-tab card">
+    <h2 class="title">EDITAR DETALHES</h2>
+
+    <img src="/assets/character-photo.png" alt="Foto de personagem">
+
+    <form [formGroup]="detailsForm" (submit)="onSubmit()">
+        @for(data of detailsFormData; track data.key){
+        <div class="form-field">
+            <label [htmlFor]="data.key">{{data.label}}</label>
+            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
+        </div>
+        }
+    </form>
+
+    <form [formGroup]="pvForm">
+        @for(data of pvFormData; track data.key){
+        <div class="form-field">
+            <label [htmlFor]="data.key">{{ data.label }}</label>
+            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
+        </div>
+        }
+    </form>
+
+    <form [formGroup]="mpForm">
+        @for(data of mpFormData; track data.key){
+        <div class="form-field">
+            <label [htmlFor]="data.key">{{ data.label }}</label>
+            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
+        </div>
+        }
+    </form>
+
+    <form [formGroup]="attributeForm">
+        @for(data of attributeFormData; track data.key){
+        <div class="form-field">
+            <label [htmlFor]="data.key">{{ data.label }}</label>
+            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
+        </div>
+        }
+    </form>
+
+    <form [formGroup]="savingThrowsForm">
+        @for(data of savingThrowsFormData; track data.key){
+        <div class="form-field">
+            <label [htmlFor]="data.key">{{ data.label }}</label>
+            @switch (data.controlType) {
+            @case ("input") {
+            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
+            }
+            @case ("dropdown"){
+            <select [id]="data.key" [formControlName]="data.key">
+                @for(option of data.options; track option){
+                <option [value]="option.key">{{option.value}}</option>
+                }
+            </select>
+            }
+            }
+        </div>
+        }
+    </form>
+
+    <form [formGroup]="skillsForm">
+        @for(data of skillsFormData; track data.key){
+        <div class="form-field">
+            <label [htmlFor]="data.key">{{ data.label }}</label>
+            @switch (data.controlType) {
+            @case ("input") {
+            <input [id]="data.key" [type]="data.type" [formControlName]="data.key">
+            }
+            @case ("dropdown"){
+            <select [id]="data.key" [formControlName]="data.key">
+                @for(option of data.options; track option){
+                <option [value]="option.key">{{option.value}}</option>
+                }
+            </select>
+            }
+            }
+        </div>
+        }
+    </form>
+</div>

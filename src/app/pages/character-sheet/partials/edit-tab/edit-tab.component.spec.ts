@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailsEditTabComponent } from './details-edit-tab.component';
+import { EditTabComponent } from './edit-tab.component';
 
-describe('DetailsEditTabComponent', () => {
-  let component: DetailsEditTabComponent;
-  let fixture: ComponentFixture<DetailsEditTabComponent>;
+describe('EditTabComponent', () => {
+  let component: EditTabComponent;
+  let fixture: ComponentFixture<EditTabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DetailsEditTabComponent]
+      imports: [EditTabComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DetailsEditTabComponent);
+    fixture = TestBed.createComponent(EditTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

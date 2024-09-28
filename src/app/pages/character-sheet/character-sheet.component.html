@@ -9,8 +9,6 @@
         <a routerLink="/inventario" routerLinkActive="active" ariaCurrentWhenActive="page">INVENTARIO</a>
         <a routerLink="/magias" routerLinkActive="active" ariaCurrentWhenActive="page">MAGIAS</a>
     </div>
-    @if(qs.isFormOpened){
-    <app-details-edit-tab [item]="qs.displayItem" />
-    }
+    <app-edit-tab />
     <router-outlet></router-outlet>
 </main>
