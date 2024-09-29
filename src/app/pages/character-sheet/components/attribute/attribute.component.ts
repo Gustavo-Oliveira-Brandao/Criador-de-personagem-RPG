@@ -14,12 +14,19 @@ export class AttributeComponent {
 
   @Input() attribute !: IAttribute
   @Input() index !: number
+  @Input() type = ""
 
-  constructor(private editTab : EditTabControlService){}
+  constructor(private editTab: EditTabControlService) { }
 
-  edit(index:number){
-    this.editTab.openTab="attribute"
-    this.editTab.attributeIndex = index
+  edit(index: number, type: string) {
+    if (type == "attribute") {
+      this.editTab.openTab = "attribute"
+      this.editTab.attributeIndex = index
+    }
+    if (type == "savingThrows") {
+      this.editTab.openTab = "savingThrows"
+      this.editTab.saveIndex = index
+    }
     this.editTab.open()
   }
 }

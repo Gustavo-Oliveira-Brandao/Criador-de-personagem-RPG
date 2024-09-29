@@ -1,4 +1,7 @@
-<button>
+<button (click)="playAudio()">
+    <audio id="dice-roll">
+        <source src="/dice-roll.mp3" type="audio/mpeg">
+    </audio>
     <img src="/assets/icons/d20.svg" alt="Rolagem" />
     <p>{{valor > 0 ? "+" + valor : valor}}</p>
 </button>

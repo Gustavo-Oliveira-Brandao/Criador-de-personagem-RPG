@@ -23,7 +23,7 @@
         </h2>
         <div class="content saving-throws">
             @for(save of character.savingThrows; track $index){
-            <app-attribute [attribute]="save" [index]="$index" />
+            <app-attribute [attribute]="save" [index]="$index" type="savingThrows" />
             }
         </div>
     </div>

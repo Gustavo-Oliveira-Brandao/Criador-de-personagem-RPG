@@ -19,6 +19,8 @@ export class CharacterService {
     level: 1
   }
 
+  edition = "t20"
+
   status = {
     actualPv: 1,
     maxPv: 1,
@@ -371,8 +373,19 @@ export class CharacterService {
 
   ]
 
-  updateSkillsValues() {
-    for (let skill of this.skills) {
+  updateSkills() {
+    if (this.edition == "t20") {
+      this.updateSkillsValuesT20(this.savingThrows)
+      this.updateSkillsValuesT20(this.skills)
+    }
+    if (this.edition == "jade") {
+      this.updateSkillsValuesJade(this.savingThrows)
+      this.updateSkillsValuesJade(this.skills)
+    }
+  }
+
+  updateSkillsValuesT20(skills: ISkill[]) {
+    for (let skill of skills) {
       let attributeModifier = 0
       for (let attribute of this.attributes) {
         if (attribute.name == skill.attribute) {
@@ -380,7 +393,7 @@ export class CharacterService {
         }
       }
 
-      this.checkSkillTraining(skill)
+      this.checkSkillTrainingT20(skill)
       if (skill.armorPenalty) {
         skill.value = Math.floor(this.details.level / 2) + skill.bonus + skill.trainingValue + attributeModifier - this.status.armorPenaltyValue
       }
@@ -390,7 +403,8 @@ export class CharacterService {
     }
   }
 
-  checkSkillTraining(skill: ISkill) {
+  checkSkillTrainingT20(skill: ISkill) {
+
     if (skill.training == "destreinado") {
       skill.trainingValue = 0
     }
@@ -403,6 +417,37 @@ export class CharacterService {
       }
       if (this.details.level > 15) {
         skill.trainingValue = 6
+      }
+    }
+
+  }
+
+  checkSkillTrainingJade(skill: ISkill) {
+
+    if (skill.training == "destreinado") {
+      skill.trainingValue = Math.floor(this.details.level / 2)
+    }
+    if (skill.training == "treinado") {
+      skill.trainingValue = this.details.level + 3
+    }
+
+  }
+
+  updateSkillsValuesJade(skills: ISkill[]) {
+    for (let skill of skills) {
+      let attributeModifier = 0
+      for (let attribute of this.attributes) {
+        if (attribute.name == skill.attribute) {
+          attributeModifier = attribute.value
+        }
+      }
+
+      this.checkSkillTrainingJade(skill)
+      if (skill.armorPenalty) {
+        skill.value = skill.bonus + skill.trainingValue + attributeModifier - this.status.armorPenaltyValue
+      }
+      else {
+        skill.value = skill.bonus + skill.trainingValue + attributeModifier
       }
     }
   }

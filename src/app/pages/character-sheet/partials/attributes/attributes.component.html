@@ -2,7 +2,7 @@
     <h2 class="title">ATRIBUTOS</h2>
     <div class="content">
         @for(attribute of character.attributes; track $index){
-            <app-attribute [attribute]="attribute" [index]="$index" />
+            <app-attribute [attribute]="attribute" [index]="$index" type="attribute" />
         }
     </div>
 </div>

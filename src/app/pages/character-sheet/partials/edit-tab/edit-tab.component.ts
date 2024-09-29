@@ -22,12 +22,13 @@ export class EditTabComponent {
     this.character.details.origin = String(this.detailsForm.value.origin)
     this.character.details.divinity = String(this.detailsForm.value.divinity)
     this.character.details.level = Number(this.detailsForm.value.level)
+    this.character.updateSkills()
   }
 
   onSubmitAttribute() {
     this.character.attributes[this.editTabControl.attributeIndex].value = Number(this.attributeForm.value.attributeValue)
     this.character.attributes[this.editTabControl.attributeIndex].bonus = Number(this.attributeForm.value.attributeBonus)
-    this.character.updateSkillsValues()
+    this.character.updateSkills()
   }
 
   onSubmitPv() {
@@ -49,13 +50,14 @@ export class EditTabComponent {
   onSubmitSavingThrows() {
     this.character.savingThrows[this.editTabControl.saveIndex].attribute = String(this.savingThrowsForm.value.saveAttribute)
     this.character.savingThrows[this.editTabControl.saveIndex].bonus = Number(this.savingThrowsForm.value.saveBonus)
+    this.character.updateSkills()
   }
 
   onSubmitSkills() {
     this.character.skills[this.editTabControl.skillIndex].attribute = String(this.skillsForm.value.skillAttribute)
     this.character.skills[this.editTabControl.skillIndex].training = String(this.skillsForm.value.skillTraining)
     this.character.skills[this.editTabControl.skillIndex].bonus = Number(this.skillsForm.value.skillBonus)
-    this.character.updateSkillsValues()
+    this.character.updateSkills()
   }
 
   constructor(private character: CharacterService, protected editTabControl: EditTabControlService) {
@@ -161,7 +163,7 @@ export class EditTabComponent {
     {
       key: "saveBonus",
       label: "Bônus do teste: ",
-      type: "text",
+      type: "number",
       controlType: "input"
     }
   ]
