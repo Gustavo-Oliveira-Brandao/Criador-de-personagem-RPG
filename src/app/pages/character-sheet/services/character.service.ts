@@ -230,6 +230,17 @@ export class CharacterService {
     },
 
     {
+      name: "identificar magia",
+      value: 0,
+      training: 'destreinado',
+      trainingValue: 0,
+      bonus: 0,
+      attribute: "inteligencia",
+      traningRestriction: true,
+      armorPenalty: false
+    },
+
+    {
       name: 'iniciativa',
       value: 0,
       training: 'destreinado',
@@ -303,6 +314,17 @@ export class CharacterService {
       bonus: 0,
       attribute: 'inteligencia',
       traningRestriction: true,
+      armorPenalty: false
+    },
+
+    {
+      name: "obter informacao",
+      value: 0,
+      training: "destreinado",
+      trainingValue: 0,
+      bonus: 0,
+      attribute: "carisma",
+      traningRestriction: false,
       armorPenalty: false
     },
 
