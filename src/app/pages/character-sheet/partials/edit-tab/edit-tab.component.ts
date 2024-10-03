@@ -42,14 +42,15 @@ export class EditTabComponent {
   }
 
   onSubmitPerception() {
-    this.character.perception.attribute = String(this.perceptionForm.value.perceptionAttribute)
-    this.character.perception.bonus = Number(this.perceptionForm.value.perceptionBonus)
-    this.character.perception.training = String(this.perceptionForm.value.training)
+    this.character.skills[22].attribute = String(this.perceptionForm.value.perceptionAttribute)
+    this.character.skills[22].bonus = Number(this.perceptionForm.value.perceptionBonus)
+    this.character.skills[22].training = String(this.perceptionForm.value.training)
   }
 
   onSubmitSavingThrows() {
-    this.character.savingThrows[this.editTabControl.saveIndex].attribute = String(this.savingThrowsForm.value.saveAttribute)
-    this.character.savingThrows[this.editTabControl.saveIndex].bonus = Number(this.savingThrowsForm.value.saveBonus)
+    this.character.savingThrows[this.editTabControl.saveIndex].attribute = String(this.savingThrowsForm.value.savingAttribute)
+    this.character.savingThrows[this.editTabControl.saveIndex].bonus = Number(this.savingThrowsForm.value.savingBonus)
+    this.character.savingThrows[this.editTabControl.saveIndex].training = String(this.savingThrowsForm.value.savingTraining)
     this.character.updateSkills()
   }
 
@@ -60,7 +61,7 @@ export class EditTabComponent {
     this.character.updateSkills()
   }
 
-  constructor(private character: CharacterService, protected editTabControl: EditTabControlService) {
+  constructor(private readonly character: CharacterService, protected editTabControl: EditTabControlService) {
 
   }
 
@@ -153,18 +154,26 @@ export class EditTabComponent {
   ]
 
   savingThrowsFormData = [
+    
     {
-      key: "saveAttribute",
+      key: "savingBonus",
+      label: "Bônus do teste: ",
+      type: "number",
+      controlType: "input"
+    },
+    {
+      key: "savingTraining",
+      label: "Treinamento: ",
+      type: "text",
+      controlType: "dropdown",
+      options: this.trainingData
+    },
+    {
+      key: "savingAttribute",
       label: "Atributo do teste: ",
       type: "text",
       controlType: "dropdown",
       options: this.attributesData
-    },
-    {
-      key: "saveBonus",
-      label: "Bônus do teste: ",
-      type: "number",
-      controlType: "input"
     }
   ]
 
@@ -216,14 +225,15 @@ export class EditTabComponent {
   })
 
   perceptionForm = new FormGroup({
-    perceptionBonus: new FormControl(this.character.perception.bonus),
-    perceptionAttribute: new FormControl(this.character.perception.attribute),
-    training: new FormControl(this.character.perception.training),
+    perceptionBonus: new FormControl(this.character.skills[22].bonus),
+    perceptionAttribute: new FormControl(this.character.skills[22].attribute),
+    training: new FormControl(this.character.skills[22].training),
   })
 
   savingThrowsForm = new FormGroup({
-    saveAttribute: new FormControl(this.character.savingThrows[this.editTabControl.saveIndex].attribute),
-    saveBonus: new FormControl(this.character.savingThrows[this.editTabControl.saveIndex].bonus)
+    savingBonus: new FormControl(this.character.savingThrows[this.editTabControl.saveIndex].bonus),
+    savingTraining: new FormControl(this.character.savingThrows[this.editTabControl.saveIndex].training),
+    savingAttribute: new FormControl(this.character.savingThrows[this.editTabControl.saveIndex].attribute)
   })
 
   skillsForm = new FormGroup({

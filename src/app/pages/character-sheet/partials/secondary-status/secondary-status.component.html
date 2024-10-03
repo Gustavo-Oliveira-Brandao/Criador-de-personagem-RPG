@@ -9,12 +9,12 @@
         </div>
     </div>
     <div class="minor-card card">
-        <h2 class="title">
+        <h2 (click)="edit(21)" class="title">
             PERCEPÇÃO
         </h2>
         <div class="content">
             <img src="/assets/icons/perception.svg" alt="Percepção" />
-            <app-roll-button [valor]="character.perception.value" />
+            <app-roll-button [valor]="character.skills[21].value" />
         </div>
     </div>
     <div class="card" style="width: 610px;">

@@ -5,8 +5,8 @@ export interface ISkill {
     training: string,
     trainingValue: number,
     attribute: string,
-    traningRestriction?: boolean,
-    armorPenalty?: boolean,
+    traningRestriction: boolean,
+    armorPenalty: boolean,
     subSkills?: [{
         name: string,
         description: string

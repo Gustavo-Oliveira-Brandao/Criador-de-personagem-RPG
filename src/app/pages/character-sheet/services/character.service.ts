@@ -70,16 +70,6 @@ export class CharacterService {
     value: 30
   }
 
-  perception: ISkill = {
-    name: "PERCEPÇÃO",
-    value: 0,
-    bonus: 0,
-    training: "destreinado",
-    trainingValue: 0,
-    attribute: "sabedoria"
-
-  }
-
   savingThrows: ISkill[] = [
     {
       name: "fortitude",
@@ -87,7 +77,9 @@ export class CharacterService {
       bonus: 0,
       training: "destreinado",
       trainingValue: 0,
-      attribute: "constituicao"
+      attribute: "constituicao",
+      traningRestriction: false,
+      armorPenalty: false
     },
     {
       name: "reflexos",
@@ -95,7 +87,9 @@ export class CharacterService {
       bonus: 0,
       training: "destreinado",
       trainingValue: 0,
-      attribute: "destreza"
+      attribute: "destreza",
+      traningRestriction: false,
+      armorPenalty: false
     },
     {
       name: "vontade",
@@ -103,7 +97,9 @@ export class CharacterService {
       bonus: 0,
       training: "destreinado",
       trainingValue: 0,
-      attribute: "sabedoria"
+      attribute: "sabedoria",
+      traningRestriction: false,
+      armorPenalty: false
     }
   ]
 
@@ -337,6 +333,17 @@ export class CharacterService {
       attribute: 'inteligencia',
       traningRestriction: true,
       armorPenalty: false
+    },
+
+    {
+    name: "percepcao",
+    value: 0,
+    bonus: 0,
+    training: "destreinado",
+    trainingValue: 0,
+    attribute: "sabedoria",
+    traningRestriction: false,
+    armorPenalty: false
     },
 
     {
