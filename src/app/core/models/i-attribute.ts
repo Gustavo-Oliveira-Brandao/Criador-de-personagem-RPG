@@ -1,6 +1,6 @@
 export interface IAttribute {
 
-    name: string,
-    value: number,
+    name: string
+    value: number
     bonus: number
 }

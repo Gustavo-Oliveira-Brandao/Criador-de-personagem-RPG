@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { ISkill } from '../../../core/models/i-skill';
 import { IAttribute } from '../../../core/models/i-attribute';
 import { IDetails } from '../../../core/models/idetails';
+import { IAction } from '../../../core/models/i-action';
+import { ISpell } from '../../../core/models/i-spell';
 
 @Injectable({
   providedIn: 'root'
@@ -336,14 +338,14 @@ export class CharacterService {
     },
 
     {
-    name: "percepcao",
-    value: 0,
-    bonus: 0,
-    training: "destreinado",
-    trainingValue: 0,
-    attribute: "sabedoria",
-    traningRestriction: false,
-    armorPenalty: false
+      name: "percepcao",
+      value: 0,
+      bonus: 0,
+      training: "destreinado",
+      trainingValue: 0,
+      attribute: "sabedoria",
+      traningRestriction: false,
+      armorPenalty: false
     },
 
     {
@@ -391,16 +393,29 @@ export class CharacterService {
     },
   ];
 
-  actions: any = [
+  actions: IAction[] = [
     {
-      name: "Ataque desarmado",
+      name: "Espada grande",
       range: "Corpo a corpo",
-      hitValue: 9,
-      damageText: "1d8+8+2d6",
-
-    },
-
+      toHitAttribute: "forca",
+      toHit: 10,
+      critQuantity: 2,
+      critMargin: 19,
+      description: "",
+      damageAttributeBonus: 0,
+      isSpell: false,
+      damages: [
+        {
+          quantity: 2,
+          diceSize: 6,
+          attribute: "forca",
+          type: "cortante"
+        }
+      ]
+    }
   ]
+
+  spells: ISpell[] = []
 
   updateSkills() {
     if (this.edition == "t20") {

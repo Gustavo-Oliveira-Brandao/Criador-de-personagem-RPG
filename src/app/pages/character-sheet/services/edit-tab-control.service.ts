@@ -8,9 +8,10 @@ export class EditTabControlService {
   constructor() {
   }
 
-  attributeIndex : number = 0
-  skillIndex : number = 0
+  attributeIndex = 0
+  skillIndex = 0
   saveIndex = 0
+  actionIndex = 0
   openTab : string = ""
   item : any
 

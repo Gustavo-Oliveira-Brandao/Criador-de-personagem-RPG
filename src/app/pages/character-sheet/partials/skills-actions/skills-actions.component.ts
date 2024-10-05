@@ -12,11 +12,21 @@ import { EditTabControlService } from '../../services/edit-tab-control.service';
 })
 export class SkillsActionsComponent {
 
-  constructor(protected character:CharacterService, private editTab : EditTabControlService){}
+  constructor(protected character: CharacterService, private readonly editTab: EditTabControlService) { }
 
-  edit(index: number){
-    this.editTab.openTab="skills"
-    this.editTab.skillIndex = index
+  edit(index: number, tab: string) {
+    this.editTab.openTab = tab
+    if (tab == "skills") {
+      this.editTab.skillIndex = index
+    }
+    if (tab == "actions") {
+      this.editTab.actionIndex = index
+    }
+    this.editTab.open()
+  }
+
+  addAction(){
+    this.editTab.openTab = "actions"
     this.editTab.open()
   }
 }

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { EditTabControlService } from '../../services/edit-tab-control.service';
 import { CharacterService } from '../../services/character.service';
 import { DynamicFormComponent } from '../../../../shared/components/dynamic-form/dynamic-form.component';
-import { IDetails } from '../../../../core/models/idetails';
 
 
 @Component({
@@ -61,7 +60,11 @@ export class EditTabComponent {
     this.character.updateSkills()
   }
 
-  constructor(private readonly character: CharacterService, protected editTabControl: EditTabControlService) {
+  onSubmitActions(){
+
+  }
+
+  constructor(private readonly character: CharacterService, protected editTabControl: EditTabControlService, private readonly formBuilder: FormBuilder) {
 
   }
 
@@ -154,7 +157,6 @@ export class EditTabComponent {
   ]
 
   savingThrowsFormData = [
-    
     {
       key: "savingBonus",
       label: "Bônus do teste: ",
@@ -200,46 +202,52 @@ export class EditTabComponent {
     }
   ]
 
-  detailsForm = new FormGroup({
-    name: new FormControl(this.character.details.name),
-    race: new FormControl(this.character.details.race),
-    class: new FormControl(this.character.details.class),
-    origin: new FormControl(this.character.details.origin),
-    divinity: new FormControl(this.character.details.divinity),
-    level: new FormControl(this.character.details.level)
+  actionsFormData = []
+
+  detailsForm = this.formBuilder.group({
+    name: [this.character.details.name],
+    race: [this.character.details.race],
+    class: [this.character.details.class],
+    origin: [this.character.details.origin],
+    divinity: [this.character.details.divinity],
+    level: [this.character.details.level]
   })
 
-  pvForm = new FormGroup({
-    actualPv: new FormControl(this.character.status.actualPv),
-    maxPv: new FormControl(this.character.status.maxPv)
+  pvForm = this.formBuilder.group({
+    actualPv: [this.character.status.actualPv],
+    maxPv: [this.character.status.maxPv]
   })
 
-  mpForm = new FormGroup({
-    actualMp: new FormControl(this.character.status.actualMp),
-    maxMp: new FormControl(this.character.status.maxMp)
+  mpForm = this.formBuilder.group({
+    actualMp: [this.character.status.actualMp],
+    maxMp: [this.character.status.maxMp]
   })
 
-  attributeForm = new FormGroup({
-    attributeValue: new FormControl(this.character.attributes[this.editTabControl.attributeIndex].value),
-    attributeBonus: new FormControl(this.character.attributes[this.editTabControl.attributeIndex].bonus)
+  attributeForm = this.formBuilder.group({
+    attributeValue: [this.character.attributes[this.editTabControl.attributeIndex].value],
+    attributeBonus: [this.character.attributes[this.editTabControl.attributeIndex].bonus]
   })
 
-  perceptionForm = new FormGroup({
-    perceptionBonus: new FormControl(this.character.skills[22].bonus),
-    perceptionAttribute: new FormControl(this.character.skills[22].attribute),
-    training: new FormControl(this.character.skills[22].training),
-  })
+  perceptionForm = this.formBuilder.group({
+    perceptionBonus: [this.character.skills[22].bonus],
+    perceptionAttribute: [this.character.skills[22].attribute],
+    training: [this.character.skills[22].training],
+  });
 
-  savingThrowsForm = new FormGroup({
-    savingBonus: new FormControl(this.character.savingThrows[this.editTabControl.saveIndex].bonus),
-    savingTraining: new FormControl(this.character.savingThrows[this.editTabControl.saveIndex].training),
-    savingAttribute: new FormControl(this.character.savingThrows[this.editTabControl.saveIndex].attribute)
-  })
+  savingThrowsForm = this.formBuilder.group({
+    savingBonus: [this.character.savingThrows[this.editTabControl.saveIndex].bonus],
+    savingTraining: [this.character.savingThrows[this.editTabControl.saveIndex].training],
+    savingAttribute: [this.character.savingThrows[this.editTabControl.saveIndex].attribute],
+  });
 
-  skillsForm = new FormGroup({
-    skillBonus: new FormControl(this.character.skills[this.editTabControl.skillIndex].bonus),
-    skillTraining: new FormControl(this.character.skills[this.editTabControl.skillIndex].training),
-    skillAttribute: new FormControl(this.character.skills[this.editTabControl.skillIndex].attribute)
+  skillsForm = this.formBuilder.group({
+    skillBonus: [this.character.skills[this.editTabControl.skillIndex].bonus],
+    skillTraining: [this.character.skills[this.editTabControl.skillIndex].training],
+    skillAttribute: [this.character.skills[this.editTabControl.skillIndex].attribute],
+  });
+
+  actionsForm=this.formBuilder.group({
+    actionName: []
   })
 
 }

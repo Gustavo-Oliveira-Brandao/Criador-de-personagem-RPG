@@ -5,7 +5,7 @@
             @for(skill of character.skills; track $index){
             <div class="item">
                 <div class="item-card">
-                    <button class="item-name" (click)="edit($index)">
+                    <button class="item-name" (click)="edit($index, 'skills')">
                         <p class="name">{{skill.name}}</p>
                         <p class="short-description">{{skill.attribute}}</p>
                     </button>
@@ -22,7 +22,7 @@
     <div class="card full-size-card">
         <h2 class="title">AÇÕES</h2>
         <div class="items">
-            @for(action of character.actions; track action.id){
+            @for(action of character.actions; track $index){
             <div class="item">
                 <div class="item-card">
                     <button class="item-name">
@@ -30,14 +30,20 @@
                         <p class="short-description">{{action.range}}</p>
                     </button>
                     <div class="item-rolls">
-                        <app-roll-button [valor]="action.hitValue" />
+                        @if(action.toHit){
+                        <app-roll-button [valor]="action.toHit" />
+                        }
                         <button class="damage-button">
-                            <p>{{action.damageText}}</p>
+                            @if(action.damages){
+                            <p>{{action.damages[0].quantity + "d" + action.damages[0].diceSize + " " +
+                                action.damages[0].type}}</p>
+                            }
                         </button>
                     </div>
                 </div>
             </div>
             }
+            <button class="btn-open-modal" (click)="addAction()">Adicionar</button>
         </div>
     </div>
 </div>
