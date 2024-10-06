@@ -12,4 +12,6 @@ export class DynamicFormComponent {
 
   @Input() Form !: FormGroup
   @Input() FormData : any
+  @Input() callbackFunction !: () => void
+
 }

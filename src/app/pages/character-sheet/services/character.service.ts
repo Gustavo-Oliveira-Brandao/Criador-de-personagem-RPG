@@ -397,7 +397,7 @@ export class CharacterService {
     {
       name: "Espada grande",
       range: "Corpo a corpo",
-      toHitAttribute: "forca",
+      toHitSkill: "luta",
       toHit: 10,
       critQuantity: 2,
       critMargin: 19,

@@ -1,4 +1,4 @@
-<form [formGroup]="Form" >
+<form [formGroup]="Form" (change)="callbackFunction()" >
     @for(data of FormData; track data.key){
     <div class="form-field">
         <label [htmlFor]="data.key">{{ data.label }}</label>

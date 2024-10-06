@@ -4,33 +4,33 @@
     @switch (editTabControl.openTab) {
 
     @case ("details"){
-    <app-dynamic-form [Form]="detailsForm" [FormData]="detailsFormData" (change)="onSubmitDetails()"></app-dynamic-form>
+    <app-dynamic-form [Form]="detailsForm" [FormData]="detailsFormData" [callbackFunction]="onSubmitDetails"></app-dynamic-form>
     }
 
     @case("pv"){
-    <app-dynamic-form [Form]="pvForm" [FormData]="pvFormData" (change)="onSubmitPv()"></app-dynamic-form>
+    <app-dynamic-form [Form]="pvForm" [FormData]="pvFormData" [callbackFunction]="onSubmitPv"></app-dynamic-form>
     }
 
     @case("mp"){
-    <app-dynamic-form [Form]="mpForm" [FormData]="mpFormData" (change)="onSubmitMp()"></app-dynamic-form>
+    <app-dynamic-form [Form]="mpForm" [FormData]="mpFormData" [callbackFunction]="onSubmitMp"></app-dynamic-form>
     }
 
     @case("attribute"){
     <app-dynamic-form [Form]="attributeForm" [FormData]="attributeFormData"
-        (change)="onSubmitAttribute()"></app-dynamic-form>
+        [callbackFunction]="onSubmitAttribute"></app-dynamic-form>
     }
 
     @case("savingThrows"){
     <app-dynamic-form [Form]="savingThrowsForm" [FormData]="savingThrowsFormData"
-        (change)="onSubmitSavingThrows()"></app-dynamic-form>
+        [callbackFunction]="onSubmitSavingThrows"></app-dynamic-form>
     }
 
     @case("skills"){
-    <app-dynamic-form [Form]="skillsForm" [FormData]="skillsFormData" (change)="onSubmitSkills()"></app-dynamic-form>
+    <app-dynamic-form [Form]="skillsForm" [FormData]="skillsFormData" [callbackFunction]="onSubmitSkills"></app-dynamic-form>
     }
 
     @case("actions"){
-    <app-dynamic-form [Form]="actionsForm" [FormData]="actionsFormData" (change)="onSubmitSkills()"></app-dynamic-form>
+    <app-dynamic-form [Form]="actionsForm" [FormData]="actionsFormData" [callbackFunction]="onSubmitSkills"></app-dynamic-form>
     }
     }
 </div>

@@ -13,6 +13,8 @@
             @for(talent of classTalents; track $index){
             <app-talent [talent]="talent" />
             }
+
+            <button class="btn-open-modal" (click)="addTalent()">Adicionar</button>
         </div>
     </div>
 </div>
