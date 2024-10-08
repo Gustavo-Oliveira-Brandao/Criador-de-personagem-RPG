@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DetailButtonComponent } from "../../components/detail-button/detail-button.component";
 import { CharacterService } from '../../services/character.service';
-import { EditTabControlService } from '../../services/edit-tab-control.service';
 
 
 @Component({
@@ -13,12 +12,5 @@ import { EditTabControlService } from '../../services/edit-tab-control.service';
 })
 export class DetailsComponent {
 
-  constructor(protected character:CharacterService, protected editTab: EditTabControlService) {
-    
-  }
-
-  edit(){
-    this.editTab.openTab = "details"
-    this.editTab.open()
-  }
+  constructor(protected character:CharacterService){}
 }

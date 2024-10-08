@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { IFormData } from '../../../core/models/i-form-data';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -11,7 +12,7 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class DynamicFormComponent {
 
   @Input() Form !: FormGroup
-  @Input() FormData : any
+  @Input() FormData !: IFormData[]
   @Input() callbackFunction !: () => void
 
 }

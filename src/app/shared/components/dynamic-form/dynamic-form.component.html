@@ -1,4 +1,4 @@
-<form [formGroup]="Form" (change)="callbackFunction()" >
+<form [formGroup]="Form" (change)="callbackFunction()">
     @for(data of FormData; track data.key){
     <div class="form-field">
         <label [htmlFor]="data.key">{{ data.label }}</label>
@@ -9,9 +9,12 @@
         @case ("dropdown"){
         <select [id]="data.key" [formControlName]="data.key">
             @for(option of data.options; track option){
-            <option [value]="option">{{option}}</option>
+            <option [value]="option.key">{{option.value}}</option>
             }
         </select>
+        }
+        @case ("textarea"){
+        <textarea [id]="data.key"></textarea>
         }
         }
     </div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SkillsActionsComponent } from './skills-actions.component';
+import { ExpandedTabComponent } from './expanded-tab.component';
 
-describe('SkillsActionsComponent', () => {
-  let component: SkillsActionsComponent;
-  let fixture: ComponentFixture<SkillsActionsComponent>;
+describe('ExpandedTabComponent', () => {
+  let component: ExpandedTabComponent;
+  let fixture: ComponentFixture<ExpandedTabComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SkillsActionsComponent]
+      imports: [ExpandedTabComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SkillsActionsComponent);
+    fixture = TestBed.createComponent(ExpandedTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

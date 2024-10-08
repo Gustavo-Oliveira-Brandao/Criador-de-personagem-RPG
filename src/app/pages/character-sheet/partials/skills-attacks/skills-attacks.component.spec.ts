@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditTabComponent } from './edit-tab.component';
+import { SkillsAttacksComponent } from './skills-attacks.component';
 
-describe('EditTabComponent', () => {
-  let component: EditTabComponent;
-  let fixture: ComponentFixture<EditTabComponent>;
+describe('SkillsActionsComponent', () => {
+  let component: SkillsAttacksComponent;
+  let fixture: ComponentFixture<SkillsAttacksComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EditTabComponent]
+      imports: [SkillsAttacksComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EditTabComponent);
+    fixture = TestBed.createComponent(SkillsAttacksComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

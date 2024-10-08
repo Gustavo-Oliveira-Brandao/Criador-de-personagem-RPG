@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { ResourceBarComponent } from "../../components/resource-bar/resource-bar.component";
 import { FormsModule } from "@angular/forms"
-import { EditTabControlService } from '../../services/edit-tab-control.service';
 import { CharacterService } from '../../services/character.service';
+import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
+
 
 @Component({
   selector: 'app-status',
@@ -13,14 +14,7 @@ import { CharacterService } from '../../services/character.service';
 })
 export class StatusComponent {
 
-  constructor(private editTab: EditTabControlService, protected character : CharacterService){}
-  editPv(){
-    this.editTab.openTab = "pv"
-    this.editTab.open()
+  constructor(protected character:CharacterService, protected etc : ExpandedTabControlService){
   }
 
-  editMp(){
-    this.editTab.openTab = "mp"
-    this.editTab.open()
-  }
 }

@@ -5,7 +5,7 @@
             @for(skill of character.skills; track $index){
             <div class="item">
                 <div class="item-card">
-                    <button class="item-name" (click)="edit($index, 'skills')">
+                    <button class="item-name" >
                         <p class="name">{{skill.name}}</p>
                         <p class="short-description">{{skill.attribute}}</p>
                     </button>
@@ -20,30 +20,30 @@
     </div>
 
     <div class="card full-size-card">
-        <h2 class="title">AÇÕES</h2>
+        <h2 class="title">ATAQUES</h2>
         <div class="items">
-            @for(action of character.actions; track $index){
+            @for(attack of character.attacks; track $index){
             <div class="item">
                 <div class="item-card">
                     <button class="item-name">
-                        <p class="name">{{action.name}}</p>
-                        <p class="short-description">{{action.range}}</p>
+                        <p class="name">{{attack.name}}</p>
+                        <p class="short-description">{{attack.range}}</p>
                     </button>
                     <div class="item-rolls">
-                        @if(action.toHit){
-                        <app-roll-button [valor]="action.toHit" />
+                        @if(attack.toHit){
+                        <app-roll-button [valor]="attack.toHit" />
                         }
                         <button class="damage-button">
-                            @if(action.damages){
-                            <p>{{action.damages[0].quantity + "d" + action.damages[0].diceSize + " " +
-                                action.damages[0].type}}</p>
+                            @if(attack.damages){
+                            <p>{{attack.damages[0].quantity + "d" + attack.damages[0].diceSize + " " +
+                            attack.damages[0].type}}</p>
                             }
                         </button>
                     </div>
                 </div>
             </div>
             }
-            <button class="btn-open-modal" (click)="addAction()">Adicionar</button>
+            <button class="btn-open-modal">Adicionar</button>
         </div>
     </div>
 </div>

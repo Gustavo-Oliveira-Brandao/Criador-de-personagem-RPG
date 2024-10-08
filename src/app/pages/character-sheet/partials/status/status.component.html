@@ -1,8 +1,8 @@
 <div class="row">
     <div class="card large-card">
-        <h2 class="title" (click)="editPv()">PONTOS DE VIDA</h2>
+        <h2 class="title">PONTOS DE VIDA</h2>
         <div class="content">
-            <app-resource-bar (click)="editPv()" icon="heart.svg" css="red-bar" [atual]='character.status.actualPv'
+            <app-resource-bar icon="heart.svg" css="red-bar" [atual]='character.status.actualPv'
                 [max]='character.status.maxPv' />
         </div>
     </div>
@@ -14,9 +14,9 @@
         </div>
     </div>
     <div class="card large-card">
-        <h2 class="title" (click)="editMp()">PONTOS DE MANA</h2>
+        <h2 class="title">PONTOS DE MANA</h2>
         <div class="content">
-            <app-resource-bar (click)="editMp()" icon="mp.svg" css="blue-bar" [atual]="character.status.actualMp"
+            <app-resource-bar icon="mp.svg" css="blue-bar" [atual]="character.status.actualMp"
                 [max]="character.status.maxMp" />
         </div>
     </div>

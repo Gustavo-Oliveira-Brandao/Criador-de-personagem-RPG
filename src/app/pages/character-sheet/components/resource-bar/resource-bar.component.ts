@@ -22,6 +22,5 @@ export class ResourceBarComponent implements OnChanges {
 
   ngOnChanges(changes : SimpleChanges){
     this.barWidth = (this.atual / this.max ) * 100
-    console.log("Teste")
   }
 }

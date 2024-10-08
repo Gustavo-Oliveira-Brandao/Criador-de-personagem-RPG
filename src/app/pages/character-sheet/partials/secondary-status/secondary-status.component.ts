@@ -4,7 +4,6 @@ import { RollButtonComponent } from "../../components/roll-button/roll-button.co
 import { AttributeComponent } from '../../components/attribute/attribute.component';
 
 import { CharacterService } from '../../services/character.service';
-import { EditTabControlService } from '../../services/edit-tab-control.service';
 
 @Component({
   selector: 'app-secondary-status',
@@ -15,12 +14,8 @@ import { EditTabControlService } from '../../services/edit-tab-control.service';
 })
 export class SecondaryStatusComponent {
 
-  constructor(protected character : CharacterService, private editTab: EditTabControlService){}
+  constructor(protected character : CharacterService){}
 
   
-  edit(index: number){
-    this.editTab.openTab="skills"
-    this.editTab.skillIndex = index
-    this.editTab.open()
-  }
+
 }

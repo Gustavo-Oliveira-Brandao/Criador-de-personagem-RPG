@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ISkill } from '../../../core/models/i-skill';
 import { IAttribute } from '../../../core/models/i-attribute';
 import { IDetails } from '../../../core/models/idetails';
-import { IAction } from '../../../core/models/i-action';
+import { IAttack } from '../../../core/models/i-attack';
 import { ISpell } from '../../../core/models/i-spell';
 
 @Injectable({
@@ -393,7 +393,7 @@ export class CharacterService {
     },
   ];
 
-  actions: IAction[] = [
+  attacks: IAttack[] = [
     {
       name: "Espada grande",
       range: "Corpo a corpo",

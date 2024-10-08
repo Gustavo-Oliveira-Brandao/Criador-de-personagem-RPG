@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import { SkillsActionsComponent } from './pages/character-sheet/partials/skills-actions/skills-actions.component';
+import { SkillsAttacksComponent } from './pages/character-sheet/partials/skills-attacks/skills-attacks.component';
 import { TalentsComponent } from './pages/character-sheet/partials/talents/talents.component';
 import { SpellsComponent } from './pages/character-sheet/partials/spells/spells.component';
 import { InventoryComponent } from './pages/character-sheet/partials/inventory/inventory.component';
 
 export const routes: Routes = [
 {
-    path: "ficha", component: SkillsActionsComponent
+    path: "ficha", component: SkillsAttacksComponent
 },
 {
     path: "habilidades", component: TalentsComponent
@@ -21,6 +21,6 @@ export const routes: Routes = [
     path: "", redirectTo: "/ficha", pathMatch: "full"
 },
 {
-    path: "**", component: SkillsActionsComponent
+    path: "**", component: SkillsAttacksComponent
 }
 ];

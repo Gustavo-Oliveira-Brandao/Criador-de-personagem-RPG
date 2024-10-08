@@ -1,0 +1,29 @@
+<div class="card expanded-tab">
+    <h2 class="title">{{etc.category}}</h2>
+
+    <h3>{{etc.title}}</h3>
+
+    @switch(etc.tab){
+        @case("attribute"){
+
+        }
+        @case("skill"){
+            <div>
+                <p>{{etc.choosenSkill.value}}</p>
+                <p>{{etc.choosenSkill.name}}</p>
+            </div>
+        }
+        @case("attack"){
+
+        }
+        @case("spell"){
+
+        }
+        @case("ac"){
+            
+        }
+    }
+
+    <app-dynamic-form />
+
+</div>
