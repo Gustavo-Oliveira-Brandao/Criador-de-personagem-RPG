@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IFormData } from '../../../core/models/i-form-data';
 
@@ -14,5 +14,9 @@ export class DynamicFormComponent {
   @Input() Form !: FormGroup
   @Input() FormData !: IFormData[]
   @Input() callbackFunction !: () => void
+
+  constructor(){
+    
+  }
 
 }

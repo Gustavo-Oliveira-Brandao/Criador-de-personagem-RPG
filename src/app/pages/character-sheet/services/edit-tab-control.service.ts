@@ -17,11 +17,6 @@ export class EditTabControlService {
 
   isOpened = false
 
-  open(){
-    this.isOpened = false
-    setTimeout(() => {
-      this.isOpened = true
-    }, 1);
-  }
+
 
 }

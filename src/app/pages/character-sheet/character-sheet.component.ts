@@ -7,6 +7,8 @@ import { StatusComponent } from './partials/status/status.component';
 import { SecondaryStatusComponent } from './partials/secondary-status/secondary-status.component';
 import { SkillsAttacksComponent } from './partials/skills-attacks/skills-attacks.component';
 import { ExpandedTabComponent } from "./partials/expanded-tab/expanded-tab.component";
+import { EditTabControlService } from './services/edit-tab-control.service';
+import { ExpandedTabControlService } from './services/expanded-tab-control.service';
 
 @Component({
   selector: 'app-character-sheet',
@@ -17,5 +19,5 @@ import { ExpandedTabComponent } from "./partials/expanded-tab/expanded-tab.compo
 })
 export class CharacterSheetComponent {
 
-  constructor() { }
+  constructor(protected etc : ExpandedTabControlService) { }
 }
