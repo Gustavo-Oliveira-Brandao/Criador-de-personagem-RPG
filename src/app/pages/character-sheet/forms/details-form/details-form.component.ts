@@ -29,53 +29,48 @@ export class DetailsFormComponent {
       key: "charName",
       label: "nome do personagem: ",
       type: "text",
-      controlType: "input",
-      required: true
+      controlType: "input"
     },
     {
       key: "charRace",
       label: "raça: ",
       type: "text",
-      controlType: "input",
-      required: true
+      controlType: "input"
     },
     {
       key: "charClass",
       label: "classe: ",
       type: "text",
-      controlType: "input",
-      required: true
+      controlType: "input"
     },
     {
       key: "charOrigin",
       label: "origem: ",
       type: "text",
-      controlType: "input",
-      required: true
+      controlType: "input"
     },
     {
       key: "charDivinity",
       label: "Divindade: ",
       type: "text",
-      controlType: "input",
-      required: true
+      controlType: "input"
     },
     {
       key: "charLevel",
       label: "nivel: ",
       type: "number",
-      controlType: "input",
-      required: true
+      controlType: "input"
     }
   ]
 
   onSubmit() {
-    this.character.details.name = String(this.detailsForm.controls.charName.value)
-    this.character.details.race = String(this.detailsForm.controls.charRace.value)
-    this.character.details.class = String(this.detailsForm.controls.charClass.value)
-    this.character.details.origin = String(this.detailsForm.controls.charOrigin.value)
-    this.character.details.divinity = String(this.detailsForm.controls.charDivinity.value)
-    this.character.details.level = Number(this.detailsForm.controls.charLevel.value)
+    const { charName, charRace, charClass, charOrigin, charDivinity, charLevel } = this.detailsForm.controls
+    this.character.details.name = String(charName.value)
+    this.character.details.race = String(charRace.value)
+    this.character.details.class = String(charClass.value)
+    this.character.details.origin = String(charOrigin.value)
+    this.character.details.divinity = String(charDivinity.value)
+    this.character.details.level = Number(charLevel.value)
     this.character.updateSkills()
   }
 }

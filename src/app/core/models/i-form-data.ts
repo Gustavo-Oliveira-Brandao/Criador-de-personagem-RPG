@@ -3,7 +3,7 @@ export interface IFormData {
     label: string,
     type: string,
     controlType: string,
-    required: boolean,
+    placeholder ?: string,
     options ?: 
         {
             key: string,

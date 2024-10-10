@@ -13,11 +13,11 @@ export class CharacterService {
   constructor() { }
 
   details: IDetails = {
-    name: "Insira seu nome",
-    race: "Insira sua raça",
-    class: "Insira sua classe",
-    origin: "Insira sua origem",
-    divinity: "Insira sua divindade",
+    name: "Sem nome",
+    race: "Sem raça",
+    class: "Sem classe",
+    origin: "Sem origem",
+    divinity: "Sem divindade",
     level: 1
   }
 
@@ -394,25 +394,6 @@ export class CharacterService {
   ];
 
   attacks: IAttack[] = [
-    {
-      name: "Espada grande",
-      range: "Corpo a corpo",
-      toHitSkill: "luta",
-      toHit: 10,
-      critQuantity: 2,
-      critMargin: 19,
-      description: "",
-      damageAttributeBonus: 0,
-      isSpell: false,
-      damages: [
-        {
-          quantity: 2,
-          diceSize: 6,
-          attribute: "forca",
-          type: "cortante"
-        }
-      ]
-    }
   ]
 
   spells: ISpell[] = []

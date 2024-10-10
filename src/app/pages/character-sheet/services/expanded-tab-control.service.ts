@@ -3,16 +3,14 @@ import { IAttack } from '../../../core/models/i-attack';
 import { ISpell } from '../../../core/models/i-spell';
 import { ISkill } from '../../../core/models/i-skill';
 import { IAttribute } from '../../../core/models/i-attribute';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CharacterService } from './character.service';
-import { IFormData } from '../../../core/models/i-form-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExpandedTabControlService {
 
-  constructor(private character: CharacterService) {
+  constructor(private readonly character: CharacterService) {
 
   }
 
@@ -72,6 +70,33 @@ export class ExpandedTabControlService {
     {
       key: "carisma",
       value: "Carisma"
+    }
+  ]
+
+  damageTypeData = [
+    {
+      key: "cortante",
+      value: "Cortante"
+    },
+    {
+      key: "perfurante",
+      value: "Perfurante"
+    },
+    {
+      key: "concussao",
+      value: "Concussão"
+    },
+    {
+      key: "fogo",
+      value: "Fogo"
+    },
+    {
+      key: "frio",
+      value: "Frio"
+    },
+    {
+      key: "eletrico",
+      value: "Elétrico"
     }
   ]
 

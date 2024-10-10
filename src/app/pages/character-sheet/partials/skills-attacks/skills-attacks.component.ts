@@ -21,6 +21,12 @@ export class SkillsAttacksComponent {
     this.etc.index = index
     this.etc.open()
   }
+
+  addAttack(){
+    this.etc.tab = "attack"
+    this.etc.action = "add"
+    this.etc.open()
+  }
 }
 
 

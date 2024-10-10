@@ -25,21 +25,20 @@ export class AttrFormComponent {
       key: "attrValue",
       label: "valor do atributo: ",
       type: "number",
-      controlType: "input",
-      required: true
+      controlType: "input"
     },
     {
       key: "attrBonus",
       label: "bônus do atributo: ",
       type: "number",
-      controlType: "input",
-      required: true
+      controlType: "input"
     }
   ]
 
   onSubmit() {
-    this.character.attributes[this.etc.index].value = Number(this.attrForm.controls.attrValue.value)
-    this.character.attributes[this.etc.index].bonus = Number(this.attrForm.controls.attrBonus.value)
+    const { attrValue, attrBonus } = this.attrForm.controls
+    this.character.attributes[this.etc.index].value = Number(attrValue.value)
+    this.character.attributes[this.etc.index].bonus = Number(attrBonus.value)
     this.character.updateSkills()
   }
 }

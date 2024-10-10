@@ -25,15 +25,13 @@ export class SkillFormComponent {
       key: "skillBonus",
       label: "bônus da pericia: ",
       type: "number",
-      controlType: "input",
-      required: true
+      controlType: "input"
     },
     {
       key: "skillTraining",
       label: "treinamento: ",
       type: "text",
       controlType: "dropdown",
-      required: true,
       options: this.etc.trainingData
     },
     {
@@ -41,22 +39,22 @@ export class SkillFormComponent {
       label: "Atributo: ",
       type: "text",
       controlType: "dropdown",
-      required: true,
       options: this.etc.attrData
     }
   ]
 
   onSubmit() {
+    const { skillBonus, skillTraining, skillAttr } = this.skillForm.controls
     if (this.etc.tab == "skill") {
-      this.character.skills[this.etc.index].bonus = Number(this.skillForm.controls.skillBonus.value)
-      this.character.skills[this.etc.index].training = String(this.skillForm.controls.skillTraining.value)
-      this.character.skills[this.etc.index].attribute = String(this.skillForm.controls.skillAttr.value)
+      this.character.skills[this.etc.index].bonus = Number(skillBonus.value)
+      this.character.skills[this.etc.index].training = String(skillTraining.value)
+      this.character.skills[this.etc.index].attribute = String(skillAttr.value)
     }
 
     if (this.etc.tab == "save") {
-      this.character.savingThrows[this.etc.index].bonus = Number(this.skillForm.controls.skillBonus.value)
-      this.character.savingThrows[this.etc.index].training = String(this.skillForm.controls.skillTraining.value)
-      this.character.savingThrows[this.etc.index].attribute = String(this.skillForm.controls.skillAttr.value)
+      this.character.savingThrows[this.etc.index].bonus = Number(skillBonus.value)
+      this.character.savingThrows[this.etc.index].training = String(skillTraining.value)
+      this.character.savingThrows[this.etc.index].attribute = String(skillAttr.value)
     }
     this.character.updateSkills()
   }

@@ -1,22 +1,28 @@
 <form [formGroup]="detailsForm" (change)="onSubmit()">
     @for(question of detailsQuestions; track question.key){
-        <div class="form-field">
+    <div class="form-row">
+        <div [className]="question.controlType == 'textarea' ? 'full-size-field form-field' : 'form-field'">
             <label [htmlFor]="question.key">{{question.label}}</label>
-            @switch(question.controlType){
+            <div [className]="question.controlType == 'textarea' ? '' : 'border-form-field'">
+                @switch(question.controlType){
                 @case("input"){
-                    <input [id]="question.key" [type]="question.type" [formControlName]="question.key" />
+                <input [id]="question.key" [type]="question.type"
+                    [className]="question.type == 'text' ? 'medium-input' : 'small-input'"
+                    [formControlName]="question.key" />
                 }
                 @case("dropdown"){
-                    <select [id]="question.key" [formControlName]="question.key">
-                        @for(option of question.options; track option){
-                            <option [value]="option.key">{{option.value}}</option>
-                        }
-                    </select>
+                <select [id]="question.key" [formControlName]="question.key">
+                    @for(option of question.options; track option){
+                    <option [value]="option.key">{{option.value}}</option>
+                    }
+                </select>
                 }
                 @case("textarea"){
-                    <textarea [id]="question.key"></textarea>
+                <textarea [id]="question.key"></textarea>
                 }
-            }
+                }
+            </div>
         </div>
+    </div>
     }
 </form>
