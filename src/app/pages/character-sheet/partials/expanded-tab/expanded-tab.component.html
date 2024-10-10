@@ -4,26 +4,32 @@
     <h3>{{etc.title}}</h3>
 
     @switch(etc.tab){
-        @case("attribute"){
-
-        }
-        @case("skill"){
-            <div>
-                <p>{{etc.choosenSkill.value}}</p>
-                <p>{{etc.choosenSkill.name}}</p>
-            </div>
-        }
-        @case("attack"){
-
-        }
-        @case("spell"){
-
-        }
-        @case("ac"){
-            
-        }
+    @case("attribute"){
+    <app-attr-form></app-attr-form>
     }
+    @case("skill"){
+    <div>
+        <p>{{etc.choosenSkill.value}}</p>
+        <p>{{etc.choosenSkill.name}}</p>
+    </div>
+    <app-skill-form></app-skill-form>
+    }
+    @case("save"){
+    <div>
+        <p>{{etc.choosenSkill.value}}</p>
+        <p>{{etc.choosenSkill.name}}</p>
+    </div>
+    <app-skill-form></app-skill-form>
+    }
+    @case("attack"){
 
-    <app-dynamic-form [Form]="etc.choosenForm" [FormData]="etc.skillQuestions" [callbackFunction]="etc.onSubmit" />
+    }
+    @case("spell"){
+
+    }
+    @case("ac"){
+
+    }
+    }
 
 </div>

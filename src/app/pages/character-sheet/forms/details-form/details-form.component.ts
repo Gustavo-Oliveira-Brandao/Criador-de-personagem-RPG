@@ -1,0 +1,74 @@
+import { Component } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
+import { IFormData } from '../../../../core/models/i-form-data';
+
+@Component({
+  selector: 'app-details-form',
+  standalone: true,
+  imports: [ReactiveFormsModule],
+  templateUrl: './details-form.component.html',
+  styleUrl: './details-form.component.sass'
+})
+export class DetailsFormComponent {
+
+  constructor(private readonly fb : FormBuilder, private readonly etc : ExpandedTabControlService){}
+
+  detailsForm = this.fb.group({
+    charName: ["", Validators.required],
+    charRace: ["", Validators.required],
+    charClass: ["", Validators.required],
+    charBackGround: ["", Validators.required],
+    charDivinity: [""],
+    charLevel: [1, Validators.required]
+  })
+
+  detailsQuestions : IFormData[] = [
+    {
+      key: "charName",
+      label: "nome do personagem: ",
+      type: "text",
+      controlType: "input",
+      required: true
+    },
+    {
+      key: "charRace",
+      label: "raça: ",
+      type: "text",
+      controlType: "input",
+      required: true
+    },
+    {
+      key: "charClass",
+      label: "classe: ",
+      type: "text",
+      controlType: "input",
+      required: true
+    },
+    {
+      key: "charBackground",
+      label: "origem: ",
+      type: "text",
+      controlType: "input",
+      required: true
+    },
+    {
+      key: "charDivinity",
+      label: "Divindade: ",
+      type: "text",
+      controlType: "input",
+      required: true
+    },
+    {
+      key: "charLevel",
+      label: "nivel: ",
+      type: "number",
+      controlType: "input",
+      required: true
+    }
+  ]
+
+  onSubmit(){
+    
+  }
+}
