@@ -53,7 +53,7 @@ export class SkillFormComponent {
       this.character.skills[this.etc.index].attribute = String(this.skillForm.controls.skillAttr.value)
     }
 
-    if (this.etc.tab == "save"){
+    if (this.etc.tab == "save") {
       this.character.savingThrows[this.etc.index].bonus = Number(this.skillForm.controls.skillBonus.value)
       this.character.savingThrows[this.etc.index].training = String(this.skillForm.controls.skillTraining.value)
       this.character.savingThrows[this.etc.index].attribute = String(this.skillForm.controls.skillAttr.value)

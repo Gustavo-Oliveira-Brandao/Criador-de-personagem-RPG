@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
 import { IFormData } from '../../../../core/models/i-form-data';
+import { CharacterService } from '../../services/character.service';
 
 @Component({
   selector: 'app-details-form',
@@ -12,18 +13,18 @@ import { IFormData } from '../../../../core/models/i-form-data';
 })
 export class DetailsFormComponent {
 
-  constructor(private readonly fb : FormBuilder, private readonly etc : ExpandedTabControlService){}
+  constructor(private readonly character: CharacterService, private readonly fb: FormBuilder, private readonly etc: ExpandedTabControlService) { }
 
   detailsForm = this.fb.group({
-    charName: ["", Validators.required],
-    charRace: ["", Validators.required],
-    charClass: ["", Validators.required],
-    charBackGround: ["", Validators.required],
-    charDivinity: [""],
-    charLevel: [1, Validators.required]
+    charName: [this.character.details.name, Validators.required],
+    charRace: [this.character.details.race, Validators.required],
+    charClass: [this.character.details.class, Validators.required],
+    charOrigin: [this.character.details.origin, Validators.required],
+    charDivinity: [this.character.details.divinity],
+    charLevel: [this.character.details.level, Validators.required]
   })
 
-  detailsQuestions : IFormData[] = [
+  detailsQuestions: IFormData[] = [
     {
       key: "charName",
       label: "nome do personagem: ",
@@ -46,7 +47,7 @@ export class DetailsFormComponent {
       required: true
     },
     {
-      key: "charBackground",
+      key: "charOrigin",
       label: "origem: ",
       type: "text",
       controlType: "input",
@@ -68,7 +69,13 @@ export class DetailsFormComponent {
     }
   ]
 
-  onSubmit(){
-    
+  onSubmit() {
+    this.character.details.name = String(this.detailsForm.controls.charName.value)
+    this.character.details.race = String(this.detailsForm.controls.charRace.value)
+    this.character.details.class = String(this.detailsForm.controls.charClass.value)
+    this.character.details.origin = String(this.detailsForm.controls.charOrigin.value)
+    this.character.details.divinity = String(this.detailsForm.controls.charDivinity.value)
+    this.character.details.level = Number(this.detailsForm.controls.charLevel.value)
+    this.character.updateSkills()
   }
 }

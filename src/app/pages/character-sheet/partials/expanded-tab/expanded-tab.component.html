@@ -4,6 +4,9 @@
     <h3>{{etc.title}}</h3>
 
     @switch(etc.tab){
+    @case("details"){
+    <app-details-form></app-details-form>
+    }
     @case("attribute"){
     <app-attr-form></app-attr-form>
     }

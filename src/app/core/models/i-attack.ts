@@ -3,7 +3,6 @@ export interface IAttack {
     range?: string
     toHitSkill?: string
     toHit?: number
-    dc?: number
     critQuantity?: number
     critMargin?: number
     description?: string

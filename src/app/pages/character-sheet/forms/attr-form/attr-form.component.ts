@@ -13,14 +13,14 @@ import { CharacterService } from '../../services/character.service';
 })
 export class AttrFormComponent {
 
-  constructor(private readonly character : CharacterService, protected etc : ExpandedTabControlService, private readonly fb : FormBuilder){}
+  constructor(private readonly character: CharacterService, protected etc: ExpandedTabControlService, private readonly fb: FormBuilder) { }
 
   attrForm = this.fb.group({
-    attrValue: ["", Validators.required],
-    attrBonus: [""]
+    attrValue: [this.etc.choosenAttr.value, Validators.required],
+    attrBonus: [this.etc.choosenAttr.bonus]
   })
 
-  attrQuestions : IFormData[] = [
+  attrQuestions: IFormData[] = [
     {
       key: "attrValue",
       label: "valor do atributo: ",
@@ -37,7 +37,7 @@ export class AttrFormComponent {
     }
   ]
 
-  onSubmit(){
+  onSubmit() {
     this.character.attributes[this.etc.index].value = Number(this.attrForm.controls.attrValue.value)
     this.character.attributes[this.etc.index].bonus = Number(this.attrForm.controls.attrBonus.value)
     this.character.updateSkills()
