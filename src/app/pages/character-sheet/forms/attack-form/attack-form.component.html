@@ -17,7 +17,7 @@
                 </select>
                 }
                 @case("textarea"){
-                <textarea [id]="question.key" class="full-size-input" [placeholder]="question.placeholder"></textarea>
+                <textarea [id]="question.key" [formControlName]="question.key" class="full-size-input" [placeholder]="question.placeholder"></textarea>
                 }
                 }
             </div>

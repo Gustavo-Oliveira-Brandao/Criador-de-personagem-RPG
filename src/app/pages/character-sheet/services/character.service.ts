@@ -402,10 +402,21 @@ export class CharacterService {
     if (this.edition == "t20") {
       this.updateSkillsValuesT20(this.savingThrows)
       this.updateSkillsValuesT20(this.skills)
+      this.updateAttacksToHitT20()
     }
     if (this.edition == "jade") {
       this.updateSkillsValuesJade(this.savingThrows)
       this.updateSkillsValuesJade(this.skills)
+    }
+  }
+
+  updateAttacksToHitT20(){
+    for(let attack of this.attacks){
+      for(let skill of this.skills){
+        if(skill.name == attack.toHitSkill){
+          attack.toHit = skill.value + attack.toHitBonus
+        }
+      }
     }
   }
 

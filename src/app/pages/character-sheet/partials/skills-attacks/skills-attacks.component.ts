@@ -15,7 +15,7 @@ export class SkillsAttacksComponent {
 
   constructor(protected character: CharacterService, private readonly etc:ExpandedTabControlService) { }
 
-  edit(skill : ISkill, index : number){
+  editSkill(skill : ISkill, index : number){
     this.etc.tab = "skill"
     this.etc.choosenSkill = skill
     this.etc.index = index
@@ -24,8 +24,15 @@ export class SkillsAttacksComponent {
 
   addAttack(){
     this.etc.tab = "attack"
-    this.etc.action = "add"
+    this.etc.action = "addAttack"
     this.etc.open()
+  }
+
+  editAttack(index : number){
+  this.etc.tab = "attack"
+  this.etc.action = "editAttack"
+  this.etc.index = index
+  this.etc.open()
   }
 }
 

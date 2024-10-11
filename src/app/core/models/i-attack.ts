@@ -3,6 +3,7 @@ export interface IAttack {
     range: string
     toHitSkill: string
     toHit: number
+    toHitBonus: number
     critMultiplier: number
     critMargin: number
     description?: string
@@ -10,8 +11,9 @@ export interface IAttack {
         {
             quantity: number
             diceSize: number
-            type: string,
-            bonus: number
+            type: string
+            bonus: number,
+            attribute: string
         }
     ]
 }

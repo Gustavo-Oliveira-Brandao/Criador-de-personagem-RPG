@@ -5,7 +5,7 @@
             @for(skill of character.skills; track $index){
             <div class="item">
                 <div class="item-card">
-                    <button class="item-name" (click)="edit(skill, $index)" >
+                    <button class="item-name" (click)="editSkill(skill, $index)" >
                         <p class="name">{{skill.name}}</p>
                         <p class="short-description">{{skill.attribute}}</p>
                     </button>
@@ -25,7 +25,7 @@
             @for(attack of character.attacks; track $index){
             <div class="item">
                 <div class="item-card">
-                    <button class="item-name">
+                    <button (click)="editAttack($index)" class="item-name">
                         <p class="name">{{attack.name}}</p>
                         <p class="short-description">{{attack.range}}</p>
                     </button>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
 import { IFormData } from '../../../../core/models/i-form-data';
@@ -12,9 +12,31 @@ import { IAttack } from '../../../../core/models/i-attack';
   templateUrl: './attack-form.component.html',
   styleUrl: './attack-form.component.sass'
 })
-export class AttackFormComponent {
+export class AttackFormComponent implements OnInit {
 
-  constructor(private character : CharacterService ,private readonly fb: FormBuilder, protected etc: ExpandedTabControlService) { }
+  ngOnInit(): void {
+      if(this.etc.action == "editAttack"){
+        const oldAttack = this.character.attacks[this.etc.index]
+
+        const oldAttackDamage1 = String(oldAttack.damages[0].quantity + "d" + oldAttack.damages[0].diceSize)
+
+        this.attackForm.setValue({
+          attackName: oldAttack.name,
+          attackRange: oldAttack.range,
+          attackToHitSkill: oldAttack.toHitSkill,
+          attackToHitBonus: oldAttack.toHitBonus,
+          attackCritMultiplier: oldAttack.critMultiplier,
+          attackCritMargin: oldAttack.critMargin,
+          attackDamageAttribute: oldAttack.damages[0].attribute,
+          attackDamage1: oldAttackDamage1,
+          attackBonusDamage1: oldAttack.damages[0].bonus,
+          attackDamageType1: oldAttack.damages[0].type,
+          attackDescription: oldAttack.description ?? ""
+        })
+      }
+  }
+
+  constructor(private character: CharacterService, private readonly fb: FormBuilder, protected etc: ExpandedTabControlService) { }
 
   attackForm = this.fb.group({
     attackName: ["", Validators.required],
@@ -27,9 +49,6 @@ export class AttackFormComponent {
     attackDamage1: ["", Validators.required],
     attackBonusDamage1: [0, Validators.required],
     attackDamageType1: ["cortante", Validators.required],
-    attackDamage2: [""],
-    attackBonusDamage2: [0, Validators.required],
-    attackDamageType2: ["cortante"],
     attackDescription: [""]
   })
 
@@ -132,37 +151,38 @@ export class AttackFormComponent {
   ]
 
   onSubmit() {
-    const { attackName, attackRange, attackToHitSkill, attackToHitBonus, attackCritMultiplier, attackCritMargin, attackDamageAttribute, attackDamage1, attackBonusDamage1, attackDamageType1, attackDescription } = this.attackForm.controls
-    
-    let toHit = 0
-    
-    for(let skill of this.character.skills){
-      if(skill.name == String(attackToHitSkill)){
-        toHit = skill.value + Number(attackToHitBonus) 
-      }
-    }
 
-    const splitDice = String(attackDamage1.value).split("d")
+    const formValue = this.attackForm.getRawValue()
+
+    const splitDice = formValue.attackDamage1!.split("d")
 
     let diceQuantity = Number(splitDice[0])
     let diceSize = Number(splitDice[1])
 
-    const attack : IAttack = {
-      name: String(attackName.value),
-      range: String(attackRange.value),
-      toHitSkill: String(attackToHitSkill.value),
-      toHit: toHit,
-      critMultiplier: Number(attackCritMultiplier.value),
-      critMargin: Number(attackCritMargin.value),
-      description: String(attackDescription),
-      damages : [{
+    const attack: IAttack = {
+      name: formValue.attackName ?? "",
+      range: formValue.attackRange ?? "",
+      toHitSkill: formValue.attackToHitSkill ?? "",
+      toHit: 0,
+      toHitBonus: Number(formValue.attackToHitBonus),
+      critMultiplier: Number(formValue.attackCritMultiplier),
+      critMargin: Number(formValue.attackCritMargin),
+      description: String(formValue.attackDescription),
+      damages: [{
         quantity: diceQuantity,
         diceSize: diceSize,
-        type: String(attackDamageType1.value),
-        bonus: Number(attackBonusDamage1.value)
+        type: String(formValue.attackDamageType1),
+        attribute: String(formValue.attackDamageAttribute),
+        bonus: Number(formValue.attackBonusDamage1)
       }]
     }
 
+    if(this.etc.action == "addAttack"){
     this.character.attacks.push(attack)
+    }
+    if(this.etc.action == "editAttack"){
+    this.character.attacks[this.etc.index] = attack
+    }
+    this.character.updateAttacksToHitT20()
   }
 }
