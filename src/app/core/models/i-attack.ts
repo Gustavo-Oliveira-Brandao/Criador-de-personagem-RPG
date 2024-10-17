@@ -1,19 +1,15 @@
 export interface IAttack {
     name: string
     range: string
+    toHit?: number
     toHitSkill: string
-    toHit: number
     toHitBonus: number
     critMultiplier: number
     critMargin: number
     description?: string
-    damages: [
-        {
-            quantity: number
-            diceSize: number
-            type: string
-            bonus: number,
-            attribute: string
-        }
-    ]
+    damage : string
+    damageType: string
+    bonusDamage: number
+    damageAttribute: string
+
 }

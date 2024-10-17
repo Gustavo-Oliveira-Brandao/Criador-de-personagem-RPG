@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IFormData } from '../../../../core/models/i-form-data';
 import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CharacterService } from '../../services/character.service';
+import { IAttribute } from '../../../../core/models/i-attribute';
 
 @Component({
   selector: 'app-attr-form',
@@ -11,24 +12,29 @@ import { CharacterService } from '../../services/character.service';
   templateUrl: './attr-form.component.html',
   styleUrl: './attr-form.component.sass'
 })
-export class AttrFormComponent {
+export class AttrFormComponent implements OnInit {
+
+  ngOnInit(): void {
+    this.attrForm.controls.name.disable()
+  }
 
   constructor(private readonly character: CharacterService, protected etc: ExpandedTabControlService, private readonly fb: FormBuilder) { }
 
-  attrForm = this.fb.group({
-    attrValue: [this.etc.choosenAttr.value, Validators.required],
-    attrBonus: [this.etc.choosenAttr.bonus]
+  attrForm = this.fb.nonNullable.group({
+    name:[this.character.attributes[this.etc.index].name],
+    value: [this.character.attributes[this.etc.index].value, Validators.required],
+    bonus: [this.character.attributes[this.etc.index].bonus]
   })
 
   attrQuestions: IFormData[] = [
     {
-      key: "attrValue",
+      key: "value",
       label: "valor do atributo: ",
       type: "number",
       controlType: "input"
     },
     {
-      key: "attrBonus",
+      key: "bonus",
       label: "bônus do atributo: ",
       type: "number",
       controlType: "input"
@@ -36,9 +42,15 @@ export class AttrFormComponent {
   ]
 
   onSubmit() {
-    const { attrValue, attrBonus } = this.attrForm.controls
-    this.character.attributes[this.etc.index].value = Number(attrValue.value)
-    this.character.attributes[this.etc.index].bonus = Number(attrBonus.value)
+    const formValue : IAttribute = this.attrForm.getRawValue()
+
+    const attribute : IAttribute = {
+      name: formValue.name,
+      value: Number(formValue.value),
+      bonus: Number(formValue.bonus)
+    }
+
+    this.character.attributes[this.etc.index] = attribute
     this.character.updateSkills()
   }
 }

@@ -399,6 +399,7 @@ export class CharacterService {
   spells: ISpell[] = []
 
   updateSkills() {
+    console.log(typeof(this.attributes[0].value))
     if (this.edition == "t20") {
       this.updateSkillsValuesT20(this.savingThrows)
       this.updateSkillsValuesT20(this.skills)
