@@ -1,0 +1,14 @@
+<section>
+    <div class="section-title">
+        <h2>MEUS PERSONAGENS</h2>
+        <button routerLink="/character-creation" routerLinkActive="active" ariaCurrentWhenActive="page" class="btn-confirm">CRIAR</button>
+    </div>
+    <div class="characters-row">
+        @for(character of character.characters; track character){
+        <a (click)="selectCharacter(character)" routerLink="/home" routerLinkActive="active"
+            ariaCurrentWhenActive="page" class="character">
+            <h3>{{character.name}}</h3>
+        </a>
+        }
+    </div>
+</section>

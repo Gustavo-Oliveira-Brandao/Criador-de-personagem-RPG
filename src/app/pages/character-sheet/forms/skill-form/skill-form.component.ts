@@ -17,9 +17,9 @@ export class SkillFormComponent {
   constructor(private readonly etc: ExpandedTabControlService, private readonly fb: FormBuilder, private readonly character: CharacterService) { }
 
   skillForm = this.fb.nonNullable.group({
-    bonus: [this.etc.choosenSkill.bonus],
-    training: [this.etc.choosenSkill.training, Validators.required],
-    attribute: [this.etc.choosenSkill.attribute, Validators.required]
+    bonus: [this.character.build.skills[this.etc.index].bonus],
+    training: [this.character.build.skills[this.etc.index].training, Validators.required],
+    attribute: [this.character.build.skills[this.etc.index].attribute, Validators.required]
   })
   skillQuestions: IFormData[] = [
     {
@@ -48,7 +48,7 @@ export class SkillFormComponent {
     const formValue = this.skillForm.getRawValue()
 
     let skill: ISkill = {
-      name: this.etc.choosenSkill.name,
+      name: this.character.build.skills[this.etc.index].name,
       totalValue: 0,
       bonus: +formValue.bonus,
       training: formValue.training,

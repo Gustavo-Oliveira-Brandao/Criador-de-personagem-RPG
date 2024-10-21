@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
 import { IFormData } from '../../../../core/models/i-form-data';
@@ -12,12 +12,10 @@ import { IAttack } from '../../../../core/models/i-attack';
   templateUrl: './attack-form.component.html',
   styleUrl: './attack-form.component.sass'
 })
-export class AttackFormComponent implements OnInit {
+export class AttackFormComponent {
 
-  ngOnInit(): void {
-  }
 
-  constructor(private character: CharacterService, private readonly fb: FormBuilder, protected etc: ExpandedTabControlService) { }
+  constructor(private readonly character: CharacterService, private readonly fb: FormBuilder, protected etc: ExpandedTabControlService) { }
 
   attackForm = this.fb.nonNullable.group({
     name: ["", Validators.required],

@@ -22,12 +22,6 @@ export class AttributeComponent {
   @Input() type = ""
 
   edit() {
-    if (this.attribute) {
-      this.etc.choosenAttr = this.attribute
-    }
-    if (this.save) {
-      this.etc.choosenSkill = this.save
-    }
     this.etc.index = this.index
     this.etc.tab = this.type
     this.etc.open()
