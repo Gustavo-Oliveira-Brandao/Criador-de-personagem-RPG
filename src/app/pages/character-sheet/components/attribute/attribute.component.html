@@ -1,4 +1,4 @@
 <div>
     <button (click)="edit()" class="nome">{{ type == "attribute" ? attribute!.name : save!.name}}</button>
-    <app-roll-button [valor]="type == 'attribute' ? attribute!.value : save!.value" />
+    <app-roll-button [valor]="type == 'attribute' ? attribute!.totalValue : save!.totalValue" />
 </div>

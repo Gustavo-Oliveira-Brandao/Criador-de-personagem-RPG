@@ -15,7 +15,6 @@ import { IAttack } from '../../../../core/models/i-attack';
 export class AttackFormComponent implements OnInit {
 
   ngOnInit(): void {
-    this.attackForm.controls.toHit.disable()
   }
 
   constructor(private character: CharacterService, private readonly fb: FormBuilder, protected etc: ExpandedTabControlService) { }
@@ -23,7 +22,6 @@ export class AttackFormComponent implements OnInit {
   attackForm = this.fb.nonNullable.group({
     name: ["", Validators.required],
     range: ["melee", Validators.required],
-    toHit: [0],
     toHitSkill: ["luta", Validators.required],
     toHitBonus: [0, Validators.required],
     critMultiplier: [2, Validators.required],
@@ -135,20 +133,25 @@ export class AttackFormComponent implements OnInit {
 
   onSubmit() {
 
-    const attack: IAttack = this.attackForm.getRawValue()
+    const formValue = this.attackForm.getRawValue()
 
-    for (let skill of this.character.skills) {
-      if (skill.name == attack.name) {
-        attack.toHit = skill.value + attack.toHitBonus
-      }
+    const attack: IAttack = {
+      name: formValue.name,
+      attackRange: formValue.range,
+      toHit: 0,
+      toHitSkill: formValue.toHitSkill,
+      toHitBonus: +formValue.toHitBonus,
+      critMultiplier: +formValue.critMultiplier,
+      critMargin: +formValue.critMargin,
+      description: formValue.description,
+      damages: []
     }
-    console.log(typeof(attack.toHit))
 
     if (this.etc.action == "addAttack") {
-      this.character.attacks.push(attack)
+      this.character.build.attacks!.push(attack)
     }
     if (this.etc.action == "editAttack") {
-      this.character.attacks[this.etc.index] = attack
+      this.character.build.attacks![this.etc.index] = attack
     }
     this.character.updateAttacksToHitT20()
   }

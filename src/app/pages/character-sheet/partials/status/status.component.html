@@ -2,29 +2,29 @@
     <div class="card large-card">
         <h2 class="title">PONTOS DE VIDA</h2>
         <div class="content">
-            <app-resource-bar icon="heart.svg" css="red-bar" [atual]='character.status.actualPv'
-                [max]='character.status.maxPv' />
+            <app-resource-bar icon="heart.svg" css="red-bar" [atual]='character.build.actualHitPoints'
+                [max]='character.build.maxHitPoints' />
         </div>
     </div>
     <div class="card minor-card">
         <h2 class="title">VIDA TEMPORARIA</h2>
         <div class="content">
             <img src="/assets/icons/purple-heart.svg" alt="vida temporaria" />
-            <input [(ngModel)]="character.status.temporaryPv">
+            <input [(ngModel)]="character.build.temporaryHitPoints">
         </div>
     </div>
     <div class="card large-card">
         <h2 class="title">PONTOS DE MANA</h2>
         <div class="content">
-            <app-resource-bar icon="mp.svg" css="blue-bar" [atual]="character.status.actualMp"
-                [max]="character.status.maxMp" />
+            <app-resource-bar icon="mp.svg" css="blue-bar" [atual]="character.build.actualManaPoints"
+                [max]="character.build.maxManaPoints" />
         </div>
     </div>
     <div class="card minor-card">
         <h2 class="title">CLASSE DE ARMADURA</h2>
         <div class="content">
             <img src="/assets/icons/ac.svg" alt="classe de armadura" />
-            <input [(ngModel)]="character.status.ac" />
+            <input [(ngModel)]="character.build.armorClass" />
         </div>
     </div>
 </div>

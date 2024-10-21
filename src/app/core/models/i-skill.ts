@@ -1,12 +1,13 @@
 export interface ISkill {
     name: string
-    value: number
+    totalValue: number
     bonus: number
     training: string
     trainingValue: number
     attribute: string
-    traningRestriction: boolean
+    trainingRestriction: boolean
     armorPenalty: boolean
+    rpgCharacter?: any
     subSkills?: [{
         name: string
         description: string

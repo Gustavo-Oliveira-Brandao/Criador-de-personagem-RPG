@@ -1,8 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { RollButtonComponent } from "../roll-button/roll-button.component";
-import { IAttribute } from '../../../../core/models/i-attribute';
 import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
+import { IAttribute } from '../../../../core/models/i-attribute';
 import { ISkill } from '../../../../core/models/i-skill';
+
 
 @Component({
   selector: 'app-attribute',

@@ -2,7 +2,7 @@
     <div class="card full-size-card">
         <h2 class="title">PERICIAS</h2>
         <div class="items">
-            @for(skill of character.skills; track $index){
+            @for(skill of character.build.skills; track $index){
             <div class="item">
                 <div class="item-card">
                     <button class="item-name" (click)="editSkill(skill, $index)">
@@ -11,7 +11,7 @@
                     </button>
                     <div class="item-rolls">
                         <p class="item-skill">{{skill.training}}</p>
-                        <app-roll-button [valor]="skill.value" />
+                        <app-roll-button [valor]="skill.totalValue" />
                     </div>
                 </div>
             </div>
@@ -22,21 +22,21 @@
     <div class="card full-size-card">
         <h2 class="title">ATAQUES</h2>
         <div class="items">
-            @for(attack of character.attacks; track $index){
+            @for(attack of character.build.attacks; track $index){
             <div class="item">
                 <div class="item-card">
                     <button (click)="editAttack($index)" class="item-name">
                         <p class="name">{{attack.name}}</p>
-                        <p class="short-description">{{attack.range}}</p>
+                        <p class="short-description">{{attack.attackRange}}</p>
                     </button>
                     <div class="item-rolls">
                         @if(attack.toHit){
                         <app-roll-button [valor]="attack.toHit" />
                         }
                         <button class="damage-button">
-                            @if(attack.damage){
-                            <p>{{attack.damage + " " +
-                                attack.damageType}}</p>
+                            @if(attack.damages[0]){
+                            <p>{{attack.damages[0] + " " +
+                                attack.damages[0].damageType}}</p>
                             }
                         </button>
                     </div>

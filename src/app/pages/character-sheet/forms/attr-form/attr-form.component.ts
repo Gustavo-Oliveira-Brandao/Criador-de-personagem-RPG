@@ -21,14 +21,13 @@ export class AttrFormComponent implements OnInit {
   constructor(private readonly character: CharacterService, protected etc: ExpandedTabControlService, private readonly fb: FormBuilder) { }
 
   attrForm = this.fb.nonNullable.group({
-    name:[this.character.attributes[this.etc.index].name],
-    value: [this.character.attributes[this.etc.index].value, Validators.required],
-    bonus: [this.character.attributes[this.etc.index].bonus]
+    name:[this.character.build.attributes[this.etc.index].name],
+    totalValue: [this.character.build.attributes[this.etc.index].totalValue, Validators.required]
   })
 
   attrQuestions: IFormData[] = [
     {
-      key: "value",
+      key: "totalValue",
       label: "valor do atributo: ",
       type: "number",
       controlType: "input"
@@ -46,11 +45,10 @@ export class AttrFormComponent implements OnInit {
 
     const attribute : IAttribute = {
       name: formValue.name,
-      value: Number(formValue.value),
-      bonus: Number(formValue.bonus)
+      totalValue: +formValue.totalValue
     }
 
-    this.character.attributes[this.etc.index] = attribute
+    this.character.build.attributes[this.etc.index] = attribute
     this.character.updateSkills()
   }
 }

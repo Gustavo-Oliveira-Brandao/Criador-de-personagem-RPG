@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IFormData } from '../../../../core/models/i-form-data';
 import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
 import { CharacterService } from '../../services/character.service';
+import { ISkill } from '../../../../core/models/i-skill';
 
 @Component({
   selector: 'app-skill-form',
@@ -15,27 +16,27 @@ export class SkillFormComponent {
 
   constructor(private readonly etc: ExpandedTabControlService, private readonly fb: FormBuilder, private readonly character: CharacterService) { }
 
-  skillForm = this.fb.group({
-    skillBonus: [this.etc.choosenSkill.bonus],
-    skillTraining: [this.etc.choosenSkill.training, Validators.required],
-    skillAttr: [this.etc.choosenSkill.attribute, Validators.required]
+  skillForm = this.fb.nonNullable.group({
+    bonus: [this.etc.choosenSkill.bonus],
+    training: [this.etc.choosenSkill.training, Validators.required],
+    attribute: [this.etc.choosenSkill.attribute, Validators.required]
   })
   skillQuestions: IFormData[] = [
     {
-      key: "skillBonus",
+      key: "bonus",
       label: "bônus da pericia: ",
       type: "number",
       controlType: "input"
     },
     {
-      key: "skillTraining",
+      key: "training",
       label: "treinamento: ",
       type: "text",
       controlType: "dropdown",
       options: this.etc.trainingData
     },
     {
-      key: "skillAttr",
+      key: "attribute",
       label: "Atributo: ",
       type: "text",
       controlType: "dropdown",
@@ -44,18 +45,27 @@ export class SkillFormComponent {
   ]
 
   onSubmit() {
-    const { skillBonus, skillTraining, skillAttr } = this.skillForm.controls
+    const formValue = this.skillForm.getRawValue()
+
+    let skill: ISkill = {
+      name: this.etc.choosenSkill.name,
+      totalValue: 0,
+      bonus: +formValue.bonus,
+      training: formValue.training,
+      trainingValue: 0,
+      attribute: formValue.attribute,
+      trainingRestriction: false,
+      armorPenalty: true,
+    }
+
     if (this.etc.tab == "skill") {
-      this.character.skills[this.etc.index].bonus = Number(skillBonus.value)
-      this.character.skills[this.etc.index].training = String(skillTraining.value)
-      this.character.skills[this.etc.index].attribute = String(skillAttr.value)
+      this.character.build.skills[this.etc.index] = skill
     }
 
     if (this.etc.tab == "save") {
-      this.character.savingThrows[this.etc.index].bonus = Number(skillBonus.value)
-      this.character.savingThrows[this.etc.index].training = String(skillTraining.value)
-      this.character.savingThrows[this.etc.index].attribute = String(skillAttr.value)
+      this.character.build.savingThrows[this.etc.index] = skill
     }
     this.character.updateSkills()
   }
+
 }

@@ -1,6 +1,5 @@
-import { IAttack } from "./i-attack";
 
-export interface ISpell extends IAttack {
+export interface ISpell {
     list: string
     school: string
     execution: string

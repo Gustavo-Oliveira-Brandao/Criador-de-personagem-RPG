@@ -14,7 +14,7 @@ export class TalentFormComponent {
 
   constructor(private readonly fb : FormBuilder, private readonly etc : ExpandedTabControlService){}
 
-  talentForm = this.fb.group({})
+  talentForm = this.fb.nonNullable.group({})
 
   talentQuestions : IFormData[] = []
 

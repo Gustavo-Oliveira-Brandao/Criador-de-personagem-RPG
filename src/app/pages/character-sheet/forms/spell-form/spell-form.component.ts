@@ -16,7 +16,7 @@ export class SpellFormComponent {
 
   }
 
-  spellForm = this.fb.group({})
+  spellForm = this.fb.nonNullable.group({})
 
   spellQuestions : IFormData[] = []
 

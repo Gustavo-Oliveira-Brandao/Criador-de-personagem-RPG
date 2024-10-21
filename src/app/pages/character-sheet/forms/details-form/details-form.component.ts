@@ -15,13 +15,13 @@ export class DetailsFormComponent {
 
   constructor(private readonly character: CharacterService, private readonly fb: FormBuilder, private readonly etc: ExpandedTabControlService) { }
 
-  detailsForm = this.fb.group({
-    charName: [this.character.details.name, Validators.required],
-    charRace: [this.character.details.race, Validators.required],
-    charClass: [this.character.details.class, Validators.required],
-    charOrigin: [this.character.details.origin, Validators.required],
-    charDivinity: [this.character.details.divinity],
-    charLevel: [this.character.details.level, Validators.required]
+  detailsForm = this.fb.nonNullable.group({
+    charName: [this.character.build.name, Validators.required],
+    charRace: [this.character.build.race, Validators.required],
+    charClass: [this.character.build.charClass, Validators.required],
+    charOrigin: [this.character.build.origin, Validators.required],
+    charDivinity: [this.character.build.divinity],
+    charLevel: [this.character.build.level, Validators.required]
   })
 
   detailsQuestions: IFormData[] = [
@@ -64,13 +64,18 @@ export class DetailsFormComponent {
   ]
 
   onSubmit() {
-    const { charName, charRace, charClass, charOrigin, charDivinity, charLevel } = this.detailsForm.controls
-    this.character.details.name = String(charName.value)
-    this.character.details.race = String(charRace.value)
-    this.character.details.class = String(charClass.value)
-    this.character.details.origin = String(charOrigin.value)
-    this.character.details.divinity = String(charDivinity.value)
-    this.character.details.level = Number(charLevel.value)
+    const formValue = this.detailsForm.getRawValue()
+
+    const details : any = {
+      name: formValue.charName,
+      race: formValue.charRace,
+      class: formValue.charClass,
+      origin: formValue.charOrigin,
+      divinity: formValue.charDivinity,
+      level: +formValue.charLevel
+    }
+
+    this.character.build = details
     this.character.updateSkills()
   }
 }

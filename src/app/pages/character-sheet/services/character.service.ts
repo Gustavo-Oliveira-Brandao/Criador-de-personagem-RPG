@@ -1,421 +1,414 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { ISkill } from '../../../core/models/i-skill';
-import { IAttribute } from '../../../core/models/i-attribute';
-import { IDetails } from '../../../core/models/idetails';
-import { IAttack } from '../../../core/models/i-attack';
-import { ISpell } from '../../../core/models/i-spell';
+import { RpgCharacter } from '../../../core/models/i-character';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
 
-  constructor() { }
+  private readonly skillsUrl: string;
+  constructor(private readonly http: HttpClient) {
+    this.skillsUrl = "http://localhost:8080/api/characters"
+  }
 
-  details: IDetails = {
-    name: "Sem nome",
-    race: "Sem raça",
-    class: "Sem classe",
-    origin: "Sem origem",
-    divinity: "Sem divindade",
-    level: 1
+  public populateDatabase() {
+
+  }
+
+  build: RpgCharacter = {
+    name: "",
+    race: "",
+    charClass: "",
+    origin: "",
+    divinity: "",
+    level: 1,
+    maxHitPoints: 0,
+    actualHitPoints: 0,
+    temporaryHitPoints: 0,
+    maxManaPoints: 0,
+    actualManaPoints: 0,
+    armorClass: 10,
+    armorPenaltyValue: 0,
+    speed: 0,
+    story: "",
+    attributes: [
+      {
+        name: "forca",
+        totalValue: 0
+      },
+      {
+        name: "destreza",
+        totalValue: 0
+      },
+      {
+        name: "constituicao",
+        totalValue: 0
+      },
+      {
+        name: "inteligencia",
+        totalValue: 0
+      },
+      {
+        name: "sabedoria",
+        totalValue: 0
+      },
+      {
+        name: "carisma",
+        totalValue: 0
+      }
+
+    ],
+    savingThrows: [
+      {
+        name: "fortitude",
+        totalValue: 0,
+        bonus: 0,
+        training: "destreinado",
+        trainingValue: 0,
+        attribute: "constituicao",
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+      {
+        name: "reflexos",
+        totalValue: 0,
+        bonus: 0,
+        training: "destreinado",
+        trainingValue: 0,
+        attribute: "destreza",
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+      {
+        name: "vontade",
+        totalValue: 0,
+        bonus: 0,
+        training: "destreinado",
+        trainingValue: 0,
+        attribute: "sabedoria",
+        trainingRestriction: false,
+        armorPenalty: false
+      }
+    ],
+
+    skills: [
+      {
+        name: 'acrobacia',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'destreza',
+        trainingRestriction: false,
+        armorPenalty: true
+      },
+
+      {
+        name: 'adestramento',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'carisma',
+        trainingRestriction: true,
+        armorPenalty: false
+      },
+
+      {
+        name: 'atletismo',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'forca',
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'atuacao',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'carisma',
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'cavalgar',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'destreza',
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'conhecimento',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'inteligencia',
+        trainingRestriction: true,
+        armorPenalty: false
+      },
+
+      {
+        name: 'cura',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'sabedoria',
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'diplomacia',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'carisma',
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'enganacao',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'carisma',
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'furtividade',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'destreza',
+        trainingRestriction: false,
+        armorPenalty: true
+      },
+
+      {
+        name: 'guerra',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'inteligencia',
+        trainingRestriction: true,
+        armorPenalty: false
+      },
+
+      {
+        name: "identificar magia",
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: "inteligencia",
+        trainingRestriction: true,
+        armorPenalty: false
+      },
+
+      {
+        name: 'iniciativa',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'destreza',
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'intimidacao',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'carisma',
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'jogatina',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'carisma',
+        trainingRestriction: true,
+        armorPenalty: false
+      },
+
+      {
+        name: 'ladinagem',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'destreza',
+        trainingRestriction: true,
+        armorPenalty: true
+      },
+
+      {
+        name: 'luta',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'forca',
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'misticismo',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'inteligencia',
+        trainingRestriction: true,
+        armorPenalty: false
+      },
+
+      {
+        name: 'nobreza',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'inteligencia',
+        trainingRestriction: true,
+        armorPenalty: false
+      },
+
+      {
+        name: "obter informacao",
+        totalValue: 0,
+        training: "destreinado",
+        trainingValue: 0,
+        bonus: 0,
+        attribute: "carisma",
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'oficio',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'inteligencia',
+        trainingRestriction: true,
+        armorPenalty: false
+      },
+
+      {
+        name: "percepcao",
+        totalValue: 0,
+        bonus: 0,
+        training: "destreinado",
+        trainingValue: 0,
+        attribute: "sabedoria",
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'pilotagem',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'destreza',
+        trainingRestriction: true,
+        armorPenalty: false
+      },
+
+      {
+        name: 'pontaria',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'destreza',
+        trainingRestriction: false,
+        armorPenalty: false
+      },
+
+      {
+        name: 'religiao',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'sabedoria',
+        trainingRestriction: true,
+        armorPenalty: false
+      },
+
+      {
+        name: 'sobrevivencia',
+        totalValue: 0,
+        training: 'destreinado',
+        trainingValue: 0,
+        bonus: 0,
+        attribute: 'sabedoria',
+        trainingRestriction: false,
+        armorPenalty: false
+      }
+    ],
+    talents: [
+    ],
+    attacks: [
+    ],
+    spells: [],
+    items: []
   }
 
   edition = "t20"
 
-  status = {
-    actualPv: 1,
-    maxPv: 1,
-    actualMp: 1,
-    maxMp: 1,
-    temporaryPv: 0,
-    ac: 10,
-    armorPenaltyValue: 0
-  }
-
-  attributes: IAttribute[] = [
-    {
-      name: "forca",
-      value: 0,
-      bonus: 0
-    },
-    {
-      name: "destreza",
-      value: 0,
-      bonus: 0
-    },
-    {
-      name: "constituicao",
-      value: 0,
-      bonus: 0
-    },
-    {
-      name: "inteligencia",
-      value: 0,
-      bonus: 0
-    },
-    {
-      name: "sabedoria",
-      value: 0,
-      bonus: 0
-    },
-    {
-      name: "carisma",
-      value: 0,
-      bonus: 0
-    }
-
-  ]
-
-  speed = {
-    name: "DESLOCAMENTO",
-    value: 30
-  }
-
-  savingThrows: ISkill[] = [
-    {
-      name: "fortitude",
-      value: 0,
-      bonus: 0,
-      training: "destreinado",
-      trainingValue: 0,
-      attribute: "constituicao",
-      traningRestriction: false,
-      armorPenalty: false
-    },
-    {
-      name: "reflexos",
-      value: 0,
-      bonus: 0,
-      training: "destreinado",
-      trainingValue: 0,
-      attribute: "destreza",
-      traningRestriction: false,
-      armorPenalty: false
-    },
-    {
-      name: "vontade",
-      value: 0,
-      bonus: 0,
-      training: "destreinado",
-      trainingValue: 0,
-      attribute: "sabedoria",
-      traningRestriction: false,
-      armorPenalty: false
-    }
-  ]
-
-  skills: ISkill[] = [
-    {
-      name: 'acrobacia',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'destreza',
-      traningRestriction: false,
-      armorPenalty: true
-    },
-
-    {
-      name: 'adestramento',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'carisma',
-      traningRestriction: true,
-      armorPenalty: false
-    },
-
-    {
-      name: 'atletismo',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'forca',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'atuacao',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'carisma',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'cavalgar',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'destreza',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'conhecimento',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'inteligencia',
-      traningRestriction: true,
-      armorPenalty: false
-    },
-
-    {
-      name: 'cura',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'sabedoria',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'diplomacia',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'carisma',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'enganacao',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'carisma',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'furtividade',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'destreza',
-      traningRestriction: false,
-      armorPenalty: true
-    },
-
-    {
-      name: 'guerra',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'inteligencia',
-      traningRestriction: true,
-      armorPenalty: false
-    },
-
-    {
-      name: "identificar magia",
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: "inteligencia",
-      traningRestriction: true,
-      armorPenalty: false
-    },
-
-    {
-      name: 'iniciativa',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'destreza',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'intimidacao',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'carisma',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'jogatina',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'carisma',
-      traningRestriction: true,
-      armorPenalty: false
-    },
-
-    {
-      name: 'ladinagem',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'destreza',
-      traningRestriction: true,
-      armorPenalty: true
-    },
-
-    {
-      name: 'luta',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'forca',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'misticismo',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'inteligencia',
-      traningRestriction: true,
-      armorPenalty: false
-    },
-
-    {
-      name: 'nobreza',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'inteligencia',
-      traningRestriction: true,
-      armorPenalty: false
-    },
-
-    {
-      name: "obter informacao",
-      value: 0,
-      training: "destreinado",
-      trainingValue: 0,
-      bonus: 0,
-      attribute: "carisma",
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'oficio',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'inteligencia',
-      traningRestriction: true,
-      armorPenalty: false
-    },
-
-    {
-      name: "percepcao",
-      value: 0,
-      bonus: 0,
-      training: "destreinado",
-      trainingValue: 0,
-      attribute: "sabedoria",
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'pilotagem',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'destreza',
-      traningRestriction: true,
-      armorPenalty: false
-    },
-
-    {
-      name: 'pontaria',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'destreza',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-
-    {
-      name: 'religiao',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'sabedoria',
-      traningRestriction: true,
-      armorPenalty: false
-    },
-
-    {
-      name: 'sobrevivencia',
-      value: 0,
-      training: 'destreinado',
-      trainingValue: 0,
-      bonus: 0,
-      attribute: 'sabedoria',
-      traningRestriction: false,
-      armorPenalty: false
-    },
-  ];
-
-  attacks: IAttack[] = [
-  ]
-
-  spells: ISpell[] = []
-
   updateSkills() {
-    console.log(typeof(this.attributes[0].value))
     if (this.edition == "t20") {
-      this.updateSkillsValuesT20(this.savingThrows)
-      this.updateSkillsValuesT20(this.skills)
+      this.updateSkillsValuesT20(this.build.savingThrows)
+      this.updateSkillsValuesT20(this.build.skills)
       this.updateAttacksToHitT20()
     }
     if (this.edition == "jade") {
-      this.updateSkillsValuesJade(this.savingThrows)
-      this.updateSkillsValuesJade(this.skills)
+      this.updateSkillsValuesJade(this.build.savingThrows)
+      this.updateSkillsValuesJade(this.build.skills)
     }
   }
 
-  updateAttacksToHitT20(){
-    for(let attack of this.attacks){
-      for(let skill of this.skills){
-        if(skill.name == attack.toHitSkill){
-          attack.toHit = skill.value + attack.toHitBonus
+  updateAttacksToHitT20() {
+    if (this.build.attacks) {
+      for (let attack of this.build.attacks) {
+        for (let skill of this.build.skills) {
+          if (skill.name == attack.toHitSkill) {
+            attack.toHit = skill.totalValue + attack.toHitBonus
+          }
         }
       }
     }
@@ -424,18 +417,18 @@ export class CharacterService {
   updateSkillsValuesT20(skills: ISkill[]) {
     for (let skill of skills) {
       let attributeModifier = 0
-      for (let attribute of this.attributes) {
+      for (let attribute of this.build.attributes) {
         if (attribute.name == skill.attribute) {
-          attributeModifier = attribute.value
+          attributeModifier = attribute.totalValue
         }
       }
 
       this.checkSkillTrainingT20(skill)
       if (skill.armorPenalty) {
-        skill.value = Math.floor(this.details.level / 2) + skill.bonus + skill.trainingValue + attributeModifier - this.status.armorPenaltyValue
+        skill.totalValue = Math.floor(this.build.level / 2) + skill.bonus + skill.trainingValue + attributeModifier - this.build.armorPenaltyValue
       }
       else {
-        skill.value = Math.floor(this.details.level / 2) + skill.bonus + skill.trainingValue + attributeModifier
+        skill.totalValue = Math.floor(this.build.level / 2) + skill.bonus + skill.trainingValue + attributeModifier
       }
     }
   }
@@ -446,13 +439,13 @@ export class CharacterService {
       skill.trainingValue = 0
     }
     if (skill.training == "treinado") {
-      if (this.details.level < 7) {
+      if (this.build.level < 7) {
         skill.trainingValue = 2
       }
-      if (this.details.level > 6 && this.details.level < 15) {
+      if (this.build.level > 6 && this.build.level < 15) {
         skill.trainingValue = 4
       }
-      if (this.details.level > 15) {
+      if (this.build.level > 15) {
         skill.trainingValue = 6
       }
     }
@@ -462,10 +455,10 @@ export class CharacterService {
   checkSkillTrainingJade(skill: ISkill) {
 
     if (skill.training == "destreinado") {
-      skill.trainingValue = Math.floor(this.details.level / 2)
+      skill.trainingValue = Math.floor(this.build.level / 2)
     }
     if (skill.training == "treinado") {
-      skill.trainingValue = this.details.level + 3
+      skill.trainingValue = this.build.level + 3
     }
 
   }
@@ -473,18 +466,18 @@ export class CharacterService {
   updateSkillsValuesJade(skills: ISkill[]) {
     for (let skill of skills) {
       let attributeModifier = 0
-      for (let attribute of this.attributes) {
+      for (let attribute of this.build.attributes) {
         if (attribute.name == skill.attribute) {
-          attributeModifier = attribute.value
+          attributeModifier = attribute.totalValue
         }
       }
 
       this.checkSkillTrainingJade(skill)
       if (skill.armorPenalty) {
-        skill.value = skill.bonus + skill.trainingValue + attributeModifier - this.status.armorPenaltyValue
+        skill.totalValue = skill.bonus + skill.trainingValue + attributeModifier - this.build.armorPenaltyValue
       }
       else {
-        skill.value = skill.bonus + skill.trainingValue + attributeModifier
+        skill.totalValue = skill.bonus + skill.trainingValue + attributeModifier
       }
     }
   }

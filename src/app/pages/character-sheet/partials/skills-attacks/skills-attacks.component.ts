@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RollButtonComponent } from '../../components/roll-button/roll-button.component';
 import { CharacterService } from '../../services/character.service';
-import { ISkill } from '../../../../core/models/i-skill';
 import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
+import { ISkill } from '../../../../core/models/i-skill';
 
 @Component({
   selector: 'app-skills-attacks',
