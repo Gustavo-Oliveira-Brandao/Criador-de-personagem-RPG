@@ -29,7 +29,7 @@ export class AttrFormComponent implements OnInit {
 
   attrQuestions: IFormData[] = [
     {
-      fieldSetLabel: "Valor",
+      fieldSetLabel: "Atributo",
       questions: [
         {
           key: "totalValue",

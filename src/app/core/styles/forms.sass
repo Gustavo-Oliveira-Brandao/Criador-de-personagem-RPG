@@ -1,95 +1,69 @@
 @import "../Variables"
+@import "../styles/cards"
 
 form
     margin-top: 10px
     display: flex
     flex-direction: column
     align-items: center
-    height: 100%
 
     fieldset
-        width: 100%
-        display: flex
-        gap: 20px
-        flex-wrap: wrap
+        width: 90%
+        margin-top: 10px
+        margin-bottom: 10px
+        border: 1px solid $secondary-color
+        border-radius: 5px
+        padding: 10px
 
-        .full-size-field
-            width: 100%
+        h2
+            text-transform: uppercase
+            color: $special-text-color
+            font-weight: bold
+            margin-bottom: 20px
 
-        .form-field
+        .fieldset-row
             display: flex
-            flex-direction: column
-            width: 100%
+            flex-direction: row
+            gap: 20px
+            flex-wrap: wrap
 
-            label
-                color: $special-text-color
-                text-transform: uppercase
-                font-weight: bold
-                font-size: 12px
-                margin-bottom: 10px
-
-            textarea
-                resize: none
-                background-color: $secondary-color
-                border: none
-                min-height: 80px
-                padding: 10px
-                width: 100%
-
-            .border-form-field
-                height: 60px
-                width: 100%
-                border: 1px solid $secondary-color
-                border-radius: 5px
+            .form-field
                 display: flex
-                align-items: center
-                padding: 10px
+                flex-direction: column
 
-            input, select
-                height: 40px
-                background-color: $secondary-color
-                border: none
-                border-radius: 5px
-                text-align: left
-                padding-left: 10px
-                font-size: 13px
+                label
+                    color: $special-text-color
+                    text-transform: uppercase
+                    font-weight: bold
+                    font-size: 12px
+                    margin-bottom: 10px
 
-            input[type="number"]
-                text-align: center
-                padding-left: 0
+                textarea
+                    resize: none
+                    background-color: $secondary-color
+                    border: none
+                    height: 80px
+                    width: 800px
+                    padding: 10px
+                    margin-bottom: 20px
 
-            input::-webkit-outer-spin-button,
-            input::-webkit-inner-spin-button
-                -webkit-appearance: none
-                margin: 0
+                input, select
+                    height: 40px
+                    background-color: $secondary-color
+                    border: none
+                    border-radius: 5px
+                    text-align: left
+                    padding-left: 10px
+                    font-size: 13px
+                    width: 200px
 
-            .full-size-input
-                width: 100%
+                input[type="number"]
+                    text-align: center
+                    padding-left: 0
+                    width: 140px
 
-            .small-input
-                width: 60px
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button
+                    -webkit-appearance: none
+                    margin: 0
 
-            .medium-input
-                width: 150px
-
-.submit
-    width: 100%
-    border-top: 1px solid $tertiary-color
-    background-color: $secondary-color
-    height: 65px
-    display: flex
-    align-items: center
-    position: sticky
-    bottom: 0
-    justify-content: center
-
-button[type="submit"]
-    background-color: $red
-    border-radius: 5px
-    text-align: center
-    width: 200px
-    height: 40px
-
-button[type="submit"]:disabled
-    opacity: 0.3
-    cursor: unset

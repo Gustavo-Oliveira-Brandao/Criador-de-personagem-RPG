@@ -33,7 +33,7 @@ export class AttackFormComponent {
   })
 
   attackQuestions: IFormData[] = [{
-    fieldSetLabel: "Nome",
+    fieldSetLabel: "Detalhes",
     questions: [
       {
         key: "name",
@@ -64,7 +64,7 @@ export class AttackFormComponent {
     questions: [
       {
         key: "toHitSkill",
-        label: "pericia de acerto:",
+        label: "pericia:",
         type: "text",
         controlType: "dropdown",
         options: [
@@ -80,17 +80,24 @@ export class AttackFormComponent {
       },
       {
         key: "toHitBonus",
-        label: "bônus de acerto:",
+        label: "bônus:",
         type: "number",
         controlType: "input",
         placeholder: "0"
       },
       {
         key: "critMargin",
-        label: "margem de critico:",
+        label: "margem de ameaça:",
         type: "number",
         controlType: "input",
         placeholder: "20"
+      },
+      {
+        key: "critMultiplier",
+        label: "multilpicador:",
+        type: "number",
+        controlType: "input",
+        placeholder: "2"
       }
     ],
   },
@@ -98,15 +105,8 @@ export class AttackFormComponent {
     fieldSetLabel: "Dano",
     questions: [
       {
-        key: "critMultiplier",
-        label: "multilpicador de critico:",
-        type: "number",
-        controlType: "input",
-        placeholder: "2"
-      },
-      {
         key: "damageAttribute",
-        label: "atributo de dano:",
+        label: "atributo:",
         type: "text",
         controlType: "dropdown",
         options: this.etc.attrData
@@ -120,14 +120,14 @@ export class AttackFormComponent {
       },
       {
         key: "bonusDamage",
-        label: "bônus de dano:",
+        label: "bônus:",
         type: "number",
         controlType: "input",
         placeholder: "0"
       },
       {
         key: "damageType",
-        label: "tipo de dano:",
+        label: "tipo:",
         type: "text",
         controlType: "dropdown",
         options: this.etc.damageTypeData
@@ -135,7 +135,7 @@ export class AttackFormComponent {
     ]
   },
   {
-    fieldSetLabel: "Descrição",
+    fieldSetLabel: "Anotações",
     questions: [
       {
         key: "description",

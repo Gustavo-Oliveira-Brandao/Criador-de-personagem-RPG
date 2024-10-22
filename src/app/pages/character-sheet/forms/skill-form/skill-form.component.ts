@@ -28,7 +28,7 @@ export class SkillFormComponent {
       questions: [
         {
           key: "bonus",
-          label: "bônus da pericia: ",
+          label: "bônus: ",
           type: "number",
           controlType: "input"
         },
