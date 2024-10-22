@@ -22,8 +22,8 @@ export class CharacterSelectionComponent {
   }
 
   selectCharacter(character: RpgCharacter) {
-    if (character) {
-      this.character.loadSelectedCharacter(character)
+    if (character.id) {
+      this.character.loadById(character.id)
     }
   }
 

@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
 import { ISkill } from '../../../core/models/i-skill';
 import { RpgCharacter } from '../../../core/models/i-character';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
 
-  constructor() {
+  private readonly characterUrl : string
+  constructor(private readonly http : HttpClient) {
+    this.characterUrl = "http://localhost:8080/api/characters"
   }
 
   list() {
-    const result = localStorage.getItem("characters")
-    if (result) {
-      this.characters = JSON.parse(result)
-    }
+    this.http.get<RpgCharacter[]>(this.characterUrl).subscribe(result => {
+      this.characters = result
+    })
   }
 
-  loadSelectedCharacter(character : RpgCharacter) {
-    this.build = character
+  loadById(id : number) {
+    this.http.get<RpgCharacter>(this.characterUrl + "/" + id).subscribe(result => {
+      this.build = result
+    })
   }
 
   createCharacter(character : RpgCharacter){
-    this.characters.push(character)
-    localStorage.setItem("characters", JSON.stringify(this.characters))
+    this.http.post<RpgCharacter>(this.characterUrl, character).subscribe()
   }
 
   characters : RpgCharacter[] = []
