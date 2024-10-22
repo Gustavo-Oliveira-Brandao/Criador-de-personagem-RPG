@@ -4,17 +4,18 @@ import { RpgCharacter } from '../../core/models/i-character';
 import { IFormData } from '../../core/models/i-form-data';
 import { CharacterService } from '../character-sheet/services/character.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DynamicFormComponent } from "../../shared/components/dynamic-form/dynamic-form.component";
 
 @Component({
   selector: 'app-character-creation',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DynamicFormComponent],
   templateUrl: './character-creation.component.html',
   styleUrl: './character-creation.component.sass'
 })
 export class CharacterCreationComponent {
 
-  constructor(private readonly fb : FormBuilder, private readonly character : CharacterService, private route : ActivatedRoute, private router : Router){
+  constructor(private readonly fb: FormBuilder, private readonly character: CharacterService, private route: ActivatedRoute, private router: Router) {
   }
 
   creationForm = this.fb.nonNullable.group({
@@ -27,9 +28,7 @@ export class CharacterCreationComponent {
     maxManaPoints: [0, Validators.required]
   })
 
-  onSubmit(){
-    const formValue = this.creationForm.getRawValue()
-
+  onSubmit(formValue : any) {
     const preset: RpgCharacter = {
       id: Date.now(),
       name: formValue.name,
@@ -72,7 +71,7 @@ export class CharacterCreationComponent {
           name: "carisma",
           totalValue: 0
         }
-  
+
       ],
       savingThrows: [
         {
@@ -106,7 +105,7 @@ export class CharacterCreationComponent {
           armorPenalty: false
         }
       ],
-  
+
       skills: [
         {
           name: 'acrobacia',
@@ -118,7 +117,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: true
         },
-  
+
         {
           name: 'adestramento',
           totalValue: 0,
@@ -129,7 +128,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: false
         },
-  
+
         {
           name: 'atletismo',
           totalValue: 0,
@@ -140,7 +139,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'atuacao',
           totalValue: 0,
@@ -151,7 +150,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'cavalgar',
           totalValue: 0,
@@ -162,7 +161,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'conhecimento',
           totalValue: 0,
@@ -173,7 +172,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: false
         },
-  
+
         {
           name: 'cura',
           totalValue: 0,
@@ -184,7 +183,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'diplomacia',
           totalValue: 0,
@@ -195,7 +194,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'enganacao',
           totalValue: 0,
@@ -206,7 +205,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'furtividade',
           totalValue: 0,
@@ -217,7 +216,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: true
         },
-  
+
         {
           name: 'guerra',
           totalValue: 0,
@@ -228,7 +227,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: false
         },
-  
+
         {
           name: "identificar magia",
           totalValue: 0,
@@ -239,7 +238,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: false
         },
-  
+
         {
           name: 'iniciativa',
           totalValue: 0,
@@ -250,7 +249,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'intimidacao',
           totalValue: 0,
@@ -261,7 +260,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'jogatina',
           totalValue: 0,
@@ -272,7 +271,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: false
         },
-  
+
         {
           name: 'ladinagem',
           totalValue: 0,
@@ -283,7 +282,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: true
         },
-  
+
         {
           name: 'luta',
           totalValue: 0,
@@ -294,7 +293,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'misticismo',
           totalValue: 0,
@@ -305,7 +304,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: false
         },
-  
+
         {
           name: 'nobreza',
           totalValue: 0,
@@ -316,7 +315,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: false
         },
-  
+
         {
           name: "obter informacao",
           totalValue: 0,
@@ -327,7 +326,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'oficio',
           totalValue: 0,
@@ -338,7 +337,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: false
         },
-  
+
         {
           name: "percepcao",
           totalValue: 0,
@@ -349,7 +348,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'pilotagem',
           totalValue: 0,
@@ -360,7 +359,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: false
         },
-  
+
         {
           name: 'pontaria',
           totalValue: 0,
@@ -371,7 +370,7 @@ export class CharacterCreationComponent {
           trainingRestriction: false,
           armorPenalty: false
         },
-  
+
         {
           name: 'religiao',
           totalValue: 0,
@@ -382,7 +381,7 @@ export class CharacterCreationComponent {
           trainingRestriction: true,
           armorPenalty: false
         },
-  
+
         {
           name: 'sobrevivencia',
           totalValue: 0,
@@ -403,60 +402,71 @@ export class CharacterCreationComponent {
     }
 
     this.character.createCharacter(preset)
-    this.router.navigate(["/character-selection"], {relativeTo: this.route})
+    this.router.navigate(["/character-selection"], { relativeTo: this.route })
 
   }
 
   creationQuestions: IFormData[] = [
     {
-      key: "name",
-      label: "nome do personagem: ",
-      type: "text",
-      controlType: "input",
-      placeholder: "Ragnar"
+      fieldSetLabel: "Detalhes",
+      questions: [
+
+        {
+          key: "name",
+          label: "nome do personagem: ",
+          type: "text",
+          controlType: "input",
+          placeholder: "Ragnar"
+        },
+        {
+          key: "race",
+          label: "raça: ",
+          type: "text",
+          controlType: "input",
+          placeholder: "Elfo"
+        },
+        {
+          key: "charClass",
+          label: "classe: ",
+          type: "text",
+          controlType: "input",
+          placeholder: "Guerreiro"
+        },
+        {
+          key: "origin",
+          label: "origem: ",
+          type: "text",
+          controlType: "input",
+          placeholder: "Taverneiro"
+        },
+        {
+          key: "divinity",
+          label: "Divindade: ",
+          type: "text",
+          controlType: "input",
+          placeholder: "Alihanna"
+        }
+      ]
     },
     {
-      key: "race",
-      label: "raça: ",
-      type: "text",
-      controlType: "input",
-      placeholder: "Elfo"
-    },
-    {
-      key: "charClass",
-      label: "classe: ",
-      type: "text",
-      controlType: "input",
-      placeholder: "Guerreiro"
-    },
-    {
-      key: "origin",
-      label: "origem: ",
-      type: "text",
-      controlType: "input",
-      placeholder: "Taverneiro"
-    },
-    {
-      key: "divinity",
-      label: "Divindade: ",
-      type: "text",
-      controlType: "input",
-      placeholder: "Alihanna"
-    },
-    {
-      key: "maxHitPoints",
-      label: "Pontos de vida:",
-      type: "number",
-      controlType: "input",
-      placeholder: "12"
-    },
-    {
-      key: "maxManaPoints",
-      label: "Pontos de mana:",
-      type: "number",
-      controlType: "input",
-      placeholder: "6"
+      fieldSetLabel: "Status",
+      questions: [
+
+        {
+          key: "maxHitPoints",
+          label: "Pontos de vida:",
+          type: "number",
+          controlType: "input",
+          placeholder: "12"
+        },
+        {
+          key: "maxManaPoints",
+          label: "Pontos de mana:",
+          type: "number",
+          controlType: "input",
+          placeholder: "6"
+        }
+      ]
     }
   ]
-
 }

@@ -5,13 +5,13 @@ form
     display: flex
     flex-direction: column
     align-items: center
+    height: 100%
 
-    .form-row
+    fieldset
+        width: 100%
         display: flex
-        justify-content: space-between
-        width: 90%
-        margin-top: 10px
-        margin-bottom: 10px
+        gap: 20px
+        flex-wrap: wrap
 
         .full-size-field
             width: 100%
@@ -45,32 +45,32 @@ form
                 align-items: center
                 padding: 10px
 
-                input, select
-                    height: 40px
-                    background-color: $secondary-color
-                    border: none
-                    border-radius: 5px
-                    text-align: left
-                    padding-left: 10px
-                    font-size: 13px
+            input, select
+                height: 40px
+                background-color: $secondary-color
+                border: none
+                border-radius: 5px
+                text-align: left
+                padding-left: 10px
+                font-size: 13px
 
-                input[type="number"]
-                    text-align: center
-                    padding-left: 0
+            input[type="number"]
+                text-align: center
+                padding-left: 0
 
-                input::-webkit-outer-spin-button,
-                input::-webkit-inner-spin-button
-                    -webkit-appearance: none
-                    margin: 0
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button
+                -webkit-appearance: none
+                margin: 0
 
-                .full-size-input
-                    width: 100%
+            .full-size-input
+                width: 100%
 
-                .small-input
-                    width: 60px
+            .small-input
+                width: 60px
 
-                .medium-input
-                    width: 150px
+            .medium-input
+                width: 150px
 
 .submit
     width: 100%

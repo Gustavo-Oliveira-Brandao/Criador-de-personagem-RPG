@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExpandedTabComponent } from './expanded-tab.component';
+import { DynamicFormComponent } from './dynamic-form.component';
 
-describe('ExpandedTabComponent', () => {
-  let component: ExpandedTabComponent;
-  let fixture: ComponentFixture<ExpandedTabComponent>;
+describe('DynamicFormComponent', () => {
+  let component: DynamicFormComponent;
+  let fixture: ComponentFixture<DynamicFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ExpandedTabComponent]
+      imports: [DynamicFormComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ExpandedTabComponent);
+    fixture = TestBed.createComponent(DynamicFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

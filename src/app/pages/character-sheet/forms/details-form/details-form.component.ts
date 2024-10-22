@@ -3,11 +3,12 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
 import { IFormData } from '../../../../core/models/i-form-data';
 import { CharacterService } from '../../services/character.service';
+import { DynamicFormComponent } from "../../../../shared/components/dynamic-form/dynamic-form.component";
 
 @Component({
   selector: 'app-details-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DynamicFormComponent],
   templateUrl: './details-form.component.html',
   styleUrl: './details-form.component.sass'
 })
@@ -26,47 +27,57 @@ export class DetailsFormComponent {
 
   detailsQuestions: IFormData[] = [
     {
-      key: "charName",
-      label: "nome do personagem: ",
-      type: "text",
-      controlType: "input"
+      fieldSetLabel: "Detalhes",
+      questions: [
+        {
+          key: "charName",
+          label: "nome do personagem: ",
+          type: "text",
+          controlType: "input"
+        },
+        {
+          key: "charRace",
+          label: "raça: ",
+          type: "text",
+          controlType: "input"
+        },
+        {
+          key: "charClass",
+          label: "classe: ",
+          type: "text",
+          controlType: "input"
+        },
+        {
+          key: "charOrigin",
+          label: "origem: ",
+          type: "text",
+          controlType: "input"
+        },
+        {
+          key: "charDivinity",
+          label: "Divindade: ",
+          type: "text",
+          controlType: "input"
+        }
+      ]
     },
     {
-      key: "charRace",
-      label: "raça: ",
-      type: "text",
-      controlType: "input"
-    },
-    {
-      key: "charClass",
-      label: "classe: ",
-      type: "text",
-      controlType: "input"
-    },
-    {
-      key: "charOrigin",
-      label: "origem: ",
-      type: "text",
-      controlType: "input"
-    },
-    {
-      key: "charDivinity",
-      label: "Divindade: ",
-      type: "text",
-      controlType: "input"
-    },
-    {
-      key: "charLevel",
-      label: "nivel: ",
-      type: "number",
-      controlType: "input"
+      fieldSetLabel: "Experiência",
+      questions: [
+        {
+          key: "charLevel",
+          label: "nivel: ",
+          type: "number",
+          controlType: "input"
+        }
+      ]
     }
+
   ]
 
-  onSubmit() {
-    const formValue = this.detailsForm.getRawValue()
+  onSubmit(formValue: any) {
 
-    const details : any = {
+    const details: any = {
       name: formValue.charName,
       race: formValue.charRace,
       class: formValue.charClass,

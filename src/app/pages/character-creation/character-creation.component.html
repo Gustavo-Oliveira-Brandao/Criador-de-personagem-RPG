@@ -1,33 +1,4 @@
 <section>
     <h2>Criar personagem</h2>
-    <form [formGroup]="creationForm" (submit)="onSubmit()">
-        @for(question of creationQuestions; track question){
-        <div class="form-row">
-            <div [className]="question.controlType == 'textarea' ? 'full-size-field form-field' : 'form-field'">
-                <label [htmlFor]="question.key">{{question.label}}</label>
-                <div [className]="question.controlType == 'textarea' ? '' : 'border-form-field'">
-                    @switch (question.controlType) {
-                    @case("input"){
-                    <input [id]="question.key" [className]="question.type == 'text' ? 'medium-input' : 'small-input'"
-                        [type]="question.type" [formControlName]="question.key" [placeholder]="question.placeholder">
-                    }
-                    @case("dropdown"){
-                    <select [id]="question.key" class="medium-input" [formControlName]="question.key">
-                        @for(opt of question.options; track opt){
-                        <option [value]="opt.key">{{opt.value}}</option>
-                        }
-                    </select>
-                    }
-                    @case("textarea"){
-                    <textarea [id]="question.key" [formControlName]="question.key" class="full-size-input" [placeholder]="question.placeholder"></textarea>
-                    }
-                    }
-                </div>
-            </div>
-        </div>
-        }
-        <div class="submit">
-            <button type="submit" [disabled]="!creationForm.valid">CRIAR</button>
-        </div>
-    </form>
+    <app-dynamic-form [form]="creationForm" [fieldSets]="creationQuestions" (onSubmitEvent)="onSubmit($event)"></app-dynamic-form>
 </section>

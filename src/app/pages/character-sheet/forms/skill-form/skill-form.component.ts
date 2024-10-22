@@ -4,11 +4,12 @@ import { IFormData } from '../../../../core/models/i-form-data';
 import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
 import { CharacterService } from '../../services/character.service';
 import { ISkill } from '../../../../core/models/i-skill';
+import { DynamicFormComponent } from "../../../../shared/components/dynamic-form/dynamic-form.component";
 
 @Component({
   selector: 'app-skill-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, DynamicFormComponent],
   templateUrl: './skill-form.component.html',
   styleUrl: './skill-form.component.sass'
 })
@@ -23,29 +24,33 @@ export class SkillFormComponent {
   })
   skillQuestions: IFormData[] = [
     {
-      key: "bonus",
-      label: "bônus da pericia: ",
-      type: "number",
-      controlType: "input"
-    },
-    {
-      key: "training",
-      label: "treinamento: ",
-      type: "text",
-      controlType: "dropdown",
-      options: this.etc.trainingData
-    },
-    {
-      key: "attribute",
-      label: "Atributo: ",
-      type: "text",
-      controlType: "dropdown",
-      options: this.etc.attrData
+      fieldSetLabel: "Pericia",
+      questions: [
+        {
+          key: "bonus",
+          label: "bônus da pericia: ",
+          type: "number",
+          controlType: "input"
+        },
+        {
+          key: "training",
+          label: "treinamento: ",
+          type: "text",
+          controlType: "dropdown",
+          options: this.etc.trainingData
+        },
+        {
+          key: "attribute",
+          label: "Atributo: ",
+          type: "text",
+          controlType: "dropdown",
+          options: this.etc.attrData
+        }
+      ]
     }
   ]
 
-  onSubmit() {
-    const formValue = this.skillForm.getRawValue()
+  onSubmit(formValue: any) {
 
     let skill: ISkill = {
       name: this.character.build.skills[this.etc.index].name,
