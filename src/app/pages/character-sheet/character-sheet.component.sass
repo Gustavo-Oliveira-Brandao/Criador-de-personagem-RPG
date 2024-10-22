@@ -23,3 +23,17 @@ main
 
         .active
             color: $highlight-color
+
+img
+    position: absolute
+    top: 40%
+    left: 50%
+    width: 100px
+    height: 100px
+    animation: roll 1.5s infinite linear
+
+    @keyframes roll
+        0%
+            transform: rotate(0)
+        100%
+            transform: rotate(360deg)

@@ -9,6 +9,7 @@ import { SkillsAttacksComponent } from './partials/skills-attacks/skills-attacks
 import { ExpandedTabComponent } from "./partials/expanded-tab/expanded-tab.component";
 import { EditTabControlService } from './services/edit-tab-control.service';
 import { ExpandedTabControlService } from './services/expanded-tab-control.service';
+import { CharacterService } from './services/character.service';
 
 @Component({
   selector: 'app-character-sheet',
@@ -19,5 +20,5 @@ import { ExpandedTabControlService } from './services/expanded-tab-control.servi
 })
 export class CharacterSheetComponent {
 
-  constructor(protected etc : ExpandedTabControlService) { }
+  constructor(protected etc : ExpandedTabControlService, protected character: CharacterService) { }
 }

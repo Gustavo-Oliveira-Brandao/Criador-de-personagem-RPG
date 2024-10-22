@@ -151,6 +151,6 @@ export class AttackFormComponent {
     if (this.etc.action == "editAttack") {
       this.character.build.attacks![this.etc.index] = attack
     }
-    this.character.updateAttacksToHitT20()
+    this.character.updateSkills()
   }
 }

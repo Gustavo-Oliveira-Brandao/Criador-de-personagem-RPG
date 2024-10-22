@@ -8,28 +8,38 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CharacterService {
 
-  private readonly characterUrl : string
-  constructor(private readonly http : HttpClient) {
+  private readonly characterUrl: string
+  constructor(private readonly http: HttpClient) {
     this.characterUrl = "http://localhost:8080/api/characters"
   }
 
   list() {
     this.http.get<RpgCharacter[]>(this.characterUrl).subscribe(result => {
       this.characters = result
+      console.log(result)
     })
   }
 
-  loadById(id : number) {
+  loadById(id: number) {
     this.http.get<RpgCharacter>(this.characterUrl + "/" + id).subscribe(result => {
       this.build = result
     })
   }
 
-  createCharacter(character : RpgCharacter){
+  createCharacter(character: RpgCharacter) {
     this.http.post<RpgCharacter>(this.characterUrl, character).subscribe()
   }
 
-  characters : RpgCharacter[] = []
+  updateCharacter() {
+    this.http.put<RpgCharacter>(this.characterUrl + "/" + this.build.id, this.build).subscribe()
+    console.log(this.build)
+  }
+
+  deleteCharacter() {
+    this.http.delete<RpgCharacter>(this.characterUrl + "/" + this.build.id)
+  }
+
+  characters: RpgCharacter[] = []
 
   build !: RpgCharacter
 
@@ -45,6 +55,7 @@ export class CharacterService {
       this.updateSkillsValuesJade(this.build.savingThrows)
       this.updateSkillsValuesJade(this.build.skills)
     }
+    this.updateCharacter()
   }
 
   updateAttacksToHitT20() {
