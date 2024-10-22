@@ -31,6 +31,7 @@ export class CharacterCreationComponent {
     const formValue = this.creationForm.getRawValue()
 
     const preset: RpgCharacter = {
+      id: Date.now(),
       name: formValue.name,
       race: formValue.race,
       charClass: formValue.charClass,

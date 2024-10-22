@@ -5,7 +5,7 @@ import { ISpell } from "./i-spell"
 import { ITalent } from "./i-talent"
 
 export interface RpgCharacter {
-    id?: number
+    id: number
     name: string
     race: string
     charClass: string

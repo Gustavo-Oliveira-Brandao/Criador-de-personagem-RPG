@@ -1,5 +1,4 @@
 export interface IAttack {
-    id?: number
     name: string
     attackRange: string
     toHit?: number

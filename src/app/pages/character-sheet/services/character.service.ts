@@ -1,42 +1,40 @@
 import { Injectable } from '@angular/core';
 import { ISkill } from '../../../core/models/i-skill';
 import { RpgCharacter } from '../../../core/models/i-character';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
 
-  private readonly characterUrl: string
-  constructor(private readonly http: HttpClient) {
-    this.characterUrl = "http://localhost:8080/api/characters"
+  constructor() {
   }
 
   list() {
-    this.http.get<RpgCharacter[]>(this.characterUrl).subscribe(result => {
-      this.characters = result
-      console.log(result)
-    })
+    const jsonValue = localStorage.getItem("characters")
+    if (jsonValue) {
+      this.characters = JSON.parse(jsonValue)
+    }
   }
 
-  loadById(id: number) {
-    this.http.get<RpgCharacter>(this.characterUrl + "/" + id).subscribe(result => {
-      this.build = result
-    })
+  loadByIndex(index: number) {
+    this.build = this.characters[index]
   }
+
 
   createCharacter(character: RpgCharacter) {
-    this.http.post<RpgCharacter>(this.characterUrl, character).subscribe()
+    this.characters.push(character)
+    localStorage.setItem("characters", JSON.stringify(this.characters))
   }
 
   updateCharacter() {
-    this.http.put<RpgCharacter>(this.characterUrl + "/" + this.build.id, this.build).subscribe()
-    console.log(this.build)
+    const characterToUpdate = this.characters.indexOf(this.build)
+    this.characters[characterToUpdate] = this.build
+    localStorage.setItem("characters", JSON.stringify(this.characters))
   }
 
   deleteCharacter() {
-    this.http.delete<RpgCharacter>(this.characterUrl + "/" + this.build.id)
+
   }
 
   characters: RpgCharacter[] = []

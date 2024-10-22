@@ -1,5 +1,4 @@
 export interface ITalent {
-    id?: number
     name: string
     category: string
     execution: string

@@ -1,6 +1,5 @@
 
 export interface ISpell {
-    id?: number
     list: string
     school: string
     execution: string
