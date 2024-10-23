@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RollButtonComponent } from '../../components/roll-button/roll-button.component';
 import { CharacterService } from '../../services/character.service';
-import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
 
 @Component({
   selector: 'app-skills-attacks',
@@ -12,26 +11,8 @@ import { ExpandedTabControlService } from '../../services/expanded-tab-control.s
 })
 export class SkillsAttacksComponent {
 
-  constructor(protected character: CharacterService, private readonly etc:ExpandedTabControlService) { }
+  constructor(protected character: CharacterService) { }
 
-  editSkill(index : number){
-    this.etc.tab = "skill"
-    this.etc.index = index
-    this.etc.open()
-  }
-
-  addAttack(){
-    this.etc.tab = "attack"
-    this.etc.action = "addAttack"
-    this.etc.open()
-  }
-
-  editAttack(index : number){
-  this.etc.tab = "attack"
-  this.etc.action = "editAttack"
-  this.etc.index = index
-  this.etc.open()
-  }
 }
 
 

@@ -15,7 +15,7 @@ import { DynamicFormComponent } from "../../shared/components/dynamic-form/dynam
 })
 export class CharacterCreationComponent {
 
-  constructor(private readonly fb: FormBuilder, private readonly character: CharacterService, private route: ActivatedRoute, private router: Router) {
+  constructor(private readonly fb: FormBuilder, private readonly character: CharacterService, private readonly route: ActivatedRoute, private readonly router: Router) {
   }
 
   creationForm = this.fb.nonNullable.group({

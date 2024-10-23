@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TalentComponent } from '../../components/talent/talent.component';
+import { CharacterService } from '../../services/character.service';
 
 @Component({
   selector: 'app-talents',
@@ -10,36 +11,5 @@ import { TalentComponent } from '../../components/talent/talent.component';
 })
 export class TalentsComponent {
 
-  originTalents:any = [
-    {
-      name: "Armadilha Mortal",
-      action: "Ação padrão",
-      preRequisites: "Teste eba",
-      description: "Voce coloca uma armadilha braba",
-      
-    },
-
-    {
-      name: "Armadilha Mortal",
-      action: "Ação padrão",
-      preRequisites: "Teste eba",
-      description: "Voce coloca uma armadilha braba",
-      
-    }
-  ]
-
-  classTalents:any = [
-    {
-      name: "Veneno mortal",
-      action: "Ação livre",
-      preRequisites: "",
-      description: "Voce taca veneno",
-      level: 4,
-
-    }
-  ]
-
-  addTalent(){
-    
-  }
+  constructor(protected character : CharacterService){}
 }

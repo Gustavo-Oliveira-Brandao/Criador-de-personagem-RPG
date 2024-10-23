@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DetailButtonComponent } from "../../components/detail-button/detail-button.component";
 import { CharacterService } from '../../services/character.service';
-import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
 
 
 @Component({
@@ -13,11 +12,6 @@ import { ExpandedTabControlService } from '../../services/expanded-tab-control.s
 })
 export class DetailsComponent {
 
-  constructor(private readonly etc :ExpandedTabControlService, protected character:CharacterService){}
-
-  edit(){
-    this.etc.tab = "details"
-    this.etc.open()
-  }
+  constructor(protected character:CharacterService){}
 
 }

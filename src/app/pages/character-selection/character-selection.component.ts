@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CharacterService } from '../character-sheet/services/character.service';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { RpgCharacter } from '../../core/models/i-character';
 
 @Component({
   selector: 'app-character-selection',

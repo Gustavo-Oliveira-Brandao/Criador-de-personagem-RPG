@@ -1,7 +1,5 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { EventEmitter } from '@angular/core';
-import { ExpandedTabControlService } from '../../../pages/character-sheet/services/expanded-tab-control.service';
 import { IFormData } from '../../../core/models/i-form-data';
 
 @Component({
@@ -15,11 +13,12 @@ export class DynamicFormComponent {
 
   @Input() form !: FormGroup
   @Input() fieldSets !: IFormData[]
+  @Input() action !: string
 
   @Output() onSubmitEvent = new EventEmitter()
 
 
-  constructor(protected etc : ExpandedTabControlService){}
+  constructor(){}
 
   onSubmit(){
     this.onSubmitEvent.emit(this.form.getRawValue())

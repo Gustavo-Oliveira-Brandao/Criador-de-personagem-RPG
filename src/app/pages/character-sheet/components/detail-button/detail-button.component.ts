@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ExpandedTabControlService } from '../../services/expanded-tab-control.service';
 
 @Component({
   selector: 'app-detail-button',
@@ -13,11 +12,6 @@ export class DetailButtonComponent {
   @Input() icon: string = ""
   @Input() texto: string = ""
 
-  constructor(private readonly etc : ExpandedTabControlService){}
+  constructor(){}
 
-
-  edit(){
-    this.etc.tab = "details"
-    this.etc.open()
-  }
 }
