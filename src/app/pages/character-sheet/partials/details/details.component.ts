@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { DetailButtonComponent } from "../../components/detail-button/detail-button.component";
 import { CharacterService } from '../../services/character.service';
+import {RpgCharacter} from "../../../../core/models/character";
 
 
 @Component({
@@ -12,6 +13,7 @@ import { CharacterService } from '../../services/character.service';
 })
 export class DetailsComponent {
 
-  constructor(protected character:CharacterService){}
+  @Input() character: RpgCharacter | null = null
+  constructor(){}
 
 }

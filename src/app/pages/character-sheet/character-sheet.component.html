@@ -1,14 +1,14 @@
-@if(true){
+@if(character$ | async){
 <main>
-    <app-details />
-    <app-status />
-    <app-attributes />
-    <app-secondary-status />
+    <app-details [character]="character$ | async"  />
+    <app-status [character]="character$ | async" />
+    <app-attributes [character]="character$ | async" />
+    <app-secondary-status [character]="character$ | async" />
     <div class="routes">
-        <a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">PERICIAS E AÇÕES</a>
-        <a routerLink="/home/habilidades" routerLinkActive="active" ariaCurrentWhenActive="page">HABILIDADES</a>
-        <a routerLink="/home/inventario" routerLinkActive="active" ariaCurrentWhenActive="page">INVENTARIO</a>
-        <a routerLink="/home/magias" routerLinkActive="active" ariaCurrentWhenActive="page">MAGIAS</a>
+        <a routerLink="/sheet" routerLinkActive="active" ariaCurrentWhenActive="page">PERICIAS E AÇÕES</a>
+        <a routerLink="/sheet/talents" routerLinkActive="active" ariaCurrentWhenActive="page">HABILIDADES</a>
+        <a routerLink="/sheet/inventory" routerLinkActive="active" ariaCurrentWhenActive="page">INVENTARIO</a>
+        <a routerLink="/sheet/spells" routerLinkActive="active" ariaCurrentWhenActive="page">MAGIAS</a>
     </div>
 
     <router-outlet></router-outlet>

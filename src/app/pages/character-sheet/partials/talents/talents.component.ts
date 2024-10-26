@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { TalentComponent } from '../../components/talent/talent.component';
 import { CharacterService } from '../../services/character.service';
+import {RpgCharacter} from "../../../../core/models/character";
 
 @Component({
   selector: 'app-talents',
@@ -11,5 +12,7 @@ import { CharacterService } from '../../services/character.service';
 })
 export class TalentsComponent {
 
-  constructor(protected character : CharacterService){}
+  constructor(){}
+
+  @Input() character: RpgCharacter | null = null
 }

@@ -1,11 +1,11 @@
-<!-- <div class="row">
+<div class="row">
     <div class="minor-card card">
         <h2 class="title">
             DESLOCAMENTO
         </h2>
         <div class="content">
             <img src="/assets/icons/speed.svg" alt="Deslocamento" />
-            <input [(ngModel)]="character.build.speed" />
+            <input [(ngModel)]="character!.speed" />
         </div>
     </div>
     <div class="minor-card card">
@@ -14,7 +14,7 @@
         </h2>
         <div class="content">
             <img src="/assets/icons/perception.svg" alt="Percepção" />
-            <app-roll-button [valor]="character.build.skills[21].totalValue" />
+            <app-roll-button [valor]="character!.skills![21].totalValue" />
         </div>
     </div>
     <div class="card" style="width: 610px;">
@@ -22,9 +22,11 @@
             TESTES DE RESISTÊNCIA
         </h2>
         <div class="content saving-throws">
-            @for(save of character.build.savingThrows; track $index){
+            @for(save of character!.skills; track $index){
+              @if(save.isSavingThrow){
             <app-attribute [save]="save" [index]="$index" type="save" />
+              }
             }
         </div>
     </div>
-</div> -->
+</div>

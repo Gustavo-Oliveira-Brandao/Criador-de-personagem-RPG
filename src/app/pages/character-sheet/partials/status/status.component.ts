@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { ResourceBarComponent } from "../../components/resource-bar/resource-bar.component";
 import { FormsModule } from "@angular/forms"
 import { CharacterService } from '../../services/character.service';
+import {RpgCharacter} from "../../../../core/models/character";
 
 
 @Component({
@@ -13,7 +14,9 @@ import { CharacterService } from '../../services/character.service';
 })
 export class StatusComponent {
 
-  constructor(protected character:CharacterService){
+  constructor(){
+    console.log(this.character?.skills)
   }
 
+  @Input() character: RpgCharacter | null = null
 }

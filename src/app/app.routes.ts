@@ -15,18 +15,18 @@ export const routes: Routes = [
         path: "character-creation", component: CharacterCreationComponent
     },
     {
-        path: "home", component: CharacterSheetComponent, children: [
+        path: "sheet", component: CharacterSheetComponent, children: [
             {
                 path: "", component: SkillsAttacksComponent
             },
             {
-                path: "habilidades", component: TalentsComponent
+                path: "talents", component: TalentsComponent
             },
             {
-                path: "inventario", component: InventoryComponent
+                path: "inventory", component: InventoryComponent
             },
             {
-                path: "magias", component: SpellsComponent
+                path: "spells", component: SpellsComponent
             },
         ]
     },

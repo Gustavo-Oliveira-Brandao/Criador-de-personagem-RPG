@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { RollButtonComponent } from '../../components/roll-button/roll-button.component';
 import { CharacterService } from '../../services/character.service';
+import {RpgCharacter} from "../../../../core/models/character";
 
 @Component({
   selector: 'app-skills-attacks',
@@ -11,8 +12,8 @@ import { CharacterService } from '../../services/character.service';
 })
 export class SkillsAttacksComponent {
 
-  constructor(protected character: CharacterService) { }
-
+  constructor() { }
+  @Input() character: RpgCharacter | null = null
 }
 
 

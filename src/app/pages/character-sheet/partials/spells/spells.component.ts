@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {RpgCharacter} from "../../../../core/models/character";
 
 @Component({
   selector: 'app-spells',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './spells.component.sass'
 })
 export class SpellsComponent {
-
+  @Input() character: RpgCharacter | null = null
 }

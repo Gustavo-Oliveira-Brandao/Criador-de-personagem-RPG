@@ -25,7 +25,7 @@ export class CharacterSelectionComponent {
   }
 
   loadById(id: number) {
-    this.character.character$ = this.character.loadById(id)
+    this.character.characterId = id
   }
 
 }

@@ -1,9 +1,9 @@
-<!-- <div class="row">
+<div class="row">
     <div class="card full-size-card">
         <h2 class="title">PERICIAS</h2>
         <div class="items">
-            @if(character.build.skills){
-            @for(skill of character.build.skills; track $index){
+            @if(character!.skills){
+            @for(skill of character!.skills; track $index){
             <div class="item">
                 <div class="item-card">
                     <button class="item-name">
@@ -24,7 +24,7 @@
     <div class="card full-size-card">
         <h2 class="title">ATAQUES</h2>
         <div class="items">
-            @for(attack of character.build.attacks; track $index){
+            @for(attack of character!.attacks; track $index){
             <div class="item">
                 <div class="item-card">
                     <button class="item-name">
@@ -48,4 +48,4 @@
             <button class="btn-add">Adicionar</button>
         </div>
     </div>
-</div> -->
+</div>

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RollButtonComponent } from "../../components/roll-button/roll-button.component";
 import { AttributeComponent } from '../../components/attribute/attribute.component';
 
 import { CharacterService } from '../../services/character.service';
+import {RpgCharacter} from "../../../../core/models/character";
 
 @Component({
   selector: 'app-secondary-status',
@@ -14,8 +15,11 @@ import { CharacterService } from '../../services/character.service';
 })
 export class SecondaryStatusComponent {
 
-  constructor(protected character : CharacterService){}
+  constructor(){
 
-  
+  }
+
+  @Input() character: RpgCharacter | null = null
+
 
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {RpgCharacter} from "../../../../core/models/character";
 
 @Component({
   selector: 'app-inventory',
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class InventoryComponent {
 
+  @Input() character: RpgCharacter | null = null
 }

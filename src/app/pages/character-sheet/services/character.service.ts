@@ -13,7 +13,7 @@ export class CharacterService {
     this.charactersUrl = "http://localhost:8080/api/characters"
   }
 
-  character$: Observable<RpgCharacter> | null = null;
+  characterId : number = 0
 
   edition = "t20"
 
@@ -35,5 +35,6 @@ export class CharacterService {
   deleteCharacter(id: number) {
     return this.http.delete<RpgCharacter>(this.charactersUrl + "/" + id).pipe(first())
   }
+
 
 }
