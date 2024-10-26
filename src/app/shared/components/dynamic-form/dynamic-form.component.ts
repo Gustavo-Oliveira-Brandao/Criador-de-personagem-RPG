@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { IFormData } from '../../../core/models/i-form-data';
+import { Fieldset } from '../../../core/models/fieldset';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -12,15 +12,14 @@ import { IFormData } from '../../../core/models/i-form-data';
 export class DynamicFormComponent {
 
   @Input() form !: FormGroup
-  @Input() fieldSets !: IFormData[]
-  @Input() action !: string
+  @Input() fieldSets !: Fieldset[]
 
   @Output() onSubmitEvent = new EventEmitter()
-
 
   constructor(){}
 
   onSubmit(){
+    console.log("mas")
     this.onSubmitEvent.emit(this.form.getRawValue())
   }
 }

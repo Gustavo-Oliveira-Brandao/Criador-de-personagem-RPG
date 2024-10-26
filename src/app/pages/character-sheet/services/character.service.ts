@@ -1,138 +1,39 @@
 import { Injectable } from '@angular/core';
-import { ISkill } from '../../../core/models/i-skill';
-import { RpgCharacter } from '../../../core/models/i-character';
+import { RpgCharacter } from '../../../core/models/character';
+import { HttpClient } from '@angular/common/http';
+import { first, Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
 
-  constructor() {
+  charactersUrl: string
+  constructor(private readonly http: HttpClient) {
+    this.charactersUrl = "http://localhost:8080/api/characters"
   }
 
-  list() {
-    const jsonValue = localStorage.getItem("characters")
-    if (jsonValue) {
-      this.characters = JSON.parse(jsonValue)
-    }
-  }
-
-  loadByIndex(index: number) {
-    this.build = this.characters[index]
-  }
-
-
-  createCharacter(character: RpgCharacter) {
-    this.characters.push(character)
-    localStorage.setItem("characters", JSON.stringify(this.characters))
-  }
-
-  updateCharacter() {
-    const characterToUpdate = this.characters.indexOf(this.build)
-    this.characters[characterToUpdate] = this.build
-    localStorage.setItem("characters", JSON.stringify(this.characters))
-  }
-
-  deleteCharacter() {
-
-  }
-
-  characters: RpgCharacter[] = []
-
-  build !: RpgCharacter
+  character$: Observable<RpgCharacter> | null = null;
 
   edition = "t20"
 
-  updateSkills() {
-    if (this.edition == "t20") {
-      this.updateSkillsValuesT20(this.build.savingThrows)
-      this.updateSkillsValuesT20(this.build.skills)
-      this.updateAttacksToHitT20()
-    }
-    if (this.edition == "jade") {
-      this.updateSkillsValuesJade(this.build.savingThrows)
-      this.updateSkillsValuesJade(this.build.skills)
-    }
-    this.updateCharacter()
+  list() {
+    return this.http.get<RpgCharacter[]>(this.charactersUrl).pipe(first())
   }
 
-  updateAttacksToHitT20() {
-    if (this.build.attacks) {
-      for (let attack of this.build.attacks) {
-        for (let skill of this.build.skills) {
-          if (skill.name == attack.toHitSkill) {
-            attack.toHit = skill.totalValue + attack.toHitBonus
-          }
-        }
-      }
-    }
+  loadById(id: number) {
+    return this.http.get<RpgCharacter>(this.charactersUrl + "/" + id)
   }
 
-  updateSkillsValuesT20(skills: ISkill[]) {
-    for (let skill of skills) {
-      let attributeModifier = 0
-      for (let attribute of this.build.attributes) {
-        if (attribute.name == skill.attribute) {
-          attributeModifier = attribute.totalValue
-        }
-      }
-
-      this.checkSkillTrainingT20(skill)
-      if (skill.armorPenalty) {
-        skill.totalValue = Math.floor(this.build.level / 2) + skill.bonus + skill.trainingValue + attributeModifier - this.build.armorPenaltyValue
-      }
-      else {
-        skill.totalValue = Math.floor(this.build.level / 2) + skill.bonus + skill.trainingValue + attributeModifier
-      }
+  saveCharacter(character: Partial<RpgCharacter>) {
+    if (character.id) {
+      return this.http.put(this.charactersUrl + "/" + character.id, character).pipe(first())
     }
+    return this.http.post<RpgCharacter>(this.charactersUrl, character).pipe(first())
   }
 
-  checkSkillTrainingT20(skill: ISkill) {
-
-    if (skill.training == "destreinado") {
-      skill.trainingValue = 0
-    }
-    if (skill.training == "treinado") {
-      if (this.build.level < 7) {
-        skill.trainingValue = 2
-      }
-      if (this.build.level > 6 && this.build.level < 15) {
-        skill.trainingValue = 4
-      }
-      if (this.build.level > 15) {
-        skill.trainingValue = 6
-      }
-    }
-
+  deleteCharacter(id: number) {
+    return this.http.delete<RpgCharacter>(this.charactersUrl + "/" + id).pipe(first())
   }
 
-  checkSkillTrainingJade(skill: ISkill) {
-
-    if (skill.training == "destreinado") {
-      skill.trainingValue = Math.floor(this.build.level / 2)
-    }
-    if (skill.training == "treinado") {
-      skill.trainingValue = this.build.level + 3
-    }
-
-  }
-
-  updateSkillsValuesJade(skills: ISkill[]) {
-    for (let skill of skills) {
-      let attributeModifier = 0
-      for (let attribute of this.build.attributes) {
-        if (attribute.name == skill.attribute) {
-          attributeModifier = attribute.totalValue
-        }
-      }
-
-      this.checkSkillTrainingJade(skill)
-      if (skill.armorPenalty) {
-        skill.totalValue = skill.bonus + skill.trainingValue + attributeModifier - this.build.armorPenaltyValue
-      }
-      else {
-        skill.totalValue = skill.bonus + skill.trainingValue + attributeModifier
-      }
-    }
-  }
 }

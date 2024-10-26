@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { RollButtonComponent } from "../roll-button/roll-button.component";
-import { IAttribute } from '../../../../core/models/i-attribute';
-import { ISkill } from '../../../../core/models/i-skill';
+import { Attribute } from '../../../../core/models/attribute';
+import { Skill } from '../../../../core/models/skill';
 
 @Component({
   selector: 'app-attribute',
@@ -14,8 +14,8 @@ export class AttributeComponent {
 
   constructor() { }
 
-  @Input() attribute?: IAttribute
-  @Input() save?: ISkill
+  @Input() attribute?: Attribute
+  @Input() save?: Skill
   @Input() index !: number
   @Input() type = ""
 

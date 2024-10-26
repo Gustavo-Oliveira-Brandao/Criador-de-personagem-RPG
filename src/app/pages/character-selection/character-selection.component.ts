@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CharacterService } from '../character-sheet/services/character.service';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import {first, Observable} from 'rxjs';
+import { RpgCharacter } from '../../core/models/character';
 
 @Component({
   selector: 'app-character-selection',
@@ -16,12 +18,15 @@ export class CharacterSelectionComponent {
     this.refresh()
   }
 
+  characters$: Observable<RpgCharacter[]> | null = null
+
   refresh() {
-    this.character.list()
+    this.characters$ = this.character.list()
   }
 
-  selectCharacter(index: number) {
-    this.character.loadByIndex(index)
+  loadById(id: number) {
+    this.character.character$ = this.character.loadById(id)
   }
+
 }
 

@@ -5,8 +5,8 @@
             class="btn-add">CRIAR</button>
     </div>
     <div class="characters-row">
-        @for(character of character.characters; track $index){
-        <a (click)="selectCharacter($index)" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"
+        @for(character of characters$ | async; track $index){
+        <a (click)="loadById(character.id)" routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page"
             class="character">
             <h3>{{character.name}}</h3>
         </a>

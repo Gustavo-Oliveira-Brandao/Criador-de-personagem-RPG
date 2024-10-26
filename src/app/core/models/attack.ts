@@ -1,9 +1,13 @@
-export interface IAttack {
+import { RpgCharacter } from "./character"
+import {Modifier} from "./modifier";
+
+export interface Attack {
+    id: number
     name: string
     attackRange: string
-    toHit?: number
+    toHit: number
     toHitSkill: string
-    toHitBonus: number
+    modifiers: Modifier[]
     critMultiplier: number
     critMargin: number
     description?: string
@@ -11,7 +15,8 @@ export interface IAttack {
         diceQuantity: number
         diceSize: number
         damageType: string
-        bonusDamage: number
+        modifiers: Modifier[]
         damageAttribute: string
     }[]
+    rpgCharacter?: RpgCharacter
 }

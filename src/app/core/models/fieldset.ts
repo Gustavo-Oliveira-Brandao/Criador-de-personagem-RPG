@@ -1,4 +1,4 @@
-export interface IFormData {
+export interface Fieldset {
     fieldSetLabel: string
     questions: {
         key: string,

@@ -1,4 +1,4 @@
 <div>
     <button class="nome">{{ type == "attribute" ? attribute!.name : save!.name}}</button>
-    <app-roll-button [valor]="type == 'attribute' ? attribute!.totalValue : save!.totalValue" />
+    <app-roll-button [valor]="type == 'attribute' ? attribute!.baseValue : save!.totalValue" />
 </div>
