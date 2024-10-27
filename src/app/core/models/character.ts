@@ -23,9 +23,9 @@ export interface RpgCharacter {
     speed: number
     story: string
 
-    attributes?: Attribute[]
+    attributes: Attribute[]
 
-    skills?: Skill[]
+    skills: Skill[]
 
     attacks?: Attack[]
 

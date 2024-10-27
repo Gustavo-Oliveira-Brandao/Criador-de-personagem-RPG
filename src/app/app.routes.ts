@@ -15,20 +15,7 @@ export const routes: Routes = [
         path: "character-creation", component: CharacterCreationComponent
     },
     {
-        path: "sheet", component: CharacterSheetComponent, children: [
-            {
-                path: "", component: SkillsAttacksComponent
-            },
-            {
-                path: "talents", component: TalentsComponent
-            },
-            {
-                path: "inventory", component: InventoryComponent
-            },
-            {
-                path: "spells", component: SpellsComponent
-            },
-        ]
+        path: "sheet", component: CharacterSheetComponent
     },
     {
         path: "", redirectTo: "/character-selection", pathMatch: "full"

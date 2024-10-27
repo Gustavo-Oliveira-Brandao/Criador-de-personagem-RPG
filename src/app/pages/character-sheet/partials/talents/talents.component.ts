@@ -12,7 +12,5 @@ import {RpgCharacter} from "../../../../core/models/character";
 })
 export class TalentsComponent {
 
-  constructor(){}
-
   @Input() character: RpgCharacter | null = null
 }

@@ -15,7 +15,9 @@ import {RpgCharacter} from "../../../../core/models/character";
 export class StatusComponent {
 
   constructor(){
-    console.log(this.character?.skills)
+    setTimeout(() => {
+      console.log(this.character)
+    }, 5000)
   }
 
   @Input() character: RpgCharacter | null = null

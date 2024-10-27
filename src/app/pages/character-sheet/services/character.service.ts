@@ -13,7 +13,7 @@ export class CharacterService {
     this.charactersUrl = "http://localhost:8080/api/characters"
   }
 
-  characterId : number = 0
+  characterId : number = 1
 
   edition = "t20"
 

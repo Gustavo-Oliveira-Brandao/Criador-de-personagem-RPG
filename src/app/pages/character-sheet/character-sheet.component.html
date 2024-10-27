@@ -1,19 +1,32 @@
 @if(character$ | async){
 <main>
-    <app-details [character]="character$ | async"  />
-    <app-status [character]="character$ | async" />
-    <app-attributes [character]="character$ | async" />
-    <app-secondary-status [character]="character$ | async" />
-    <div class="routes">
-        <a routerLink="/sheet" routerLinkActive="active" ariaCurrentWhenActive="page">PERICIAS E AÇÕES</a>
-        <a routerLink="/sheet/talents" routerLinkActive="active" ariaCurrentWhenActive="page">HABILIDADES</a>
-        <a routerLink="/sheet/inventory" routerLinkActive="active" ariaCurrentWhenActive="page">INVENTARIO</a>
-        <a routerLink="/sheet/spells" routerLinkActive="active" ariaCurrentWhenActive="page">MAGIAS</a>
-    </div>
+  <app-details [character]="character$ | async" />
+  <app-status [character]="character$ | async" />
+  <app-attributes [character]="character$ | async" />
+  <app-secondary-status [character]="character$ | async" />
+  <div class="tabs">
+    <a (click)="changeTab('skills')" [className]="tab == 'skills' ? 'active' : null">PERICIAS E AÇÕES</a>
+    <a (click)="changeTab('talents')" [className]="tab == 'talents' ? 'active' : null">HABILIDADES</a>
+    <a (click)="changeTab('inventory')" [className]="tab == 'inventory' ? 'active' : null">INVENTARIO</a>
+    <a (click)="changeTab('spells')" [className]="tab == 'spells' ? 'active' : null">MAGIAS</a>
+  </div>
 
-    <router-outlet></router-outlet>
+  @switch (tab){
+  @case("skills"){
+  <app-skills-attacks [character]="character$ | async"></app-skills-attacks>
+  }
+  @case("talents"){
+  <app-talents [character]="character$ | async"></app-talents>
+  }
+  @case("inventory"){
+  <app-inventory [character]="character$ | async"></app-inventory>
+  }
+  @case("spells"){
+  <app-spells [character]="character$ | async"></app-spells>
+  }
+  }
 </main>
 }
 @else {
-    <img ngSrc="/assets/icons/d20.svg" alt="loading" height="25" width="25">
+<img ngSrc="/assets/icons/d20.svg" alt="loading" height="25" width="25">
 }
