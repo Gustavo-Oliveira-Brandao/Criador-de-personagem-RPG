@@ -5,8 +5,6 @@ import { Fieldset } from '../../core/models/fieldset';
 import { CharacterService } from '../character-sheet/services/character.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DynamicFormComponent } from "../../shared/components/dynamic-form/dynamic-form.component";
-import { AttributesService } from '../character-sheet/services/attributes.service';
-import { SkillsService } from '../character-sheet/services/skills.service';
 import { Attribute } from '../../core/models/attribute';
 import { Skill } from '../../core/models/skill';
 
@@ -23,9 +21,7 @@ export class CharacterCreationComponent {
     private readonly fb: FormBuilder,
     private readonly characterService: CharacterService,
     private readonly route: ActivatedRoute,
-    private readonly router: Router,
-    private readonly attributeService: AttributesService,
-    private readonly skillService: SkillsService
+    private readonly router: Router
   ) { }
 
   creationForm = this.fb.nonNullable.group({

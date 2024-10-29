@@ -24,7 +24,7 @@
         <div class="content saving-throws">
             @for(save of character!.skills; track $index){
               @if(save.isSavingThrow){
-            <app-attribute [save]="save" [index]="$index" type="save" />
+            <app-smaller-container-with-dice-roll [save]="save" [index]="$index" type="save" />
               }
             }
         </div>

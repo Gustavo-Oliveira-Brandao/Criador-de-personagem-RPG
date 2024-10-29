@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AttributeComponent } from './attribute.component';
+import { SmallerContainerWithDiceRollComponent } from './smaller-container-with-dice-roll.component';
 
 describe('AttributeComponent', () => {
-  let component: AttributeComponent;
-  let fixture: ComponentFixture<AttributeComponent>;
+  let component: SmallerContainerWithDiceRollComponent;
+  let fixture: ComponentFixture<SmallerContainerWithDiceRollComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AttributeComponent]
+      imports: [SmallerContainerWithDiceRollComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AttributeComponent);
+    fixture = TestBed.createComponent(SmallerContainerWithDiceRollComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

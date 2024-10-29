@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import { AttributeComponent } from '../../components/attribute/attribute.component';
+import { SmallerContainerWithDiceRollComponent } from '../../components/smaller-container-with-dice-roll/smaller-container-with-dice-roll.component';
 
 import { CharacterService } from '../../services/character.service';
 import {RpgCharacter} from "../../../../core/models/character";
@@ -7,7 +7,7 @@ import {RpgCharacter} from "../../../../core/models/character";
 @Component({
   selector: 'app-attributes',
   standalone: true,
-  imports: [AttributeComponent],
+  imports: [SmallerContainerWithDiceRollComponent],
   templateUrl: './attributes.component.html',
   styleUrl: './attributes.component.sass'
 })

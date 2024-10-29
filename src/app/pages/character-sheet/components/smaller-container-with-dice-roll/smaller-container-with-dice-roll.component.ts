@@ -4,13 +4,13 @@ import { Attribute } from '../../../../core/models/attribute';
 import { Skill } from '../../../../core/models/skill';
 
 @Component({
-  selector: 'app-attribute',
+  selector: 'app-smaller-container-with-dice-roll',
   standalone: true,
   imports: [RollButtonComponent],
-  templateUrl: './attribute.component.html',
-  styleUrl: './attribute.component.sass'
+  templateUrl: './smaller-container-with-dice-roll.component.html',
+  styleUrl: './smaller-container-with-dice-roll.component.sass'
 })
-export class AttributeComponent {
+export class SmallerContainerWithDiceRollComponent {
 
   constructor() { }
 
