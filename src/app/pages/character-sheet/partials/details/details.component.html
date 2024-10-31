@@ -3,12 +3,12 @@
     <div>
         <button class="character-name">{{character!.name}}</button>
         <div class="details-group">
-            <app-detail-button [icon]="'race.svg'" [texto]="character!.race" />
-            <app-detail-button [icon]="'class.svg'" [texto]="character!.charClass" />
-            <app-detail-button [icon]="'origin.svg'" [texto]="character!.origin" />
-            <app-detail-button [icon]="'divinity.svg'" [texto]="character!.divinity" />
+            <app-modular-btn css="button-with-icon" [icon]="'race.svg'" [text]="character!.race" />
+            <app-modular-btn css="button-with-icon" [icon]="'class.svg'" [text]="character!.charClass" />
+            <app-modular-btn css="button-with-icon" [icon]="'origin.svg'" [text]="character!.origin" />
+            <app-modular-btn css="button-with-icon" [icon]="'divinity.svg'" [text]="character!.divinity" />
         </div>
     </div>
-    <button class="btn-rest rest">DESCANSO</button>
-    <button class="level">Nivel: {{character!.level}}</button>
+    <app-modular-btn css="btn-with-fill rest-btn" text="Descanso" />
+    <app-modular-btn [text]="'Nivel: ' + character!.level" css="minimalist-btn level-btn" />
 </div>

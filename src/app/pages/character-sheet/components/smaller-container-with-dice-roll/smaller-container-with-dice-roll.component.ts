@@ -14,10 +14,7 @@ export class SmallerContainerWithDiceRollComponent {
 
   constructor() { }
 
-  @Input() attribute?: Attribute
-  @Input() save?: Skill
-  @Input() index !: number
-  @Input() type = ""
+  @Input() attribute!: Attribute | Skill
 
 
 }

@@ -1,0 +1,8 @@
+<button [className]="css" (click)="onClick()">
+  @if(icon){
+  <img src="{{'/assets/icons/' + icon}}" alt="{icon}" />
+  }
+  <p>
+    {{text}}
+  </p>
+</button>

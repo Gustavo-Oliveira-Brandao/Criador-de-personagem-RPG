@@ -1,13 +1,12 @@
 import {Component, Input} from '@angular/core';
-import { DetailButtonComponent } from "../../components/detail-button/detail-button.component";
-import { CharacterService } from '../../services/character.service';
 import {RpgCharacter} from "../../../../core/models/character";
+import {ModularBtnComponent} from "../../../../shared/components/modular-btn/modular-btn.component";
 
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [DetailButtonComponent],
+  imports: [ModularBtnComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.sass'
 })

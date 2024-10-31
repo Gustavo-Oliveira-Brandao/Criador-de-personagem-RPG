@@ -130,27 +130,33 @@ export class CharacterCreationComponent {
   presetAttributes: Partial<Attribute>[] = [
     {
       name: "forca",
-      baseValue: 0
+      baseValue: 0,
+      totalValue: 0
     },
     {
       name: "destreza",
-      baseValue: 0
+      baseValue: 0,
+      totalValue: 0
     },
     {
       name: "constituicao",
-      baseValue: 0
+      baseValue: 0,
+      totalValue: 0
     },
     {
       name: "inteligencia",
-      baseValue: 0
+      baseValue: 0,
+      totalValue: 0
     },
     {
       name: "sabedoria",
-      baseValue: 0
+      baseValue: 0,
+      totalValue: 0
     },
     {
       name: "carisma",
-      baseValue: 0
+      baseValue: 0,
+      totalValue: 0
     }
   ]
 
