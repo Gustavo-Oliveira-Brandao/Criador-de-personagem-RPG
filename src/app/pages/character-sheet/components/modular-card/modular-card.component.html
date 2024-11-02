@@ -1,0 +1,12 @@
+<div class="card">
+    <h2 class="title">{{title}}</h2>
+    <div class="content">
+        <img [src]="'/assets/icons/' + img" [alt]="img">
+        @if(hasRoll){
+        <app-roll-button [valor]="0"></app-roll-button>
+        }
+        @else{
+        <input [ngModel]="value" type="number">
+        }
+    </div>
+</div>

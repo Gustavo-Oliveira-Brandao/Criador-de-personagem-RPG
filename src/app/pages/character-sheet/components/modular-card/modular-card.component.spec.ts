@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SecondaryStatusComponent } from './secondary-status.component';
+import { ModularCardComponent } from './modular-card.component';
 
-describe('SecondaryStatusComponent', () => {
-  let component: SecondaryStatusComponent;
-  let fixture: ComponentFixture<SecondaryStatusComponent>;
+describe('ModularCardComponent', () => {
+  let component: ModularCardComponent;
+  let fixture: ComponentFixture<ModularCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SecondaryStatusComponent]
+      imports: [ModularCardComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SecondaryStatusComponent);
+    fixture = TestBed.createComponent(ModularCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

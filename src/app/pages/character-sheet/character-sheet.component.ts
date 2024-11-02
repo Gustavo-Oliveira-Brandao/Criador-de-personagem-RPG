@@ -2,21 +2,17 @@ import { Component } from '@angular/core';
 import { DetailsComponent } from "./partials/details/details.component";
 import { AttributesComponent } from "./partials/attributes/attributes.component";
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { StatusComponent } from './partials/status/status.component';
-import { SecondaryStatusComponent } from './partials/secondary-status/secondary-status.component';
-import { SkillsAttacksComponent } from './partials/skills-attacks/skills-attacks.component';
 import { CharacterService } from './services/character.service';
 import {AsyncPipe, NgIf, NgOptimizedImage} from "@angular/common";
 import {Observable} from "rxjs";
 import {RpgCharacter} from "../../core/models/character";
-import {TalentsComponent} from "./partials/talents/talents.component";
-import {InventoryComponent} from "./partials/inventory/inventory.component";
-import {SpellsComponent} from "./partials/spells/spells.component";
-
+import { ModularCardComponent } from "./components/modular-card/modular-card.component";
+import { SavingThrowsComponent } from "./partials/saving-throws/saving-throws.component";
+import { ConditionsComponent } from "./partials/conditions/conditions.component";
 @Component({
   selector: 'app-character-sheet',
   standalone: true,
-  imports: [NgIf, DetailsComponent, StatusComponent, AttributesComponent, SecondaryStatusComponent, RouterOutlet, SkillsAttacksComponent, RouterLink, RouterLinkActive, NgOptimizedImage, AsyncPipe, TalentsComponent, InventoryComponent, SpellsComponent],
+  imports: [NgIf, DetailsComponent, AttributesComponent, RouterOutlet, RouterLink, RouterLinkActive, NgOptimizedImage, AsyncPipe, ModularCardComponent, SavingThrowsComponent, ConditionsComponent],
   templateUrl: './character-sheet.component.html',
   styleUrl: './character-sheet.component.sass'
 })

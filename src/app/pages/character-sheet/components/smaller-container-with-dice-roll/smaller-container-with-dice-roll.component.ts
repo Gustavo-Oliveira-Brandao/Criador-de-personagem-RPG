@@ -15,6 +15,7 @@ export class SmallerContainerWithDiceRollComponent {
   constructor() { }
 
   @Input() attribute!: Attribute | Skill
+  @Input() css : string = ""
 
 
 }

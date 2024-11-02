@@ -1,0 +1,10 @@
+<div class="card">
+    <h2 class="title">testes de resistência</h2>
+    <div class="content">
+        @for(attribute of character!.skills; track $index){
+            @if(attribute.isSavingThrow){
+            <app-smaller-container-with-dice-roll [attribute]="attribute" css="small" />
+        }
+    }
+    </div>
+</div>
