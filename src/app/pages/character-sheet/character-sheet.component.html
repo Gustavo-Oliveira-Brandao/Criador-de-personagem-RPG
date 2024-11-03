@@ -1,17 +1,27 @@
-@if(character$ | async){
+@if(character){
 <main>
-  <app-details [character]="character$ | async" />
+  <app-details [character]="character" />
   <div class="sheet">
-    <app-attributes [character]="character$ | async" />
+    <app-attributes [attributes]="character.attributes" />
     <div class="right-side">
-      <div class="minor-cards">
-        <app-modular-card title="defesa" img="ac.svg"></app-modular-card>
-        <app-modular-card title="deslocamento" img="speed.svg"></app-modular-card>
-        <app-modular-card title="iniciativa" img="perception.svg" [hasRoll]="true"></app-modular-card>
+      <div class="status-row">
+        <app-status [current]="character.currentHitPoints" [max]="character.maxHitPoints" css="red-bar" icon="heart.svg"
+          title="pontos de vida"></app-status>
+        <app-modular-card title="vida temp." img="purple-heart.svg"></app-modular-card>
       </div>
-      <app-saving-throws [character]="character$ | async"></app-saving-throws>
-      <app-conditions></app-conditions>
+      <div class="status-row">
+        <app-status [current]="character.currentManaPoints" [max]="character.maxManaPoints" css="blue-bar" icon="mp.svg"
+          title="pontos de mana"></app-status>
+        <app-modular-card title="mana temp." img="mp.svg"></app-modular-card>
+      </div>
+      <app-saving-throws [character]="character"></app-saving-throws>
     </div>
+  </div>
+  <div class="minor-cards">
+    <app-conditions></app-conditions>
+    <app-modular-card title="defesa" img="ac.svg" [value]="character.armorClass"></app-modular-card>
+    <app-modular-card title="deslocamento" img="speed.svg" [value]="character.speed"></app-modular-card>
+    <app-modular-card title="iniciativa" img="initiative.svg" [hasRoll]="true" [value]="20"></app-modular-card>
   </div>
   <div class="tabs">
     <a (click)="changeTab('skills')" [className]="tab == 'skills' ? 'active' : null">pericias e ações</a>

@@ -14,6 +14,5 @@ export class ModularCardComponent {
   @Input() title : string = ""
   @Input() img : string = ""
   @Input() hasRoll : boolean = false
-
-  value = 0
+  @Input() value : number = 0
 }

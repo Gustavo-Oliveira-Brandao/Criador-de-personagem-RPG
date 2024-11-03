@@ -3,6 +3,7 @@ import { SmallerContainerWithDiceRollComponent } from '../../components/smaller-
 
 import { CharacterService } from '../../services/character.service';
 import {RpgCharacter} from "../../../../core/models/character";
+import { Attribute } from '../../../../core/models/attribute';
 
 @Component({
   selector: 'app-attributes',
@@ -13,7 +14,7 @@ import {RpgCharacter} from "../../../../core/models/character";
 })
 export class AttributesComponent {
 
-  @Input() character: RpgCharacter | null = null
+  @Input() attributes: Attribute[] | null = null
   constructor(){}
 
 }

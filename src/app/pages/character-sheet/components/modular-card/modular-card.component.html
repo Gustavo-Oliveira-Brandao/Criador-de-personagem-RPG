@@ -3,7 +3,7 @@
     <div class="content">
         <img [src]="'/assets/icons/' + img" [alt]="img">
         @if(hasRoll){
-        <app-roll-button [valor]="0"></app-roll-button>
+        <app-roll-button [valor]="value"></app-roll-button>
         }
         @else{
         <input [ngModel]="value" type="number">
