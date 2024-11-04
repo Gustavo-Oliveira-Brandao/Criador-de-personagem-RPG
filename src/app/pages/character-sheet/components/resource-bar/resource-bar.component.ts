@@ -9,7 +9,6 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 })
 export class ResourceBarComponent implements OnChanges {
 
-  @Input() icon: string = ""
   @Input() current: number = 0
   @Input() max: number = 0
   @Input() css: string = ""

@@ -1,6 +1,21 @@
-<div class="card">
-    <h2 class="title">{{title}}</h2>
-    <div class="content">
-        <app-resource-bar [icon]="icon" [current]="current" [max]="max" [css]="css"></app-resource-bar>
+<div class="status-card">
+    <img class="photo" src="/assets/character-photo.png" alt="personagem">
+    <div class="status">
+        <h2>pontos de vida</h2>
+        <app-resource-bar css="red-bar" [current]="character!.currentHitPoints"
+            [max]="character!.maxHitPoints"></app-resource-bar>
+        <div class="label">
+            <p>{{character?.currentHitPoints + "/" + character?.maxHitPoints}}</p>
+            <p>Temp: {{character?.temporaryHitPoints}}</p>
+        </div>
+    </div>
+    <div class="status">
+        <h2>pontos de mana</h2>
+        <app-resource-bar css="blue-bar" [current]="character!.currentManaPoints"
+            [max]="character!.maxManaPoints"></app-resource-bar>
+        <div class="label">
+            <p>{{character?.currentManaPoints + "/" + character?.maxManaPoints}}</p>
+            <p>Temp: {{character?.temporaryHitPoints}}</p>
+        </div>
     </div>
 </div>

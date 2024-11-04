@@ -1,35 +1,23 @@
 @if(character){
+<header>
+  <p class="name">{{character.name}}</p>
+  <p class="char-class">{{character.charClass + " " + character.race}}</p>
+</header>
 <main>
-  <app-details [character]="character" />
   <div class="sheet">
-    <app-attributes [attributes]="character.attributes" />
-    <div class="right-side">
+    <div class="status-column">
+      <app-status [character]="character"></app-status>
+      <app-attributes [attributes]="character.attributes"></app-attributes>
+    </div>
+    <div class="character">
       <div class="status-row">
-        <app-status [current]="character.currentHitPoints" [max]="character.maxHitPoints" css="red-bar" icon="heart.svg"
-          title="pontos de vida"></app-status>
-        <app-modular-card title="vida temp." img="purple-heart.svg"></app-modular-card>
+        <app-modular-card img="ac.svg" title="defesa" [value]="character.armorClass"></app-modular-card>
+        <app-modular-card img="speed.svg" title="deslocamento" [value]="character.speed"></app-modular-card>
+        <app-modular-card img="initiative.svg" title="iniciativa" [value]="character.armorClass" [hasRoll]="true"></app-modular-card>
+        <app-saving-throws [character]="character"></app-saving-throws>
       </div>
-      <div class="status-row">
-        <app-status [current]="character.currentManaPoints" [max]="character.maxManaPoints" css="blue-bar" icon="mp.svg"
-          title="pontos de mana"></app-status>
-        <app-modular-card title="mana temp." img="mp.svg"></app-modular-card>
-      </div>
-      <app-saving-throws [character]="character"></app-saving-throws>
     </div>
   </div>
-  <div class="minor-cards">
-    <app-conditions></app-conditions>
-    <app-modular-card title="defesa" img="ac.svg" [value]="character.armorClass"></app-modular-card>
-    <app-modular-card title="deslocamento" img="speed.svg" [value]="character.speed"></app-modular-card>
-    <app-modular-card title="iniciativa" img="initiative.svg" [hasRoll]="true" [value]="20"></app-modular-card>
-  </div>
-  <div class="tabs">
-    <a (click)="changeTab('skills')" [className]="tab == 'skills' ? 'active' : null">pericias e ações</a>
-    <a (click)="changeTab('talents')" [className]="tab == 'talents' ? 'active' : null">habilidades</a>
-    <a (click)="changeTab('inventory')" [className]="tab == 'inventory' ? 'active' : null">inventario</a>
-    <a (click)="changeTab('spells')" [className]="tab == 'spells' ? 'active' : null">magias</a>
-  </div>
-
 </main>
 }
 @else {

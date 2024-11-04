@@ -1,49 +1,22 @@
 @import '../../../../core/Variables'
 
-.align-icon
-    position: relative
-    margin-left: 10px
+.resource-bar
     cursor: pointer
+    border-radius: 5px
+    border: 1px solid $secondary-color
+    width: 170px
+    height: 25px
+    flex-shrink: 0
 
-    img
-        position: absolute
-        transform: translate(-50%, -20%)
-        z-index: 2
-        width: 45px
-        height: 45px
-
-    .resource-bar
-        z-index: 1
-        width: 210px
-        height: 30px
+    .bar
+        width: 100%
+        max-width: 240px
+        height: 100%
         border-radius: 5px
-        border: 1px solid $secondary-color
-        position: relative
+        transition: width 0.5s
 
-        .bar
-            width: 100%
-            max-width: 240px
-            height: 100%
-            border-radius: 5px
-            transition: width 0.5s
+    .red-bar
+        background-color: $red
 
-        .red-bar
-            background-color: $red
-
-        .blue-bar
-            background-color: $blue
-
-        p
-            position: absolute
-            text-align: center
-            left: 0
-            right: 0
-            top: 6px
-            color: #FFF
-            font-size: 16px
-            font-weight: 500
-
-.align-icon:hover
-    .resource-bar
-        p
-            color: $highlight-color
+    .blue-bar
+        background-color: $blue
