@@ -1,1 +1,8 @@
-<p>skills works!</p>
+<div class="skills-card">
+    <h2>pericias</h2>
+    <div class="skills">
+        @for(skill of skills; track skill.id){
+        <app-skill [skill]="skill"></app-skill>
+        }
+    </div>
+</div>

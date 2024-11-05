@@ -9,10 +9,11 @@ import { ModularCardComponent } from "./components/modular-card/modular-card.com
 import { SavingThrowsComponent } from "./partials/saving-throws/saving-throws.component";
 import { ConditionsComponent } from "./partials/conditions/conditions.component";
 import { StatusComponent } from "./partials/status/status.component";
+import { SkillsComponent } from "./partials/skills/skills.component";
 @Component({
   selector: 'app-character-sheet',
   standalone: true,
-  imports: [NgIf, AttributesComponent, RouterOutlet, RouterLink, RouterLinkActive, NgOptimizedImage, AsyncPipe, ModularCardComponent, SavingThrowsComponent, ConditionsComponent, StatusComponent],
+  imports: [NgIf, AttributesComponent, RouterOutlet, RouterLink, RouterLinkActive, NgOptimizedImage, AsyncPipe, ModularCardComponent, SavingThrowsComponent, ConditionsComponent, StatusComponent, SkillsComponent],
   templateUrl: './character-sheet.component.html',
   styleUrl: './character-sheet.component.sass'
 })

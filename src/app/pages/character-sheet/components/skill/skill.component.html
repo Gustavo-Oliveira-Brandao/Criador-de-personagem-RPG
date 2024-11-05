@@ -1,0 +1,12 @@
+@if(skill){
+<div class="skill">
+    <button class="left-side">
+        <p class="name">{{skill.name}}</p>
+        <p class="attribute">{{skill.attribute}}</p>
+    </button>
+    <div class="right-side">
+        <p>{{skill.training}}</p>
+        <app-roll-button [valor]="skill.totalValue"></app-roll-button>
+    </div>
+</div>
+}
