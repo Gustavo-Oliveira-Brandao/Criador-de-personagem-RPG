@@ -5,6 +5,7 @@ export interface Attack {
     id: number
     name: string
     attackRange: string
+    rangeInMeters ?: number
     toHit: number
     toHitSkill: string
     modifiers: Modifier[]
@@ -17,6 +18,7 @@ export interface Attack {
         damageType: string
         modifiers: Modifier[]
         damageAttribute: string
+        totalBonus: number
     }[]
     rpgCharacter?: RpgCharacter
 }

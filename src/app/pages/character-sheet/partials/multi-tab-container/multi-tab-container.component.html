@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="tabs">
+        <div class="tab">
+            <button (click)="changeTab('actions')" [className]="tab == 'actions' ? 'active' : null">ações</button>
+        </div>
+        <div class="tab">
+            <button (click)="changeTab('talents')" [className]="tab == 'talents' ? 'active' : null">talentos</button>
+        </div>
+        <div class="tab">
+            <button (click)="changeTab('spells')" [className]="tab == 'spells' ? 'active' : null">magias</button>
+        </div>
+        <div class="tab">
+            <button (click)="changeTab('inventory')"
+                [className]="tab == 'inventory' ? 'active' : null">inventario</button>
+        </div>
+        <div class="tab">
+            <button (click)="changeTab('bio')" [className]="tab == 'bio' ? 'active' : null">biografia</button>
+        </div>
+    </div>
+    @switch(tab){
+        @case("actions"){
+            <app-actions-tab></app-actions-tab>
+        }
+    }
+</div>

@@ -10,10 +10,11 @@ import { SavingThrowsComponent } from "./partials/saving-throws/saving-throws.co
 import { ConditionsComponent } from "./partials/conditions/conditions.component";
 import { StatusComponent } from "./partials/status/status.component";
 import { SkillsComponent } from "./partials/skills/skills.component";
+import { MultiTabContainerComponent } from "./partials/multi-tab-container/multi-tab-container.component";
 @Component({
   selector: 'app-character-sheet',
   standalone: true,
-  imports: [NgIf, AttributesComponent, RouterOutlet, RouterLink, RouterLinkActive, NgOptimizedImage, AsyncPipe, ModularCardComponent, SavingThrowsComponent, ConditionsComponent, StatusComponent, SkillsComponent],
+  imports: [NgIf, AttributesComponent, RouterOutlet, RouterLink, RouterLinkActive, NgOptimizedImage, AsyncPipe, ModularCardComponent, SavingThrowsComponent, ConditionsComponent, StatusComponent, SkillsComponent, MultiTabContainerComponent],
   templateUrl: './character-sheet.component.html',
   styleUrl: './character-sheet.component.sass'
 })

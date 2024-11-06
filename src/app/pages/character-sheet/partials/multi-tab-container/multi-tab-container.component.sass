@@ -1,0 +1,31 @@
+@import "../../../../core/Variables"
+
+.card
+    height: 560px
+    background-color: $primary-color
+    border-radius: 5px
+    width: 560px
+    overflow: scroll
+
+    .tabs
+        width: 100%
+        display: flex
+        justify-content: space-around
+        padding-top: 10px
+        padding-bottom: 10px
+        height: 40px
+        position: sticky
+        top: 0
+        background-color: $primary-color
+        z-index: 3
+
+        button
+            color: $special-text-color
+            padding-bottom: 3px
+
+        button:hover
+            color: $highlight-color
+
+        .active
+            color: white
+            border-bottom: 3px solid $title-background-color

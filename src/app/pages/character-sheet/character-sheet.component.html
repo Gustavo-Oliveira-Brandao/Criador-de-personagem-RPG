@@ -13,10 +13,14 @@
       <div class="status-row">
         <app-modular-card img="ac.svg" title="defesa" [value]="character.armorClass"></app-modular-card>
         <app-modular-card img="speed.svg" title="deslocamento" [value]="character.speed"></app-modular-card>
-        <app-modular-card img="initiative.svg" title="iniciativa" [value]="character.armorClass" [hasRoll]="true"></app-modular-card>
+        <app-modular-card img="initiative.svg" title="iniciativa" [value]="character.armorClass"
+          [hasRoll]="true"></app-modular-card>
         <app-saving-throws [character]="character"></app-saving-throws>
       </div>
-      <app-skills [skills]="character.skills"></app-skills>
+      <div class="skills-row">
+        <app-skills [skills]="character.skills"></app-skills>
+        <app-multi-tab-container [character]="character"></app-multi-tab-container>
+      </div>
     </div>
   </div>
 </main>
