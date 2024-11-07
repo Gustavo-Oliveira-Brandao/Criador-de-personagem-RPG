@@ -1,0 +1,43 @@
+@import "../../../../core/Variables"
+
+.talent
+    width: 530px
+    border-radius: 5px
+    margin-bottom: 10px
+    border: 1px solid $tertiary-color
+    background-color: $secondary-color
+
+    .top
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 0 10px 0 10px
+        height: 45px
+        border-radius: 5px
+
+        .name-execution
+            text-align: left
+            width: 180px
+
+            .name
+                font-size: 14px
+                text-overflow: ellipsis
+                white-space: nowrap
+                overflow: hidden
+
+            .execution
+                font-size: 12px
+                color: $special-text-color
+
+        .name-execution:hover
+            .name
+                color: $highlight-color
+
+        .expand
+            p
+                color: $special-text-color
+
+    .description
+        padding: 15px
+        font-size: 13px
+        line-height: 1.150rem
