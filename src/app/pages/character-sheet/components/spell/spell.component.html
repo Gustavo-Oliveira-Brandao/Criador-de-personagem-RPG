@@ -1,0 +1,33 @@
+<div class="common">
+    <div class="header">
+        <button class="left-side" (click)="expand()">
+            <p class="name">{{spell.name}}</p>
+            <p class="short-description">{{spell.execution}}</p>
+        </button>
+        <div class="expand">
+            <p>{{spell.schoolName}}</p>
+        </div>
+    </div>
+    @if(isExpanded){
+    <div class="panel">
+        <div class="spell-details">
+            @if(spell.target){
+            <p><span class="bold">Alvo: </span><span class="legible-font">{{spell.target}}</span></p>
+            }
+            <p><span class="bold">Duração: </span><span class="legible-font">{{spell.duration}}</span></p>
+            @if(spell.damages){
+            <p><span class="bold">Dano: </span><span class="legible-font">{{spell.damages[0].diceQuantity + "d" +
+                    spell.damages[0].diceSize + " " + spell.damages[0].damageType}}</span></p>
+            }
+            @if(spell.savingThrow){
+            <p><span class="bold">Teste de resistência: </span><span class="legible-font">{{spell.savingThrow}}</span>
+            </p>
+            }
+            @if(spell.area){
+            <p><span class="bold">Area: </span><span class="legible-font">{{spell.area}}</span></p>
+            }
+        </div>
+        <p class="legible-font">{{spell.description}}</p>
+    </div>
+    }
+</div>

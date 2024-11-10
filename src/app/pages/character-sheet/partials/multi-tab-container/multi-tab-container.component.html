@@ -18,11 +18,20 @@
         </div>
     </div>
     @switch(tab){
-        @case("actions"){
-            <app-actions-tab></app-actions-tab>
-        }
-        @case("talents"){
-            <app-talents-tab></app-talents-tab>
-        }
+    @case("actions"){
+    <div class="transition">
+        <app-actions-tab></app-actions-tab>
+    </div>
+    }
+    @case("talents"){
+    <div class="transition">
+        <app-talents-tab></app-talents-tab>
+    </div>
+    }
+    @case("spells"){
+        <div class="transition">
+            <app-spells-tab></app-spells-tab>
+        </div>
+    }
     }
 </div>

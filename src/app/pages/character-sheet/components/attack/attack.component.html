@@ -1,12 +1,15 @@
 @if(attack){
-<div class="attack">
-    <button class="name-range">
-        <p class="name">{{attack.name}}</p>
-        <p class="attack-range">{{attack.attackRange}}</p>
-    </button>
-    <p class="range">{{attack.rangeInMeters}} metros</p>
-    <app-roll-button [valor]="attack.toHit"></app-roll-button>
-    <button class="damage">{{attack.damages[0].diceQuantity + "d" + attack.damages[0].diceSize + "+" + attack.damages[0].totalBonus}}</button>
-    <p class="damage-type">{{attack.damages[0].damageType}}</p>
+<div class="common">
+    <div class="header">
+        <button class="left-side">
+            <p class="name">{{attack.name}}</p>
+            <p class="short-description">{{attack.attackRange}}</p>
+        </button>
+        <p class="range">{{attack.rangeInMeters}} metros</p>
+        <app-roll-button [valor]="attack.toHit"></app-roll-button>
+        <button class="damage">{{attack.damages[0].diceQuantity + "d" + attack.damages[0].diceSize + "+" +
+            attack.damages[0].totalBonus}}</button>
+        <p class="damage-type">{{attack.damages[0].damageType}}</p>
+    </div>
 </div>
 }

@@ -13,13 +13,13 @@ export interface Spell {
     savingThrow?: string
     area?: string
     description: string
-    spellUpgrades: [
+    spellUpgrades?: 
         {
             id?: number
             cost: number
             description: string
-        }
-    ]
+        }[]
+    
     damages?: {
         diceQuantity: number
         diceSize: number

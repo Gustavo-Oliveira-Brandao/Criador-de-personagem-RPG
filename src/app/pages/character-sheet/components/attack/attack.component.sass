@@ -1,53 +1,24 @@
 @import "../../../../core/Variables"
+@import "../../../../core/styles/multi-tab-items"
 
-.attack
-    display: flex
-    justify-content: space-between
-    align-items: center
-    background-color: $secondary-color
-    border: 1px solid $tertiary-color
+.range
+    font-size: 14px
+    width: 75px
+    text-align: center
+    color: $special-text-color
+
+.damage
+    border: 1px solid $special-text-color
     border-radius: 5px
-    padding: 0 10px 0 10px
-    width: 530px
-    margin-bottom: 10px
-    height: 45px
+    padding: 6px
+    width: 60px
+    font-size: 16px
 
-    .name-range
-        text-align: left
-        width: 180px
+.damage:hover
+    color: $highlight-color
+    background-color: $tertiary-color
 
-        .name
-            font-size: 14px
-            text-overflow: ellipsis
-            white-space: nowrap
-            overflow: hidden
-
-        .attack-range
-            font-size: 12px
-            color: $special-text-color
-
-    .name-range:hover
-        .name
-            color: $highlight-color
-
-    .range
-        font-size: 14px
-        width: 75px
-        text-align: center
-        color: $special-text-color
-
-    .damage
-        border: 1px solid $special-text-color
-        border-radius: 5px
-        padding: 6px
-        width: 60px
-        font-size: 16px
-
-    .damage:hover
-        color: $highlight-color
-        background-color: $tertiary-color
-
-    .damage-type
-        width: 80px
-        font-size: 14px
-        text-align: center
+.damage-type
+    width: 80px
+    font-size: 14px
+    text-align: center
