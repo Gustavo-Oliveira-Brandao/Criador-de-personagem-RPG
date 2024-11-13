@@ -1,8 +1,9 @@
+@if(spell){
 <div class="common">
     <div class="header">
         <button class="left-side" (click)="expand()">
             <p class="name">{{spell.name}}</p>
-            <p class="short-description">{{spell.execution}}</p>
+            <p class="short-description">{{spell.castingTime}}</p>
         </button>
         <div class="expand">
             <p>{{spell.schoolName}}</p>
@@ -31,3 +32,4 @@
     </div>
     }
 </div>
+}

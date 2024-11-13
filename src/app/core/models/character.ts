@@ -27,11 +27,11 @@ export interface RpgCharacter {
 
     skills: Skill[]
 
-    attacks?: Attack[]
+    attacks: Attack[]
 
-    talents?: Talent[]
+    talents: Talent[]
 
-    spells?: Spell[]
+    spells: Spell[]
 
-    items?: InventoryItem[]
+    items: InventoryItem[]
 }

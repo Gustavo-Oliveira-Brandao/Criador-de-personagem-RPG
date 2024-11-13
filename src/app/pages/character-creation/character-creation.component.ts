@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RpgCharacter } from '../../core/models/character';
 import { Fieldset } from '../../core/models/fieldset';
 import { CharacterService } from '../character-sheet/services/character.service';
@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DynamicFormComponent } from "../../shared/components/dynamic-form/dynamic-form.component";
 import { Attribute } from '../../core/models/attribute';
 import { Skill } from '../../core/models/skill';
+import { QuestionControlService } from '../../shared/services/question-control.service';
 
 @Component({
   selector: 'app-character-creation',
@@ -21,18 +22,13 @@ export class CharacterCreationComponent {
     private readonly fb: FormBuilder,
     private readonly characterService: CharacterService,
     private readonly route: ActivatedRoute,
-    private readonly router: Router
-  ) { }
+    private readonly router: Router,
+    private readonly qcs : QuestionControlService
+  ) { 
+    this.form = qcs.toFormGroup(this.fieldSets)
+  }
 
-  creationForm = this.fb.nonNullable.group({
-    name: ["teste", Validators.required],
-    race: ["eba", Validators.required],
-    charClass: ["ss", Validators.required],
-    origin: ["e", Validators.required],
-    divinity: ["w"],
-    maxHitPoints: [0, Validators.required],
-    maxManaPoints: [0, Validators.required]
-  })
+  form !: FormGroup
 
   createCharacter(formValue: any) : void {
 
@@ -53,7 +49,9 @@ export class CharacterCreationComponent {
       speed: 30,
       story: "",
       attributes: this.presetAttributes as Attribute[],
-      skills: this.presetSkills as Skill[]
+      skills: this.presetSkills as Skill[],
+      attacks: [],
+      spells: []
     }
 
     this.characterService.saveCharacter(character).subscribe({
@@ -63,7 +61,7 @@ export class CharacterCreationComponent {
     })
   }
 
-  fieldSets: Fieldset[] = [
+  fieldSets: Fieldset<any>[] = [
     {
       fieldSetLabel: "Detalhes",
       questions: [
@@ -73,6 +71,8 @@ export class CharacterCreationComponent {
           label: "nome do personagem: ",
           type: "text",
           controlType: "input",
+          required: true,
+          value: "",
           placeholder: "Ragnar"
         },
         {
@@ -80,6 +80,8 @@ export class CharacterCreationComponent {
           label: "raça: ",
           type: "text",
           controlType: "input",
+          required: true,
+          value: "",
           placeholder: "Elfo"
         },
         {
@@ -87,6 +89,8 @@ export class CharacterCreationComponent {
           label: "classe: ",
           type: "text",
           controlType: "input",
+          required: true,
+          value: "",
           placeholder: "Guerreiro"
         },
         {
@@ -94,6 +98,8 @@ export class CharacterCreationComponent {
           label: "origem: ",
           type: "text",
           controlType: "input",
+          required: true,
+          value: "",
           placeholder: "Taverneiro"
         },
         {
@@ -101,6 +107,8 @@ export class CharacterCreationComponent {
           label: "Divindade: ",
           type: "text",
           controlType: "input",
+          required: true,
+          value: "",
           placeholder: "Alihanna"
         }
       ]
@@ -114,6 +122,8 @@ export class CharacterCreationComponent {
           label: "Pontos de vida:",
           type: "number",
           controlType: "input",
+          required: true,
+          value: 0,
           placeholder: "12"
         },
         {
@@ -121,8 +131,79 @@ export class CharacterCreationComponent {
           label: "Pontos de mana:",
           type: "number",
           controlType: "input",
+          required: true,
+          value: 0,
           placeholder: "6"
+        },
+        {
+          key: "speed",
+          label: "Deslocamento: ",
+          type: "number",
+          controlType: "input",
+          required: true,
+          value: 9,
+          placeholder: "9"
         }
+      ]
+    },
+    {
+      fieldSetLabel: "Atributos",
+
+      questions: [
+        {
+          key: "strength",
+          label: "Forca: ",
+          type: "number",
+          controlType: "input",
+          required: true,
+          value: 0,
+          placeholder: "0"
+        },
+        {
+          key: "dexterity",
+          label: "Destreza: ",
+          type: "number",
+          controlType: "input",
+          required: true,
+          value: 0,
+          placeholder: "0"
+        },
+        {
+          key: "constitution",
+          label: "Constituicão: ",
+          type: "number",
+          controlType: "input",
+          required: true,
+          value: 0,
+          placeholder: "0"
+        },
+        {
+          key: "intelligence",
+          label: "Inteligência: ",
+          type: "number",
+          controlType: "input",
+          required: true,
+          value: 0,
+          placeholder: "0"
+        },
+        {
+          key: "wisdow",
+          label: "Sabedoria: ",
+          type: "number",
+          controlType: "input",
+          required: true,
+          value: 0,
+          placeholder: "0"
+        },
+        {
+          key: "charisma",
+          label: "Carisma: ",
+          type: "number",
+          controlType: "input",
+          required: true,
+          value: 0,
+          placeholder: "0"
+        },
       ]
     }
   ]

@@ -12,7 +12,7 @@ import { Fieldset } from '../../../core/models/fieldset';
 export class DynamicFormComponent {
 
   @Input() form !: FormGroup
-  @Input() fieldSets !: Fieldset[]
+  @Input() fieldSets !: Fieldset<any>[]
 
   @Output() onSubmitEvent = new EventEmitter()
 

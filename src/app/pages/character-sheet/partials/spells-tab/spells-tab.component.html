@@ -1,14 +1,34 @@
+@if(spells){
 <div class="spells">
-    <app-spell></app-spell>
-    <app-spell></app-spell>
-    <app-spell></app-spell>
-    <app-spell></app-spell>
-    <app-spell></app-spell>
-    <app-spell></app-spell>
-    <app-spell></app-spell>
-    <app-spell></app-spell>
-    <app-spell></app-spell>
-    <app-spell></app-spell>
-    <app-spell></app-spell>
-    <app-spell></app-spell>
+    <h3>1º Circulo</h3>
+    @for(spell of spells; track spell.id){
+    @if(spell.level == 1){
+    <app-spell [spell]="spell"></app-spell>
+    }
+    }
+    <h3>2º Circulo</h3>
+    @for(spell of spells; track spell.id){
+    @if(spell.level == 2){
+    <app-spell [spell]="spell"></app-spell>
+    }
+    }
+    <h3>3º Circulo</h3>
+    @for(spell of spells; track spell.id){
+    @if(spell.level == 3){
+    <app-spell [spell]="spell"></app-spell>
+    }
+    }
+    <h3>4º Circulo</h3>
+    @for(spell of spells; track spell.id){
+    @if(spell.level == 4){
+    <app-spell [spell]="spell"></app-spell>
+    }
+    }
+    <h3>5º Circulo</h3>
+    @for(spell of spells; track spell.id){
+    @if(spell.level == 5){
+    <app-spell [spell]="spell"></app-spell>
+    }
+    }
 </div>
+}

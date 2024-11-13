@@ -1,4 +1,4 @@
-export interface Fieldset {
+export interface Fieldset<T> {
     fieldSetLabel: string
     questions: {
         key: string,
@@ -6,6 +6,8 @@ export interface Fieldset {
         type: string,
         controlType: string,
         placeholder?: string,
+        required: boolean,
+        value: T,
         options?:
         {
             key: string,

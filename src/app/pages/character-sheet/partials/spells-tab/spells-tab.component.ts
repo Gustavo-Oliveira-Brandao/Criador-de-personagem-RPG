@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SpellComponent } from "../../components/spell/spell.component";
+import { Spell } from '../../../../core/models/spell';
 
 @Component({
   selector: 'app-spells-tab',
@@ -10,4 +11,5 @@ import { SpellComponent } from "../../components/spell/spell.component";
 })
 export class SpellsTabComponent {
 
+  @Input() spells : Spell[] | null = null
 }

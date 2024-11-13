@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { AttackComponent } from "../../components/attack/attack.component";
+import { Attack } from '../../../../core/models/attack';
 
 @Component({
   selector: 'app-actions-tab',
@@ -10,4 +11,5 @@ import { AttackComponent } from "../../components/attack/attack.component";
 })
 export class ActionsTabComponent {
 
+  @Input() actions : Attack[] | null = null
 }

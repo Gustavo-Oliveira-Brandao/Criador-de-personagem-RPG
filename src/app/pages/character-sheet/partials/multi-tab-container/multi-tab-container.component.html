@@ -17,10 +17,11 @@
             <button (click)="changeTab('bio')" [className]="tab == 'bio' ? 'active' : null">biografia</button>
         </div>
     </div>
+    @if(character){
     @switch(tab){
     @case("actions"){
     <div class="transition">
-        <app-actions-tab></app-actions-tab>
+        <app-actions-tab [actions]="character.attacks"></app-actions-tab>
     </div>
     }
     @case("talents"){
@@ -29,9 +30,11 @@
     </div>
     }
     @case("spells"){
-        <div class="transition">
-            <app-spells-tab></app-spells-tab>
-        </div>
+    <div class="transition">
+        <app-spells-tab [spells]="character.spells"></app-spells-tab>
+    </div>
+    }
+
     }
     }
 </div>

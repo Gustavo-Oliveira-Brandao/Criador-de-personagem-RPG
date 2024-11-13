@@ -7,8 +7,9 @@ export interface Spell {
     spellRange: string
     spellListName: string
     schoolName: string
-    execution: string
+    castingTime: string
     target?: string
+    level: number
     duration: string
     savingThrow?: string
     area?: string
